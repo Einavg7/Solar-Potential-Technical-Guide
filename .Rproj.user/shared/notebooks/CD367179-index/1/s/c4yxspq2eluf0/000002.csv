@@ -1,0 +1,189 @@
+"0","# automatically create a bib database for R packages"
+"2","Warning messages:
+"
+"2","1: "
+"2","In readLines(index, encoding = encoding) :"
+"2","
+ "
+"2"," incomplete final line found on 'C:/Users/einav/Desktop/Thesis data/sp_technical_guide/index.Rmd'
+"
+"2","2: "
+"2","In readLines(index, encoding = encoding) :"
+"2","
+ "
+"2"," incomplete final line found on 'C:/Users/einav/Desktop/Thesis data/sp_technical_guide/index.Rmd'
+"
+"0","knitr::write_bib(c("
+"0","  .packages(), 'bookdown', 'knitr', 'rmarkdown'"
+"0","), 'packages.bib')"
+"0","#options(knitr.duplicate.label = ""allow"")"
+"0","library(knitr)"
+"0","library(dplyr)"
+"2","Warning:"
+"2"," package ‘dplyr’ was built under R version 4.0.5
+"
+"2","
+Attaching package: ‘dplyr’
+
+"
+"2","The following objects are masked from ‘package:stats’:
+
+    filter, lag
+
+"
+"2","The following objects are masked from ‘package:base’:
+
+    intersect, setdiff, setequal, union
+
+"
+"0","library(sf)"
+"2","Warning:"
+"2"," package ‘sf’ was built under R version 4.0.5
+"
+"2","Linking to GEOS 3.9.1, GDAL 3.2.1, PROJ 7.2.1
+"
+"0","library(spatstat)"
+"2","Warning:"
+"2"," package ‘spatstat’ was built under R version 4.0.5
+"
+"2","Loading required package: spatstat.data
+"
+"2","Warning:"
+"2"," package ‘spatstat.data’ was built under R version 4.0.5
+"
+"2","Loading required package: spatstat.geom
+"
+"2","Warning:"
+"2"," package ‘spatstat.geom’ was built under R version 4.0.5
+"
+"2","spatstat.geom 2.2-2
+"
+"2","Loading required package: spatstat.core
+"
+"2","Warning:"
+"2"," package ‘spatstat.core’ was built under R version 4.0.5
+"
+"2","Loading required package: nlme
+"
+"2","Warning:"
+"2"," package ‘nlme’ was built under R version 4.0.5
+"
+"2","
+Attaching package: ‘nlme’
+
+"
+"2","The following object is masked from ‘package:dplyr’:
+
+    collapse
+
+"
+"2","Loading required package: rpart
+"
+"2","spatstat.core 2.3-0
+"
+"2","Loading required package: spatstat.linnet
+"
+"2","Warning:"
+"2"," package ‘spatstat.linnet’ was built under R version 4.0.5
+"
+"2","spatstat.linnet 2.3-0
+"
+"2","
+spatstat 2.2-0       (nickname: ‘That's not important right now’) 
+For an introduction to spatstat, type ‘beginner’ 
+
+"
+"0","library(raster)"
+"2","Warning:"
+"2"," package ‘raster’ was built under R version 4.0.5
+"
+"2","Loading required package: sp
+"
+"2","Warning:"
+"2"," package ‘sp’ was built under R version 4.0.5
+"
+"2","
+Attaching package: ‘raster’
+
+"
+"2","The following object is masked from ‘package:nlme’:
+
+    getData
+
+"
+"2","The following objects are masked from ‘package:spatstat.geom’:
+
+    area, rotate, shift
+
+"
+"2","The following object is masked from ‘package:dplyr’:
+
+    select
+
+"
+"0","library(units)"
+"2","Warning:"
+"2"," package ‘units’ was built under R version 4.0.5
+"
+"2","udunits database from C:/Users/einav/Documents/R/win-library/4.0/units/share/udunits/udunits2.xml
+"
+"0","library(plotrix)  "
+"2","Warning:"
+"2"," package ‘plotrix’ was built under R version 4.0.5
+"
+"2","
+Attaching package: ‘plotrix’
+
+"
+"2","The following objects are masked from ‘package:spatstat.geom’:
+
+    hexagon, rescale
+
+"
+"0","library(sfsmisc)"
+"2","Warning:"
+"2"," package ‘sfsmisc’ was built under R version 4.0.5
+"
+"2","
+Attaching package: ‘sfsmisc’
+
+"
+"2","The following object is masked from ‘package:spatstat.geom’:
+
+    xy.grid
+
+"
+"2","The following object is masked from ‘package:dplyr’:
+
+    last
+
+"
+"0","library(mapview)"
+"2","Warning:"
+"2"," package ‘mapview’ was built under R version 4.0.5
+"
+"2","Registered S3 method overwritten by 'htmlwidgets':
+  method           from         
+  print.htmlwidget tools:rstudio
+"
+"0","library(rgdal)"
+"2","Warning:"
+"2"," package ‘rgdal’ was built under R version 4.0.5
+"
+"2","Please note that rgdal will be retired by the end of 2023,
+plan transition to sf/stars/terra functions using GDAL and PROJ
+at your earliest convenience.
+
+rgdal: version: 1.5-27, (SVN revision 1148)
+Geospatial Data Abstraction Library extensions to R successfully loaded
+Loaded GDAL runtime: GDAL 3.2.1, released 2020/12/29
+Path to GDAL shared files: C:/Users/einav/Documents/R/win-library/4.0/rgdal/gdal
+GDAL binary built with GEOS: TRUE 
+Loaded PROJ runtime: Rel. 7.2.1, January 1st, 2021, [PJ_VERSION: 721]
+Path to PROJ shared files: C:/Users/einav/Documents/R/win-library/4.0/rgdal/proj
+PROJ CDN enabled: FALSE
+Linking to sp version:1.4-5
+To mute warnings of possible GDAL/OSR exportToProj4() degradation,
+use options(""rgdal_show_exportToProj4_warnings""=""none"") before loading sp or rgdal.
+Overwritten PROJ_LIB was C:/Users/einav/Documents/R/win-library/4.0/rgdal/proj
+"

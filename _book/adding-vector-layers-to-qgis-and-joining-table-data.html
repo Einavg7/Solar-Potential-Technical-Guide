@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>2.1 Adding vector layers to QGIS and joining table data | Technical Guide for Estimating Rooftop Solar Potential in a City</title>
+  <meta name="description" content="A technical guide for mapping rooftop solar potential in a city using open source data and software." />
+  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="2.1 Adding vector layers to QGIS and joining table data | Technical Guide for Estimating Rooftop Solar Potential in a City" />
+  <meta property="og:type" content="book" />
+  <meta property="og:url" content="https://bookdown.org/einavg7/sp_technical_guide/" />
+  
+  <meta property="og:description" content="A technical guide for mapping rooftop solar potential in a city using open source data and software." />
+  <meta name="github-repo" content="Einavg7/Solar_Potential_Guide" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="2.1 Adding vector layers to QGIS and joining table data | Technical Guide for Estimating Rooftop Solar Potential in a City" />
+  
+  <meta name="twitter:description" content="A technical guide for mapping rooftop solar potential in a city using open source data and software." />
+  
+
+<meta name="author" content="Einav Grinberg" />
+
+
+<meta name="date" content="2021-11-02" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="mapping-electricity-consumption.html"/>
+<link rel="next" href="consumption-visualizations.html"/>
+<script src="libs/header-attrs-2.11/header-attrs.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+
+
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Technical Guide</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Introduction</a>
+<ul>
+<li class="chapter" data-level="" data-path="motivation-behind-the-guide.html"><a href="motivation-behind-the-guide.html"><i class="fa fa-check"></i>Motivation behind the guide</a></li>
+<li class="chapter" data-level="" data-path="structure-of-the-guide.html"><a href="structure-of-the-guide.html"><i class="fa fa-check"></i>Structure of the guide</a></li>
+<li class="chapter" data-level="" data-path="guide-outputs.html"><a href="guide-outputs.html"><i class="fa fa-check"></i>Guide outputs</a></li>
+<li class="chapter" data-level="" data-path="acknowledgments.html"><a href="acknowledgments.html"><i class="fa fa-check"></i>Acknowledgments</a></li>
+</ul></li>
+<li class="chapter" data-level="1" data-path="open-source-software-and-data.html"><a href="open-source-software-and-data.html"><i class="fa fa-check"></i><b>1</b> Open source software and data</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="what-is-open.html"><a href="what-is-open.html"><i class="fa fa-check"></i><b>1.1</b> What is open?</a></li>
+<li class="chapter" data-level="1.2" data-path="qgis.html"><a href="qgis.html"><i class="fa fa-check"></i><b>1.2</b> QGIS</a></li>
+<li class="chapter" data-level="1.3" data-path="quickmapservices-qms.html"><a href="quickmapservices-qms.html"><i class="fa fa-check"></i><b>1.3</b> QuickMapServices (QMS)</a></li>
+<li class="chapter" data-level="1.4" data-path="rstudio.html"><a href="rstudio.html"><i class="fa fa-check"></i><b>1.4</b> RStudio</a></li>
+<li class="chapter" data-level="1.5" data-path="open-street-map-osm.html"><a href="open-street-map-osm.html"><i class="fa fa-check"></i><b>1.5</b> Open Street Map (OSM)</a></li>
+<li class="chapter" data-level="1.6" data-path="global-solar-atlas.html"><a href="global-solar-atlas.html"><i class="fa fa-check"></i><b>1.6</b> Global Solar Atlas</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="mapping-electricity-consumption.html"><a href="mapping-electricity-consumption.html"><i class="fa fa-check"></i><b>2</b> Mapping electricity consumption</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="adding-vector-layers-to-qgis-and-joining-table-data.html"><a href="adding-vector-layers-to-qgis-and-joining-table-data.html"><i class="fa fa-check"></i><b>2.1</b> Adding vector layers to QGIS and joining table data</a></li>
+<li class="chapter" data-level="2.2" data-path="consumption-visualizations.html"><a href="consumption-visualizations.html"><i class="fa fa-check"></i><b>2.2</b> Consumption visualizations</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="solar-radiation-and-renewable-electricity-calculation.html"><a href="solar-radiation-and-renewable-electricity-calculation.html"><i class="fa fa-check"></i><b>3</b> Solar radiation and renewable electricity calculation</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="adding-raster-layers-to-qgis.html"><a href="adding-raster-layers-to-qgis.html"><i class="fa fa-check"></i><b>3.1</b> Adding raster layers to QGIS</a>
+<ul>
+<li class="chapter" data-level="3.1.1" data-path="adding-raster-layers-to-qgis.html"><a href="adding-raster-layers-to-qgis.html#extracting-raster-values-to-vector-layers"><i class="fa fa-check"></i><b>3.1.1</b> Extracting raster values to vector layers</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="qgis-field-calculator.html"><a href="qgis-field-calculator.html"><i class="fa fa-check"></i><b>3.2</b> QGIS Field calculator</a>
+<ul>
+<li class="chapter" data-level="3.2.1" data-path="qgis-field-calculator.html"><a href="qgis-field-calculator.html#building-rooftop-area"><i class="fa fa-check"></i><b>3.2.1</b> Building rooftop area</a></li>
+<li class="chapter" data-level="3.2.2" data-path="qgis-field-calculator.html"><a href="qgis-field-calculator.html#usable-solar-radiation"><i class="fa fa-check"></i><b>3.2.2</b> Usable solar radiation</a></li>
+<li class="chapter" data-level="3.2.3" data-path="qgis-field-calculator.html"><a href="qgis-field-calculator.html#renewable-electricity-production"><i class="fa fa-check"></i><b>3.2.3</b> Renewable electricity production</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="renewable-electricity-estimation-for-the-whole-city.html"><a href="renewable-electricity-estimation-for-the-whole-city.html"><i class="fa fa-check"></i><b>4</b> Renewable electricity estimation for the whole city</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="what-is-sampling.html"><a href="what-is-sampling.html"><i class="fa fa-check"></i><b>4.1</b> What is sampling?</a></li>
+<li class="chapter" data-level="4.2" data-path="random-sampling-with-rstudio-and-qgis.html"><a href="random-sampling-with-rstudio-and-qgis.html"><i class="fa fa-check"></i><b>4.2</b> Random sampling with RStudio and QGIS</a>
+<ul>
+<li class="chapter" data-level="4.2.1" data-path="random-sampling-with-rstudio-and-qgis.html"><a href="random-sampling-with-rstudio-and-qgis.html#digitizing-a-sample-with-google-satellite-imagery"><i class="fa fa-check"></i><b>4.2.1</b> Digitizing a sample with Google Satellite Imagery</a></li>
+<li class="chapter" data-level="4.2.2" data-path="random-sampling-with-rstudio-and-qgis.html"><a href="random-sampling-with-rstudio-and-qgis.html#including-the-density-factor"><i class="fa fa-check"></i><b>4.2.2</b> Including the density factor</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="stratified-sampling-with-rstudio-and-qgis.html"><a href="stratified-sampling-with-rstudio-and-qgis.html"><i class="fa fa-check"></i><b>4.3</b> Stratified sampling with RStudio and QGIS</a></li>
+<li class="chapter" data-level="4.4" data-path="comparison.html"><a href="comparison.html"><i class="fa fa-check"></i><b>4.4</b> Comparison</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="outputs.html"><a href="outputs.html"><i class="fa fa-check"></i><b>5</b> Outputs</a></li>
+<li class="chapter" data-level="6" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i><b>6</b> References</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Technical Guide for Estimating Rooftop Solar Potential in a City</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="adding-vector-layers-to-qgis-and-joining-table-data" class="section level2" number="2.1">
+<h2><span class="header-section-number">2.1</span> Adding vector layers to QGIS and joining table data</h2>
+<p>In order to add vector layers to QGIS we will go to the <strong>Layer Menu</strong> again and click the <strong>Add Vector Layer</strong> option. A <strong>Data Source Manager</strong> window will open and we can click on the three dots on the right top corner to select the file we would like to add from our local directory. This time the file format needs to be in a vector file format such as an Esri shapefile (.shp) or a GeoJSON. Here you can see our file is in a .shp format, the file contains the footprints (also known as a polygon layer) of the municipal buildings in Rosario, to add it we click on the <strong>Add</strong> button. (<em>See <a href="adding-vector-layers-to-qgis-and-joining-table-data.html#fig:img-11">2.4</a> and <a href="adding-vector-layers-to-qgis-and-joining-table-data.html#fig:img-111">2.5</a></em>)</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:img-11"></span>
+<img src="qgis1.PNG" alt="Add Vector Layer" width="100%" />
+<p class="caption">
+Figure 2.4: Add Vector Layer
+</p>
+</div>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:img-111"></span>
+<img src="vectoradd.png" alt="Add Vector Layer" width="100%" />
+<p class="caption">
+Figure 2.5: Add Vector Layer
+</p>
+</div>
+<p>Next we would like to join the table data containing the electricity consumption with the polygon layer of the buildings.
+First we will right click on the layer which we want to join attributes to, in our case it is the polygon layer of the buildings called here <span style="color: blue;">rosario_municipalb.shp</span>. Once we right click on the layer we will select the last button called <strong>Properties</strong> and <strong>The Vector Properties Dialog</strong> window will open. This dialog provides general settings to manage appearance of layer features in the map (symbology, labeling, diagrams), interaction with the mouse (actions, map tips, form design). It also provides information about the layer, this is a good opportunity to check what is our layer’s coordinate reference system (CRS), here we can see the layer is in The World Geodetic System 1984 (WGS84). (<em>See <a href="adding-vector-layers-to-qgis-and-joining-table-data.html#fig:img-12">2.6</a> and <a href="adding-vector-layers-to-qgis-and-joining-table-data.html#fig:img-121">2.7</a></em>) (It is important that the geographic layers in our QGIS project are in the same and correct CRS. <a href="https://en.wikipedia.org/wiki/Spatial_reference_system">For more information about CRS</a>)</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:img-12"></span>
+<img src="properties.png" alt="Layer Properties" width="100%" />
+<p class="caption">
+Figure 2.6: Layer Properties
+</p>
+</div>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:img-121"></span>
+<img src="crs.png" alt="Layer Information" width="100%" />
+<p class="caption">
+Figure 2.7: Layer Information
+</p>
+</div>
+<p>On the left side panel we can see an option called <strong>Joins</strong>. Join is associating records in one table or layer with records in another table or layer through a common field, known as a key. The join between a table of data to a layer is based on the value of a field that can be found in both tables. The name of the field does not have to be the same, but the data type must be the same; you join numbers to numbers, strings to strings, and so on (<a href="https://dataled.academy/guides/data-types/">for more information about data types</a>).<br />
+To join between the <span style="color: blue;">rosario_municipalb</span> layer and the <span style="color: blue;">Edificios_Publicos_Rosario</span> we will click on the <strong>+</strong> sign on the bottom left and the <strong>Edit Vector Join</strong> window will open. In this window we can select the table or layer we would like to join attributes from and what would be the <strong>Join Field</strong> of that table or layer and which field is associated with the same key in the target layer or table. In addition we can choose if we want to associate all fields in the target layer or table or choose specific ones, in our case we are interested joining only the <strong>Total Consumos</strong> field.
+Once we are done editing, we can click on the OK button and then see the join configuration, to apply it on the target layer, we click Apply on the bottom right. (<em>See <a href="adding-vector-layers-to-qgis-and-joining-table-data.html#fig:img-13">2.8</a> and <a href="adding-vector-layers-to-qgis-and-joining-table-data.html#fig:img-131">2.9</a></em>)</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:img-13"></span>
+<img src="join.png" alt="Join" width="100%" />
+<p class="caption">
+Figure 2.8: Join
+</p>
+</div>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:img-131"></span>
+<img src="join2.png" alt="Join" width="100%" />
+<p class="caption">
+Figure 2.9: Join
+</p>
+</div>
+<p>To make sure the field was added correctly we can open the <strong>Attribute Table</strong> of the <span style="color: blue;">rosario_municipalb</span> layer
+and check that the column was indeed joined. (<em>See <a href="adding-vector-layers-to-qgis-and-joining-table-data.html#fig:img-14">2.10</a> and <a href="adding-vector-layers-to-qgis-and-joining-table-data.html#fig:img-141">2.11</a></em>)</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:img-14"></span>
+<img src="attribute_table.png" alt="Attribute Table" width="70%" />
+<p class="caption">
+Figure 2.10: Attribute Table
+</p>
+</div>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:img-141"></span>
+<img src="attribute_table2.png" alt="Attribute Table" width="100%" />
+<p class="caption">
+Figure 2.11: Attribute Table
+</p>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="mapping-electricity-consumption.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="consumption-visualizations.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/Einavg7/Solar_Potential_Technical_Guideindex.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

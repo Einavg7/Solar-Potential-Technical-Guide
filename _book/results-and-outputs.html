@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 5 Results and outputs | Technical Guide for Estimating Rooftop Solar Potential in a City</title>
+  <meta name="description" content="A technical guide for mapping rooftop solar potential in a city using open source data and software." />
+  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 5 Results and outputs | Technical Guide for Estimating Rooftop Solar Potential in a City" />
+  <meta property="og:type" content="book" />
+  <meta property="og:url" content="https://bookdown.org/einavg7/sp_technical_guide/" />
+  
+  <meta property="og:description" content="A technical guide for mapping rooftop solar potential in a city using open source data and software." />
+  <meta name="github-repo" content="Einavg7/Solar_Potential_Guide" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 5 Results and outputs | Technical Guide for Estimating Rooftop Solar Potential in a City" />
+  
+  <meta name="twitter:description" content="A technical guide for mapping rooftop solar potential in a city using open source data and software." />
+  
+
+<meta name="author" content="Einav Grinberg" />
+
+
+<meta name="date" content="2021-12-01" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="comparison-between-sample-results-and-sampling-methods.html"/>
+<link rel="next" href="references.html"/>
+<script src="libs/header-attrs-2.11/header-attrs.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+<script src="libs/htmlwidgets-1.5.4/htmlwidgets.js"></script>
+<link href="libs/leaflet-1.3.1/leaflet.css" rel="stylesheet" />
+<script src="libs/leaflet-1.3.1/leaflet.js"></script>
+<link href="libs/leafletfix-1.0.0/leafletfix.css" rel="stylesheet" />
+<script src="libs/proj4-2.6.2/proj4.min.js"></script>
+<script src="libs/Proj4Leaflet-1.0.1/proj4leaflet.js"></script>
+<link href="libs/rstudio_leaflet-1.3.1/rstudio_leaflet.css" rel="stylesheet" />
+<script src="libs/leaflet-binding-2.0.4.1/leaflet.js"></script>
+<script src="libs/leaflet-providers-1.9.0/leaflet-providers_1.9.0.js"></script>
+<script src="libs/leaflet-providers-plugin-2.0.4.1/leaflet-providers-plugin.js"></script>
+<link href="libs/HomeButton-0.0.1/home-button.css" rel="stylesheet" />
+<script src="libs/HomeButton-0.0.1/home-button.js"></script>
+<script src="libs/HomeButton-0.0.1/easy-button-src.min.js"></script>
+<script src="libs/clipboard-0.0.1/setClipboardText.js"></script>
+<link href="libs/mapviewCSS-0.0.1/mapview-popup.css" rel="stylesheet" />
+<link href="libs/mapviewCSS-0.0.1/mapview.css" rel="stylesheet" />
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Technical Guide</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Introduction</a>
+<ul>
+<li class="chapter" data-level="" data-path="motivation-behind-the-guide.html"><a href="motivation-behind-the-guide.html"><i class="fa fa-check"></i>Motivation behind the guide</a></li>
+<li class="chapter" data-level="" data-path="structure-of-the-guide.html"><a href="structure-of-the-guide.html"><i class="fa fa-check"></i>Structure of the guide</a></li>
+<li class="chapter" data-level="" data-path="guide-outputs.html"><a href="guide-outputs.html"><i class="fa fa-check"></i>Guide outputs</a></li>
+<li class="chapter" data-level="" data-path="acknowledgments.html"><a href="acknowledgments.html"><i class="fa fa-check"></i>Acknowledgments</a></li>
+</ul></li>
+<li class="chapter" data-level="1" data-path="open-source-software-and-data.html"><a href="open-source-software-and-data.html"><i class="fa fa-check"></i><b>1</b> Open source software and data</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="qgis.html"><a href="qgis.html"><i class="fa fa-check"></i><b>1.1</b> QGIS</a></li>
+<li class="chapter" data-level="1.2" data-path="quickmapservices-qms.html"><a href="quickmapservices-qms.html"><i class="fa fa-check"></i><b>1.2</b> QuickMapServices (QMS)</a></li>
+<li class="chapter" data-level="1.3" data-path="rstudio.html"><a href="rstudio.html"><i class="fa fa-check"></i><b>1.3</b> RStudio</a></li>
+<li class="chapter" data-level="1.4" data-path="open-street-map-osm.html"><a href="open-street-map-osm.html"><i class="fa fa-check"></i><b>1.4</b> Open Street Map (OSM)</a></li>
+<li class="chapter" data-level="1.5" data-path="global-solar-atlas.html"><a href="global-solar-atlas.html"><i class="fa fa-check"></i><b>1.5</b> Global Solar Atlas</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="mapping-electricity-consumption.html"><a href="mapping-electricity-consumption.html"><i class="fa fa-check"></i><b>2</b> Mapping electricity consumption</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="adding-table-data-to-qgis.html"><a href="adding-table-data-to-qgis.html"><i class="fa fa-check"></i><b>2.1</b> Adding table data to QGIS</a></li>
+<li class="chapter" data-level="2.2" data-path="adding-vector-layers-to-qgis.html"><a href="adding-vector-layers-to-qgis.html"><i class="fa fa-check"></i><b>2.2</b> Adding vector layers to QGIS</a></li>
+<li class="chapter" data-level="2.3" data-path="joining-vector-layers-and-table-data.html"><a href="joining-vector-layers-and-table-data.html"><i class="fa fa-check"></i><b>2.3</b> Joining vector layers and table data</a></li>
+<li class="chapter" data-level="2.4" data-path="consumption-visualizations.html"><a href="consumption-visualizations.html"><i class="fa fa-check"></i><b>2.4</b> Consumption visualizations</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="solar-radiation-and-renewable-electricity-calculation.html"><a href="solar-radiation-and-renewable-electricity-calculation.html"><i class="fa fa-check"></i><b>3</b> Solar radiation and renewable electricity calculation</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="adding-raster-layers-to-qgis.html"><a href="adding-raster-layers-to-qgis.html"><i class="fa fa-check"></i><b>3.1</b> Adding raster layers to QGIS</a></li>
+<li class="chapter" data-level="3.2" data-path="extracting-raster-values-to-vector-layers.html"><a href="extracting-raster-values-to-vector-layers.html"><i class="fa fa-check"></i><b>3.2</b> Extracting raster values to vector layers</a></li>
+<li class="chapter" data-level="3.3" data-path="qgis-field-calculator.html"><a href="qgis-field-calculator.html"><i class="fa fa-check"></i><b>3.3</b> QGIS Field calculator</a>
+<ul>
+<li class="chapter" data-level="3.3.1" data-path="qgis-field-calculator.html"><a href="qgis-field-calculator.html#building-rooftop-area"><i class="fa fa-check"></i><b>3.3.1</b> Building rooftop area</a></li>
+<li class="chapter" data-level="3.3.2" data-path="qgis-field-calculator.html"><a href="qgis-field-calculator.html#usable-solar-radiation"><i class="fa fa-check"></i><b>3.3.2</b> Usable solar radiation</a></li>
+<li class="chapter" data-level="3.3.3" data-path="qgis-field-calculator.html"><a href="qgis-field-calculator.html#renewable-electricity-production"><i class="fa fa-check"></i><b>3.3.3</b> Renewable electricity production</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="renewable-electricity-estimation-for-the-whole-city.html"><a href="renewable-electricity-estimation-for-the-whole-city.html"><i class="fa fa-check"></i><b>4</b> Renewable electricity estimation for the whole city</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="what-is-sampling-and-spatial-sampling.html"><a href="what-is-sampling-and-spatial-sampling.html"><i class="fa fa-check"></i><b>4.1</b> What is sampling and spatial sampling?</a>
+<ul>
+<li class="chapter" data-level="4.1.1" data-path="what-is-sampling-and-spatial-sampling.html"><a href="what-is-sampling-and-spatial-sampling.html#selecting-a-sample-size"><i class="fa fa-check"></i><b>4.1.1</b> Selecting a sample size</a></li>
+<li class="chapter" data-level="4.1.2" data-path="what-is-sampling-and-spatial-sampling.html"><a href="what-is-sampling-and-spatial-sampling.html#la-plata-sample-size-calculation"><i class="fa fa-check"></i><b>4.1.2</b> La Plata sample size calculation</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="spatial-random-sampling-with-qgis.html"><a href="spatial-random-sampling-with-qgis.html"><i class="fa fa-check"></i><b>4.2</b> Spatial random sampling with QGIS</a>
+<ul>
+<li class="chapter" data-level="4.2.1" data-path="spatial-random-sampling-with-qgis.html"><a href="spatial-random-sampling-with-qgis.html#the-qms-plugin"><i class="fa fa-check"></i><b>4.2.1</b> The QMS plugin</a></li>
+<li class="chapter" data-level="4.2.2" data-path="spatial-random-sampling-with-qgis.html"><a href="spatial-random-sampling-with-qgis.html#digitizing-a-sample-with-qms"><i class="fa fa-check"></i><b>4.2.2</b> Digitizing a sample with QMS</a></li>
+<li class="chapter" data-level="4.2.3" data-path="spatial-random-sampling-with-qgis.html"><a href="spatial-random-sampling-with-qgis.html#including-the-density-factor"><i class="fa fa-check"></i><b>4.2.3</b> Including the density factor</a></li>
+<li class="chapter" data-level="4.2.4" data-path="spatial-random-sampling-with-qgis.html"><a href="spatial-random-sampling-with-qgis.html#solar-radiation-and-renewable-electricity-calculation-1"><i class="fa fa-check"></i><b>4.2.4</b> Solar radiation and renewable electricity calculation</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="spatial-stratified-sampling-with-qgis.html"><a href="spatial-stratified-sampling-with-qgis.html"><i class="fa fa-check"></i><b>4.3</b> Spatial stratified sampling with QGIS</a>
+<ul>
+<li class="chapter" data-level="4.3.1" data-path="spatial-stratified-sampling-with-qgis.html"><a href="spatial-stratified-sampling-with-qgis.html#land-use-change-raster"><i class="fa fa-check"></i><b>4.3.1</b> Land use change raster</a></li>
+<li class="chapter" data-level="4.3.2" data-path="spatial-stratified-sampling-with-qgis.html"><a href="spatial-stratified-sampling-with-qgis.html#raster-to-polygons"><i class="fa fa-check"></i><b>4.3.2</b> Raster to polygons</a></li>
+</ul></li>
+<li class="chapter" data-level="4.4" data-path="rstudio-calculations.html"><a href="rstudio-calculations.html"><i class="fa fa-check"></i><b>4.4</b> RStudio calculations</a>
+<ul>
+<li class="chapter" data-level="4.4.1" data-path="rstudio-calculations.html"><a href="rstudio-calculations.html#random-sampling"><i class="fa fa-check"></i><b>4.4.1</b> Random sampling</a></li>
+<li class="chapter" data-level="4.4.2" data-path="rstudio-calculations.html"><a href="rstudio-calculations.html#equal-size-stratification"><i class="fa fa-check"></i><b>4.4.2</b> Equal size stratification</a></li>
+<li class="chapter" data-level="4.4.3" data-path="rstudio-calculations.html"><a href="rstudio-calculations.html#optimal-allocation-stratification"><i class="fa fa-check"></i><b>4.4.3</b> Optimal allocation stratification</a></li>
+</ul></li>
+<li class="chapter" data-level="4.5" data-path="comparison-between-sample-results-and-sampling-methods.html"><a href="comparison-between-sample-results-and-sampling-methods.html"><i class="fa fa-check"></i><b>4.5</b> Comparison between sample results and sampling methods</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="results-and-outputs.html"><a href="results-and-outputs.html"><i class="fa fa-check"></i><b>5</b> Results and outputs</a></li>
+<li class="chapter" data-level="6" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i><b>6</b> References</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Technical Guide for Estimating Rooftop Solar Potential in a City</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="results-and-outputs" class="section level1" number="5">
+<h1><span class="header-section-number">Chapter 5</span> Results and outputs</h1>
+<div id="rosario-results" class="section level4 unnumbered">
+<h4>Rosario results</h4>
+<p>The results for the electricity balance of 34 government operated buildings in the city of Rosario are presented in <a href="results-and-outputs.html#fig:img-229">5.1</a>, 3 buildings did not have the electricity consumption data. The total annual renewable electricity production potential (for 37 buildings) is 14,921.49 <span class="math inline">\(mWh\)</span>, and the total annual electricity consumption is 1,388.016 <span class="math inline">\(mWh\)</span>, therefore the annual renewable electricity balance is 12,812.970 <span class="math inline">\(mWh\)</span>.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:img-229"></span>
+<img src="images/ros_elec_balance.png" alt="Rosario Renewable Electricity Balance" width="100%" />
+<p class="caption">
+Figure 5.1: Rosario Renewable Electricity Balance
+</p>
+</div>
+<p>The minimum value for the annual electricity production of 37 municipal buildings, is 29.86 <span class="math inline">\(mWh\)</span>, the maximum value is 2,224.67 <span class="math inline">\(mWh\)</span> and the mean value is 403.28 <span class="math inline">\(mWh\)</span>. The minimum value for annual electricity consumption for 34 buildings, is 3.064 <span class="math inline">\(mWh\)</span>, the maximum value is 414.480 <span class="math inline">\(mWh\)</span> and the mean value is 40.824 <span class="math inline">\(mWh\)</span>. And, the minimum value of the renewable electricity balance, is -116.1 <span class="math inline">\(mWh\)</span>, the maximum value is 1810.2 <span class="math inline">\(mWh\)</span> and the mean value is 376.9 <span class="math inline">\(mWh\)</span>.</p>
+<p>For all the buildings extracted from OSM in the administrative borders of Rosario, including the government operated buildings but excluding buildings equal to or under 30 <span class="math inline">\(m^2\)</span>, a total of 9,783 buildings, the total renewable electricity production potential is 1,449,576 <span class="math inline">\(mWh\)</span>.</p>
+<p>When estimating renewable electricity potential for the whole city of Rosario, the sampling design that had the best estimate was samples 1 and 2 combined with a total of 400 digitized building rooftops. The sample estimated a total of 9,704,559 <span class="math inline">\(mWh\)</span> renewable electricity production potential with a standard error of 2,441,361 <span class="math inline">\(mWh\)</span>, and a 95% confidence interval of 5,679,532 <span class="math inline">\(mWh\)</span>, 13,729,586 <span class="math inline">\(mWh\)</span> for Rosario’s 357,126 buildings. Thus, there is a 95% probability that the total renewable electricity production potential for Rosario is between 5,679,532 to 13,729,586 <span class="math inline">\(mWh\)</span>. However, sample 2 with 300 digitized building rooftops presented less variation (<span class="math inline">\(s^2\)</span>=15,541.21 <span class="math inline">\(mWh\)</span>) than both samples combined (<span class="math inline">\(s^2\)</span>=18,714.05 <span class="math inline">\(mWh\)</span>) and produced the second-best estimate compared to the other samples collected.</p>
+</div>
+<div id="la-plata-results" class="section level4 unnumbered">
+<h4>La Plata results</h4>
+<p>The total annual renewable electricity production potential for La Plata’s 105 government operated buildings is 35,961.04 <span class="math inline">\(mWh\)</span>, where the minimum value is 9.998 <span class="math inline">\(mWh\)</span>, the maximum value is 5016.660 <span class="math inline">\(mWh\)</span> and the mean value is 349.136 <span class="math inline">\(mWh\)</span>.
+For all the buildings extracted from OSM in the administrative borders of La Plata, including government operated buildings but excluding buildings equal to or under 30 <span class="math inline">\(m^2\)</span>, a total of 2,657 buildings, the total renewable electricity production potential is 44,6342.8 <span class="math inline">\(mWh\)</span>. The distribution of the renewable electricity production potential for the OSM buildings in La Plata- the minimum value is 6.801 <span class="math inline">\(mWh\)</span>, the maximum value is 10,541.243 <span class="math inline">\(mWh\)</span> and the mean value is 167.987 <span class="math inline">\(mWh\)</span>.</p>
+<p>When estimating renewable electricity potential for the whole city of La Plata, the sampling design that had the best estimate was samples 1 and 2 combined with a total of 400 digitized building rooftops, the largest sample collected. The sample estimated a total of 185,069.23 <span class="math inline">\(mWh\)</span> renewable electricity production potential with a standard error of 36,207.84 <span class="math inline">\(mWh\)</span>, and a 95% confidence interval of 125,374.03 <span class="math inline">\(mWh\)</span>, 244,764.4 <span class="math inline">\(mWh\)</span> for La Plata’s 2,482 buildings. Accordingly, there is a 95% probability that the total renewable electricity production potential for La Plata is between 125,374.03 to 244,764.4 <span class="math inline">\(mWh\)</span>. Though, the allocated stratified sample with 100 digitized building rooftops presented less variation (<span class="math inline">\(s^2\)</span>=25,362.42 <span class="math inline">\(mWh\)</span>) and produced the second-best estimate compared to the other samples collected. This sample estimated a total of 72,761.47 <span class="math inline">\(mWh\)</span> renewable electricity production potential with a standard error of 38,722.83 <span class="math inline">\(mWh\)</span>, and a 95% confidence interval of 8,466.42 <span class="math inline">\(mWh\)</span>, 137,056.5 <span class="math inline">\(mWh\)</span> for La Plata’s 2,482 buildings.</p>
+<p>The following sections present the <strong>outputs</strong> of the guide. The outputs can be divided to web maps and sampling analysis results.</p>
+</div>
+<div id="web-maps" class="section level4 unnumbered">
+<h4>Web Maps:</h4>
+<p>The web maps are a result of the steps completed in chapters <a href="mapping-electricity-consumption.html#mapping-electricity-consumption">2</a> and <a href="solar-radiation-and-renewable-electricity-calculation.html#solar-radiation-and-renewable-electricity-calculation">3</a>. The web maps are hosted on <a href="https://pages.github.com/">GitHub Pages</a>.</p>
+<p><a href="https://einavg7.github.io/Rosario_Solar_Potential/">Rosario</a> web map<br />
+<a href="https://einavg7.github.io/LaPlata_Solar_Potential/">La Plata</a> web map</p>
+</div>
+<div id="sampling-analysis" class="section level4 unnumbered">
+<h4>Sampling Analysis:</h4>
+<p>The sampling analysis is a result of the steps completed in chapter <a href="renewable-electricity-estimation-for-the-whole-city.html#renewable-electricity-estimation-for-the-whole-city">4</a>. These analyses are hosted on <a href="https://www.rstudio.com/products/connect/">RStudio Connect</a>.</p>
+<p>Sampling analysis for <a href="https://bookdown.org/einavg7/sampling_ros/sampling_ros.html">Rosario</a><br />
+Sampling analysis for <a href="https://bookdown.org/einavg7/laplata_sampling/laplata_sampling.html">La Plata</a></p>
+</div>
+<div id="full-analyis-links" class="section level4 unnumbered">
+<h4>Full Analyis Links:</h4>
+<p>To access the data, QGIS projects, RStudio code, and all other resources used while creating this guide, see the following repository links:</p>
+<p><a href="https://github.com/Einavg7/Rosario_Solar_Potential">Rosario</a><br />
+<a href="https://github.com/Einavg7/LaPlata_Solar_Potential">La Plata</a></p>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="comparison-between-sample-results-and-sampling-methods.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="references.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/Einavg7/Solar_Potential_Technical_Guideindex.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

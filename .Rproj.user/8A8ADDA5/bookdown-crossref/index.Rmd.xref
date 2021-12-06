@@ -1,0 +1,113 @@
+h1:cover-image-path-to-the-social-sharing-image-like-imagescover.jpg cover-image: path to the social sharing image like images/cover.jpg
+h1:introduction Introduction
+h2:motivation-behind-the-guide Motivation behind the guide
+h2:structure-of-the-guide Structure of the guide
+fig:img2232 Chapters in the Guide
+h2:guide-outputs Guide outputs
+h2:acknowledgments Acknowledgments
+h1:open-source-software-and-data Open source software and data
+h2:qgis QGIS
+fig:img4 QGIS Desktop User Interface [12]
+fig:img555 Vector and Raster Layers [13]
+h2:quickmapservices-qms QuickMapServices (QMS)
+h2:rstudio RStudio
+h2:open-street-map-osm Open Street Map (OSM)
+h2:global-solar-atlas Global Solar Atlas
+h1:mapping-electricity-consumption Mapping electricity consumption
+fig:img-33335 Save QGIS Project
+h2:adding-table-data-to-qgis Adding table data to QGIS
+fig:img-9 Add Table
+fig:img-10 Data Source Manager
+fig:img-101 Layers Panel
+h2:adding-vector-layers-to-qgis Adding vector layers to QGIS
+fig:img-11 Add Vector Layer
+fig:img-111 Add Vector Layer
+h2:joining-vector-layers-and-table-data Joining vector layers and table data
+fig:img-12 Layer Properties
+fig:img-121 Layer Information
+fig:img-13 Join
+fig:img-131 Join
+fig:img-14 Attribute Table
+fig:img-141 Attribute Table
+h2:consumption-visualizations Consumption visualizations
+fig:img-15 Layer Visualizations
+fig:img-16 Layer Visualizations
+h1:solar-radiation-and-renewable-electricity-calculation Solar radiation and renewable electricity calculation
+h2:adding-raster-layers-to-qgis Adding raster layers to QGIS
+fig:img-17 Add Raster
+fig:img-171 Add Raster
+h2:extracting-raster-values-to-vector-layers Extracting raster values to vector layers
+fig:img-18 Processing Toolbox
+fig:img-181 Zonal Statistics
+fig:img-182 Zonal Statistics
+fig:img-183 Attribute Table with Mean GHI Calculation
+h2:qgis-field-calculator QGIS Field calculator
+h3:building-rooftop-area Building rooftop area
+fig:img-19 Field Calculator - Area
+fig:img-191 Attribute Table with Building Rooftop Area Calculation
+h3:usable-solar-radiation Usable solar radiation
+fig:img-192 Field Calculator - Usable Solar Radiation
+fig:img-193 Attribute Table with Usable Solar Radiation Calculation
+h3:renewable-electricity-production Renewable electricity production
+fig:img-194 Field Calculator - Renewable Electricity Production
+fig:img-195 Attribute Table with Usable Solar Radiation Calculation
+fig:img-196 Attribute Table with Usable Solar Radiation Calculation
+h1:renewable-electricity-estimation-for-the-whole-city Renewable electricity estimation for the whole city
+h2:what-is-sampling-and-spatial-sampling What is sampling and spatial sampling?
+h3:selecting-a-sample-size Selecting a sample size
+h3:la-plata-sample-size-calculation La Plata sample size calculation
+h2:spatial-random-sampling-with-qgis Spatial random sampling with QGIS
+fig:img-197 La Plata Administrative Border
+fig:img-198 Random Points in Layer Bounds
+fig:img-199 Random Points in Layer Bounds Dialog
+fig:img-200 Random Points in Layer Bounds Output Layer in QGIS
+h3:the-qms-plugin The QMS plugin
+fig:img-201 Plugins Menu
+fig:img-202 Plugins Dialog
+fig:img-203 QMS Search Panel
+fig:img-204 QMS in QGIS
+h3:digitizing-a-sample-with-qms Digitizing a sample with QMS
+fig:img-205 Create Vector Layer
+fig:img-206 Create Vector Layer Dialog
+fig:img-207 Toggle Editing
+fig:img-208 Shape Digitizing Toolbar - Add Polygon Feature
+fig:img-209 Random Point ID=49 from the layer sample1
+fig:img-210 Digitizing ID=49 in the Layer sample100
+h3:including-the-density-factor Including the density factor
+fig:img-211 Digitizing to include the Density Factor
+h3:solar-radiation-and-renewable-electricity-calculation-1 Solar radiation and renewable electricity calculation
+fig:img-212 Sample100 Attribute Table with Calculations
+h2:spatial-stratified-sampling-with-qgis Spatial stratified sampling with QGIS
+fig:stratified Satellite Imagery of La Plata provided by ESRI
+h3:land-use-change-raster Land use change raster
+fig:img-213 Land Use Map by Copernicus Land Monitoring Service
+fig:img-214 La Plata Land Use and Land Cover in QGIS
+fig:img-215 Clip Raster by Mask Layer Dialog
+fig:img-216 Clip Raster by Mask Layer Output
+fig:img-217 Reclassify by Table
+fig:img-218 Reclassification Table
+fig:img-219 Advanced Parameters
+fig:img-220 La Plata - Built Up and Non Built Up Area Classification
+h3:raster-to-polygons Raster to polygons
+fig:img-221 Polygonize (Raster to Vector)
+fig:img-222 Polygonize (Raster to Vector) Dialog
+fig:img-223 Polygonize (Raster to Vector) Output
+fig:img-224 Vectorized Layer Attribute Table
+fig:img-225 Select Features Using An Expression
+fig:img-226 Select Features Using An Expression
+fig:img-227 Built Up and Non Built Up area Vector Layers
+h2:rstudio-calculations RStudio calculations
+h3:random-sampling Random sampling
+h3:equal-size-stratification Equal size stratification
+h3:optimal-allocation-stratification Optimal allocation stratification
+h2:comparison-between-sample-results-and-sampling-methods Comparison between sample results and sampling methods
+fig:img-228 Summarizing Table of Sampling Results
+h1:results-and-outputs Results and outputs
+h4:rosario-results Rosario results
+fig:img-229 Rosario Renewable Electricity Balance
+h4:la-plata-results La Plata results
+h4:web-maps Web Maps:
+h4:sampling-analysis Sampling Analysis:
+h4:full-analyis-links Full Analyis Links:
+h1:references References
+

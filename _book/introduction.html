@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Introduction | Technical Guide for Estimating Rooftop Solar Potential in a City</title>
+  <meta name="description" content="<p>This is a minimal example of using the bookdown package to write a book.
+The HTML output format for this example is bookdown::gitbook,
+set in the _output.yml file.</p>" />
+  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Introduction | Technical Guide for Estimating Rooftop Solar Potential in a City" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="<p>This is a minimal example of using the bookdown package to write a book.
+The HTML output format for this example is bookdown::gitbook,
+set in the _output.yml file.</p>" />
+  <meta name="github-repo" content="Einavg7/Solar_Potential_Guide" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Introduction | Technical Guide for Estimating Rooftop Solar Potential in a City" />
+  
+  <meta name="twitter:description" content="<p>This is a minimal example of using the bookdown package to write a book.
+The HTML output format for this example is bookdown::gitbook,
+set in the _output.yml file.</p>" />
+  
+
+<meta name="author" content="Einav Grinberg" />
+
+
+<meta name="date" content="2021-10-04" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="hello-bookdown.html"/>
+<link rel="next" href="cross.html"/>
+<script src="libs/header-attrs-2.11/header-attrs.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+
+
+
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Technical Guide for Estimating Solar Potential in a City</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> url: your book url like <span>https://bookdown.org/yihui/bookdown</span></a>
+<ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#motivation-behind-the-guide"><i class="fa fa-check"></i>Motivation behind the guide</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#structure-of-the-guide"><i class="fa fa-check"></i>Structure of the guide</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#guide-outputs"><i class="fa fa-check"></i>Guide outputs</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#acknowledgments"><i class="fa fa-check"></i>Acknowledgments</a></li>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#what-is-open"><i class="fa fa-check"></i><b>1.1</b> What is open?</a></li>
+<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#qgis"><i class="fa fa-check"></i><b>1.2</b> QGIS</a></li>
+<li class="chapter" data-level="1.3" data-path="index.html"><a href="index.html#google-earth"><i class="fa fa-check"></i><b>1.3</b> Google Earth</a></li>
+<li class="chapter" data-level="1.4" data-path="index.html"><a href="index.html#rstudio"><i class="fa fa-check"></i><b>1.4</b> RStudio</a></li>
+<li class="chapter" data-level="1.5" data-path="index.html"><a href="index.html#open-street-map-osm"><i class="fa fa-check"></i><b>1.5</b> Open Street Map (OSM)</a></li>
+<li class="chapter" data-level="1.6" data-path="index.html"><a href="index.html#global-solar-atlas"><i class="fa fa-check"></i><b>1.6</b> Global Solar Atlas</a></li>
+<li class="chapter" data-level="1.7" data-path="index.html"><a href="index.html#adding-vector-layers-to-qgis-and-joining-table-data"><i class="fa fa-check"></i><b>1.7</b> Adding vector layers to QGIS and joining table data</a></li>
+<li class="chapter" data-level="1.8" data-path="index.html"><a href="index.html#consumption-visualizations"><i class="fa fa-check"></i><b>1.8</b> Consumption visualizations</a></li>
+<li class="chapter" data-level="1.9" data-path="index.html"><a href="index.html#adding-raster-layers-to-qgis"><i class="fa fa-check"></i><b>1.9</b> Adding raster layers to QGIS</a>
+<ul>
+<li class="chapter" data-level="1.9.1" data-path="index.html"><a href="index.html#extracting-raster-values-to-vector-layers"><i class="fa fa-check"></i><b>1.9.1</b> Extracting raster values to vector layers</a></li>
+</ul></li>
+<li class="chapter" data-level="1.10" data-path="index.html"><a href="index.html#qgis-field-calculator"><i class="fa fa-check"></i><b>1.10</b> QGIS Field calculator</a>
+<ul>
+<li class="chapter" data-level="1.10.1" data-path="index.html"><a href="index.html#building-rooftop-area"><i class="fa fa-check"></i><b>1.10.1</b> Building rooftop area</a></li>
+<li class="chapter" data-level="1.10.2" data-path="index.html"><a href="index.html#usable-solar-radiation"><i class="fa fa-check"></i><b>1.10.2</b> Usable solar radiation</a></li>
+<li class="chapter" data-level="1.10.3" data-path="index.html"><a href="index.html#renewable-electricity-production"><i class="fa fa-check"></i><b>1.10.3</b> Renewable electricity production</a></li>
+</ul></li>
+<li class="chapter" data-level="1.11" data-path="index.html"><a href="index.html#what-is-sampling"><i class="fa fa-check"></i><b>1.11</b> What is sampling?</a></li>
+<li class="chapter" data-level="1.12" data-path="index.html"><a href="index.html#random-sampling-with-rstudio-and-qgis"><i class="fa fa-check"></i><b>1.12</b> Random sampling with RStudio and QGIS</a></li>
+<li class="chapter" data-level="1.13" data-path="index.html"><a href="index.html#stratified-sampling-with-rstudio-and-qgis"><i class="fa fa-check"></i><b>1.13</b> Stratified sampling with RStudio and QGIS</a></li>
+<li class="chapter" data-level="1.14" data-path="index.html"><a href="index.html#comparison"><i class="fa fa-check"></i><b>1.14</b> Comparison</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="hello-bookdown.html"><a href="hello-bookdown.html"><i class="fa fa-check"></i><b>2</b> Hello bookdown</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="hello-bookdown.html"><a href="hello-bookdown.html#a-section"><i class="fa fa-check"></i><b>2.1</b> A section</a>
+<ul>
+<li class="chapter" data-level="" data-path="hello-bookdown.html"><a href="hello-bookdown.html#an-unnumbered-section"><i class="fa fa-check"></i>An unnumbered section</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i>Introduction</a>
+<ul>
+<li class="chapter" data-level="" data-path="introduction.html"><a href="introduction.html#motivation-behind-the-guide-1"><i class="fa fa-check"></i>Motivation behind the guide</a></li>
+<li class="chapter" data-level="" data-path="introduction.html"><a href="introduction.html#structure-of-the-guide-1"><i class="fa fa-check"></i>Structure of the guide</a></li>
+<li class="chapter" data-level="" data-path="introduction.html"><a href="introduction.html#guide-outputs-1"><i class="fa fa-check"></i>Guide outputs</a></li>
+<li class="chapter" data-level="" data-path="introduction.html"><a href="introduction.html#acknowledgments-1"><i class="fa fa-check"></i>Acknowledgments</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="cross.html"><a href="cross.html"><i class="fa fa-check"></i><b>3</b> Cross-references</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="cross.html"><a href="cross.html#chapters-and-sub-chapters"><i class="fa fa-check"></i><b>3.1</b> Chapters and sub-chapters</a></li>
+<li class="chapter" data-level="3.2" data-path="cross.html"><a href="cross.html#captioned-figures-and-tables"><i class="fa fa-check"></i><b>3.2</b> Captioned figures and tables</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="parts.html"><a href="parts.html"><i class="fa fa-check"></i><b>4</b> Parts</a></li>
+<li class="chapter" data-level="5" data-path="footnotes-and-citations.html"><a href="footnotes-and-citations.html"><i class="fa fa-check"></i><b>5</b> Footnotes and citations</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="footnotes-and-citations.html"><a href="footnotes-and-citations.html#footnotes"><i class="fa fa-check"></i><b>5.1</b> Footnotes</a></li>
+<li class="chapter" data-level="5.2" data-path="footnotes-and-citations.html"><a href="footnotes-and-citations.html#citations"><i class="fa fa-check"></i><b>5.2</b> Citations</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="blocks.html"><a href="blocks.html"><i class="fa fa-check"></i><b>6</b> Blocks</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="blocks.html"><a href="blocks.html#equations"><i class="fa fa-check"></i><b>6.1</b> Equations</a></li>
+<li class="chapter" data-level="6.2" data-path="blocks.html"><a href="blocks.html#theorems-and-proofs"><i class="fa fa-check"></i><b>6.2</b> Theorems and proofs</a></li>
+<li class="chapter" data-level="6.3" data-path="blocks.html"><a href="blocks.html#callout-blocks"><i class="fa fa-check"></i><b>6.3</b> Callout blocks</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="sharing-your-book.html"><a href="sharing-your-book.html"><i class="fa fa-check"></i><b>7</b> Sharing your book</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="sharing-your-book.html"><a href="sharing-your-book.html#publishing"><i class="fa fa-check"></i><b>7.1</b> Publishing</a></li>
+<li class="chapter" data-level="7.2" data-path="sharing-your-book.html"><a href="sharing-your-book.html#pages"><i class="fa fa-check"></i><b>7.2</b> 404 pages</a></li>
+<li class="chapter" data-level="7.3" data-path="sharing-your-book.html"><a href="sharing-your-book.html#metadata-for-sharing"><i class="fa fa-check"></i><b>7.3</b> Metadata for sharing</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Technical Guide for Estimating Rooftop Solar Potential in a City</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="introduction" class="section level1 unnumbered">
+<h1>Introduction</h1>
+<p><img src="pic_tg.png" width="80%" style="display: block; margin: auto;" />
+In 1990, cities accounted for 45% of global final energy use, but by the end of 2020 this share had risen to approximately 75% and cities release a similar share of global energy-related CO₂ emissions. Today, most of the world’s energy supply is generated from fossil fuels, coal, oil, and natural gas. Fossil fuels are non-renewable sources of energy, and their use has a negative impact on the world’s economy, ecology, and climate [1]. Therefore, the use and need of renewable energy resources such as solar energy, is increasing and becoming more possible due to the rapid development of relevant technologies and scientific knowledge [2][3][4][5][6].</p>
+<p><strong>This guide introduces a step by step approach to map rooftop solar potential in a city.</strong>
+The guide is intended for the use of city planners, infrastructure managers and city data analysts. With the outputs of this guide, decision makers can make informed decisions to advance the implementation of sustainable and renewable energy solutions in their city.</p>
+<div id="motivation-behind-the-guide-1" class="section level2 unnumbered">
+<h2>Motivation behind the guide</h2>
+<p><img src="iclei_100re.png" width="50%" style="display: block; margin: auto;" /></p>
+<p><strong>ICLEI - Local Governments for Sustainability</strong> works with cities and local governments to:</p>
+<ul>
+<li>Provide guidance on how to define a 100% renewable energy roadmap, by making available methodologies, tools and other resources</li>
+<li>Model and assess local renewable energy potential for developing renewable energy and energy efficiency projects</li>
+</ul>
+<p><strong>Information and data</strong> are key factors in enabling better decision making for implementing renewable energies in cities. <a href="https://www.usgs.gov/faqs/what-a-geographic-information-system-gis?qt-news_science_products=0#qt-news_science_products">Geographic information systems (GIS)</a> within urban energy analysis and planning allows for the capture, storage, and display of detailed information [4]. GIS has proven its effectiveness in assessing renewable energy generation potential and understanding the spatial dimensions of energy consumption within a city [4]. Moreover, there is a growing distribution of <strong>open geographical data and open-source geospatial software</strong> [7]. Open standards are a central element to increase interoperability, reducing costs of data and software tools, and creating equal opportunities for cities worldwide to address geospatial phenomena [7].</p>
+<p>Not all cities are aware of the robust open geographical data and open-source geospatial software, hence, this technical guide can support a successful estimation of solar rooftop potential in city buildings, and enable reproducibility for other cities.</p>
+</div>
+<div id="structure-of-the-guide-1" class="section level2 unnumbered">
+<h2>Structure of the guide</h2>
+<p>Chapter <a href="#open-source-software-and-data"><strong>??</strong></a> introduces the concept of open source, and explains which software and data is needed to use this guide. Chapter <a href="#mapping-electricity-consumption"><strong>??</strong></a> and <a href="#solar-radiation-and-renewable-electricity-calculation"><strong>??</strong></a> describe the main steps for mapping building electricity consumption and calculating the renewable electricity potential of each rooftop. Both chapters provide a thorough explanation on how to use the available software and data. Chapter <a href="#renewable-electricity-estimation-for-the-whole-city"><strong>??</strong></a> introduces to the user what is sampling and demonstrates and compares between two different sampling methods to estimate the renewable electricity potential for the whole city. Chapter <a href="#appendix"><strong>??</strong></a> includes the final outputs after completing this guide.</p>
+</div>
+<div id="guide-outputs-1" class="section level2 unnumbered">
+<h2>Guide outputs</h2>
+<table>
+<colgroup>
+<col width="100%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>The following table describes the outputs after completing this guide:</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1. Annual map and analysis of government operated buildings electricity consumption</td>
+</tr>
+<tr class="even">
+<td>2. Annual map and analysis of solar radiation of government operated building rooftops</td>
+</tr>
+<tr class="odd">
+<td>3. Annual map of renewable electricity production potential for government operated buildings</td>
+</tr>
+<tr class="even">
+<td>4. A number and range of estimation for the solar based renewable electricity rooftop potential of the whole city</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="acknowledgments-1" class="section level2 unnumbered">
+<h2>Acknowledgments</h2>
+<p>I would like to especially thank Mr. Cesar Carreño and Prof. Dr. Edzer Pebesma that supervised, supported, encouraged, and gave guidance while creating and writing this technical guide.</p>
+<p>Thank you to Laura Noriega for connecting me with the ICLEI SAMS and Argentina teams - Felipe Gaudereto, Thiago Borges David, Victoria Colombo, Sofía Font, Carolina Mesa, Marco A. Massacesi, and Raisa Soares. This connection enabled collaborative meetings with city representatives from Rosario and La Plata for the purpose of data collection, and feedback which will assist in the future cities worldwide to implement renewable energy targets.</p>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="hello-bookdown.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="cross.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/Einavg7/Solar_Potential_Technical_Guide01-preface.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["_main.pdf", "_main.epub"],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>

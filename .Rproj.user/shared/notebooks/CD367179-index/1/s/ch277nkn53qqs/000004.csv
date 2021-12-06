@@ -1,0 +1,19 @@
+"0","#change to 0 above and equal 30 sqm"
+"0","sample1$elec_prod[sample1$area <= 30] <- 0"
+"0","#create mega watt per hour (mWh) column"
+"0","sample1$elec_prod_mwh <- sample1$elec_prod/1000"
+"0",""
+"0","head(sample1)"
+"1","Simple feature collection with 6 features and 6 fields"
+"1","
+"
+"1","Geometry type: POLYGON
+"
+"1","Dimension:     XY
+"
+"1","Bounding box:  "
+"1","xmin: -6480273 ymin: -4138361 xmax: -6455331 ymax: -4118445"
+"1","
+"
+"1","CRS:           +proj=merc +lon_0=0 +k=1 +x_0=0 +y_0=0 +ellps=WGS84 +datum=WGS84 +units=m +no_defs
+"

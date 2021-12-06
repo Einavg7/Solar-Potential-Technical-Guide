@@ -1,0 +1,563 @@
+{
+    "sources": [
+        {
+            "URL": "http://yihui.org/knitr/",
+            "author": [
+                {
+                    "family": "Xie",
+                    "given": "Yihui"
+                }
+            ],
+            "edition": "2nd",
+            "id": "xie2015",
+            "issued": {
+                "date-parts": [
+                    [
+                        2015
+                    ]
+                ]
+            },
+            "note": "ISBN 978-1498716963",
+            "publisher": "Chapman; Hall/CRC",
+            "publisher-place": "Boca Raton, Florida",
+            "title": "Dynamic documents with R and knitr",
+            "type": "book"
+        },
+        {
+            "abstract": "A GIS Decision Support System has been developed for the evaluation of Renewable Energy Sources potential and the financial analysis of RE investments. A GIS database with data on wind, topography, urban areas, and special activities has been developed and used for the evaluation of theoretical potential through the spatially continuous mapping of Renewable Energy Resources. The available and technological potential are evaluated by the application of availability and technological restrictions. The evaluation of economical potential is performed by a precise estimation of the expected energy output and installation cost. The financial analysis based on the Internal Rate of Return, identifies the financial viability of alternative investments. The evaluation of wind energy potential for the island of Crete, Greece and the financial analysis of a wind park installation are presented as a case study.",
+            "author": [
+                {
+                    "family": "Voivontas",
+                    "given": "D"
+                },
+                {
+                    "family": "Assimacopoulos",
+                    "given": "D"
+                },
+                {
+                    "family": "Mourelatos",
+                    "given": "A"
+                },
+                {
+                    "family": "Corominas",
+                    "given": "J"
+                }
+            ],
+            "container-title": "Renew. Energy",
+            "id": "Voivontas1998-gy",
+            "issue": "3",
+            "issued": {
+                "date-parts": [
+                    [
+                        1998,
+                        3
+                    ]
+                ]
+            },
+            "page": "333-344",
+            "publisher": "Elsevier BV",
+            "title": "Evaluation of renewable energy potential using a GIS decision support system",
+            "type": "article-journal",
+            "volume": "13"
+        },
+        {
+            "abstract": "Renewable energy is clean sources and has a much lower environmental impact than other energy sources. In Turkey, solar energy investments have been developed rapidly in recent years. Site selection for solar farms is a critical issue for large investments because of quality of terrain, local weathering factors, proximity to high transmission capacity lines, agricultural facilities and environmental conservation issues. Multi criteria evaluation methods are often used for different site selection studies. The purpose of this study was to determine suitable site selection for solar farms by using GIS and AHP in the study area. The final index model was grouped into four categories as “low suitable”, “moderate”, “suitable” and “best suitable” with an equal interval classification method. As a result, 15.38% (928.18 km2) of the study area has low suitable, 14.38% (867.83 km2) has moderate suitable, 15.98% (964.39 km2) has suitable and 13.92% (840.07 km2) has best suitable for solar farms area. 40.34% (2434.52 km2) of the study area is not suitable for solar farm areas.",
+            "author": [
+                {
+                    "family": "Uyan",
+                    "given": "Mevlut"
+                }
+            ],
+            "container-title": "Renew. Sustain. Energy Rev.",
+            "id": "Uyan2013-xl",
+            "issued": {
+                "date-parts": [
+                    [
+                        2013,
+                        12
+                    ]
+                ]
+            },
+            "page": "11-17",
+            "publisher": "Elsevier BV",
+            "title": "GIS-based solar farms site selection using analytic hierarchy process (AHP) in karapinar region, Konya/Turkey",
+            "type": "article-journal",
+            "volume": "28"
+        },
+        {
+            "author": [
+                {
+                    "family": "Li",
+                    "given": "Chaosu"
+                }
+            ],
+            "container-title": "Comprehensive geographic information systems",
+            "id": "Li2018-cg",
+            "issued": {
+                "date-parts": [
+                    [
+                        2018
+                    ]
+                ]
+            },
+            "page": "187-195",
+            "publisher": "Elsevier",
+            "title": "GIS for urban energy analysis",
+            "type": "chapter"
+        },
+        {
+            "author": [
+                {
+                    "family": "Calvert",
+                    "given": "K"
+                },
+                {
+                    "family": "Pearce",
+                    "given": "J M"
+                },
+                {
+                    "family": "Mabee",
+                    "given": "W E"
+                }
+            ],
+            "container-title": "Renew. Sustain. Energy Rev.",
+            "id": "Calvert2013-gg",
+            "issued": {
+                "date-parts": [
+                    [
+                        2013,
+                        2
+                    ]
+                ]
+            },
+            "page": "416-429",
+            "publisher": "Elsevier BV",
+            "title": "Toward renewable energy geo-information infrastructures: Applications of GIScience and remote sensing that build institutional capacity",
+            "title-short": "Toward renewable energy geo-information infrastructures",
+            "type": "article-journal",
+            "volume": "18"
+        },
+        {
+            "author": [
+                {
+                    "family": "Resch",
+                    "given": "Bernd"
+                },
+                {
+                    "family": "Sagl",
+                    "given": "Günther"
+                },
+                {
+                    "family": "Törnros",
+                    "given": "Tobias"
+                },
+                {
+                    "family": "Bachmaier",
+                    "given": "Andreas"
+                },
+                {
+                    "family": "Eggers",
+                    "given": "Jan-Bleicke"
+                },
+                {
+                    "family": "Herkel",
+                    "given": "Sebastian"
+                },
+                {
+                    "family": "Narmsara",
+                    "given": "Sattaya"
+                },
+                {
+                    "family": "Gündra",
+                    "given": "Hartmut"
+                }
+            ],
+            "container-title": "ISPRS Int. J. Geoinf.",
+            "id": "Resch2014-kb",
+            "issue": "2",
+            "issued": {
+                "date-parts": [
+                    [
+                        2014,
+                        5
+                    ]
+                ]
+            },
+            "page": "662-692",
+            "publisher": "MDPI AG",
+            "title": "GIS-based planning and modeling for renewable energy: Challenges and future research avenues",
+            "title-short": "GIS-based planning and modeling for renewable energy",
+            "type": "article-journal",
+            "volume": "3"
+        },
+        {
+            "abstract": "All over the world, organizations are increasingly considering the adoption of open source software and open data. In the geospatial domain, this is no different, and the last few decades have seen significant advances in this regard. We review the current state of open source geospatial software, focusing on the Open Source Geospatial Foundation (OSGeo) software ecosystem and its communities, as well as three kinds of open geospatial data (collaboratively contributed, authoritative and scientific). The current state confirms that openness has changed the way in which geospatial data are collected, processed, analyzed, and visualized. A perspective on future developments, informed by responses from professionals in key organizations in the global geospatial community, suggests that open source geospatial software and open geospatial data are likely to have an even more profound impact in the future.",
+            "author": [
+                {
+                    "family": "Coetzee",
+                    "given": "Serena"
+                },
+                {
+                    "family": "Ivánová",
+                    "given": "Ivana"
+                },
+                {
+                    "family": "Mitasova",
+                    "given": "Helena"
+                },
+                {
+                    "family": "Brovelli",
+                    "given": "Maria"
+                }
+            ],
+            "container-title": "ISPRS Int. J. Geoinf.",
+            "id": "Coetzee2020-yb",
+            "issue": "2",
+            "issued": {
+                "date-parts": [
+                    [
+                        2020,
+                        2
+                    ]
+                ]
+            },
+            "page": "90",
+            "publisher": "MDPI AG",
+            "title": "Open geospatial software and data: A review of the current state and a perspective into the future",
+            "title-short": "Open geospatial software and data",
+            "type": "article-journal",
+            "volume": "9"
+        },
+        {
+            "abstract": "The Open Definition - Open Definition - Defining Open in Open Data, Open Content and Open Knowledge",
+            "author": [
+                {
+                    "literal": "Open Knowledge Open Definition Group"
+                }
+            ],
+            "id": "Open_Knowledge_Open_Definition_Group_undated-nz",
+            "note": "Accessed: 2021-10-8",
+            "publisher": "http://opendefinition.org/",
+            "title": "Open definition",
+            "type": ""
+        },
+        {
+            "abstract": "Sorry, but you do not have permission to view this content.",
+            "id": "noauthor_2016-vm",
+            "issued": {
+                "date-parts": [
+                    [
+                        2016,
+                        2
+                    ]
+                ]
+            },
+            "note": "Accessed: 2021-10-8",
+            "publisher": "https://www.osgeo.org/",
+            "title": "Homepage - OSGeo",
+            "type": ""
+        },
+        {
+            "abstract": "OpenStreetMap is a map of the world, created by people like you and free to use under an open license.",
+            "id": "noauthor_undated-kq",
+            "note": "Accessed: 2021-10-8",
+            "publisher": "https://www.openstreetmap.org/",
+            "title": "OpenStreetMap",
+            "type": ""
+        },
+        {
+            "author": [
+                {
+                    "family": "Shekhar",
+                    "given": "Shashi"
+                },
+                {
+                    "family": "Xiong",
+                    "given": "Hui"
+                }
+            ],
+            "container-title": "Encyclopedia of GIS",
+            "id": "Shekhar2008-ud",
+            "issued": {
+                "date-parts": [
+                    [
+                        2008
+                    ]
+                ]
+            },
+            "page": "931-931",
+            "publisher": "Springer US",
+            "publisher-place": "Boston, MA",
+            "title": "QGIS",
+            "type": "chapter"
+        },
+        {
+            "URL": "https://www.R-project.org/",
+            "author": [
+                {
+                    "literal": "R Core Team"
+                }
+            ],
+            "id": "R-base",
+            "issued": {
+                "date-parts": [
+                    [
+                        2020
+                    ]
+                ]
+            },
+            "publisher": "R Foundation for Statistical Computing",
+            "publisher-place": "Vienna, Austria",
+            "title": "R: A language and environment for statistical computing",
+            "title-short": "R",
+            "type": "book"
+        },
+        {
+            "URL": "https://CRAN.R-project.org/package=bookdown",
+            "author": [
+                {
+                    "family": "Xie",
+                    "given": "Yihui"
+                }
+            ],
+            "id": "R-bookdown",
+            "issued": {
+                "date-parts": [
+                    [
+                        2021
+                    ]
+                ]
+            },
+            "note": "R package version 0.24",
+            "title": "Bookdown: Authoring books and technical documents with r markdown",
+            "title-short": "Bookdown",
+            "type": "book"
+        },
+        {
+            "URL": "https://yihui.org/knitr/",
+            "author": [
+                {
+                    "family": "Xie",
+                    "given": "Yihui"
+                }
+            ],
+            "id": "R-knitr",
+            "issued": {
+                "date-parts": [
+                    [
+                        2021
+                    ]
+                ]
+            },
+            "note": "R package version 1.36",
+            "title": "Knitr: A general-purpose package for dynamic report generation in r",
+            "title-short": "Knitr",
+            "type": "book"
+        },
+        {
+            "URL": "https://CRAN.R-project.org/package=rmarkdown",
+            "author": [
+                {
+                    "family": "Allaire",
+                    "given": "JJ"
+                },
+                {
+                    "family": "Xie",
+                    "given": "Yihui"
+                },
+                {
+                    "family": "McPherson",
+                    "given": "Jonathan"
+                },
+                {
+                    "family": "Luraschi",
+                    "given": "Javier"
+                },
+                {
+                    "family": "Ushey",
+                    "given": "Kevin"
+                },
+                {
+                    "family": "Atkins",
+                    "given": "Aron"
+                },
+                {
+                    "family": "Wickham",
+                    "given": "Hadley"
+                },
+                {
+                    "family": "Cheng",
+                    "given": "Joe"
+                },
+                {
+                    "family": "Chang",
+                    "given": "Winston"
+                },
+                {
+                    "family": "Iannone",
+                    "given": "Richard"
+                }
+            ],
+            "id": "R-rmarkdown",
+            "issued": {
+                "date-parts": [
+                    [
+                        2021
+                    ]
+                ]
+            },
+            "note": "R package version 2.11",
+            "title": "Rmarkdown: Dynamic documents for r",
+            "title-short": "Rmarkdown",
+            "type": "book"
+        },
+        {
+            "URL": "https://bookdown.org/yihui/bookdown",
+            "author": [
+                {
+                    "family": "Xie",
+                    "given": "Yihui"
+                }
+            ],
+            "id": "bookdown2016",
+            "issued": {
+                "date-parts": [
+                    [
+                        2016
+                    ]
+                ]
+            },
+            "note": "ISBN 978-1138700109",
+            "publisher": "Chapman; Hall/CRC",
+            "publisher-place": "Boca Raton, Florida",
+            "title": "Bookdown: Authoring books and technical documents with R markdown",
+            "title-short": "Bookdown",
+            "type": "book"
+        },
+        {
+            "URL": "https://yihui.org/knitr/",
+            "author": [
+                {
+                    "family": "Xie",
+                    "given": "Yihui"
+                }
+            ],
+            "edition": "2nd",
+            "id": "knitr2015",
+            "issued": {
+                "date-parts": [
+                    [
+                        2015
+                    ]
+                ]
+            },
+            "note": "ISBN 978-1498716963",
+            "publisher": "Chapman; Hall/CRC",
+            "publisher-place": "Boca Raton, Florida",
+            "title": "Dynamic documents with R and knitr",
+            "type": "book"
+        },
+        {
+            "URL": "http://www.crcpress.com/product/isbn/9781466561595",
+            "author": [
+                {
+                    "family": "Xie",
+                    "given": "Yihui"
+                }
+            ],
+            "container-title": "Implementing reproducible computational research",
+            "editor": [
+                {
+                    "family": "Stodden",
+                    "given": "Victoria"
+                },
+                {
+                    "family": "Leisch",
+                    "given": "Friedrich"
+                },
+                {
+                    "family": "Peng",
+                    "given": "Roger D."
+                }
+            ],
+            "id": "knitr2014",
+            "issued": {
+                "date-parts": [
+                    [
+                        2014
+                    ]
+                ]
+            },
+            "note": "ISBN 978-1466561595",
+            "publisher": "Chapman; Hall/CRC",
+            "title": "Knitr: A comprehensive tool for reproducible research in R",
+            "title-short": "Knitr",
+            "type": "chapter"
+        },
+        {
+            "URL": "https://bookdown.org/yihui/rmarkdown",
+            "author": [
+                {
+                    "family": "Xie",
+                    "given": "Yihui"
+                },
+                {
+                    "family": "Allaire",
+                    "given": "J. J."
+                },
+                {
+                    "family": "Grolemund",
+                    "given": "Garrett"
+                }
+            ],
+            "id": "rmarkdown2018",
+            "issued": {
+                "date-parts": [
+                    [
+                        2018
+                    ]
+                ]
+            },
+            "note": "ISBN 9781138359338",
+            "publisher": "Chapman; Hall/CRC",
+            "publisher-place": "Boca Raton, Florida",
+            "title": "R markdown: The definitive guide",
+            "title-short": "R markdown",
+            "type": "book"
+        },
+        {
+            "URL": "https://bookdown.org/yihui/rmarkdown-cookbook",
+            "author": [
+                {
+                    "family": "Xie",
+                    "given": "Yihui"
+                },
+                {
+                    "family": "Dervieux",
+                    "given": "Christophe"
+                },
+                {
+                    "family": "Riederer",
+                    "given": "Emily"
+                }
+            ],
+            "id": "rmarkdown2020",
+            "issued": {
+                "date-parts": [
+                    [
+                        2020
+                    ]
+                ]
+            },
+            "note": "ISBN 9780367563837",
+            "publisher": "Chapman; Hall/CRC",
+            "publisher-place": "Boca Raton, Florida",
+            "title": "R markdown cookbook",
+            "type": "book"
+        }
+    ],
+    "project_biblios": [
+        "book.bib",
+        "packages.bib"
+    ]
+}
