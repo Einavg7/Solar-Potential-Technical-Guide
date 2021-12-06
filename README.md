@@ -1,13 +1,9 @@
-Welcome! 
+## Technical Guide for Estimating Rooftop Solar Potential in a City
 
-This is a minimal example of a book based on R Markdown and **bookdown** (https://github.com/rstudio/bookdown). 
+This guide introduces a step by step approach to map building rooftop solar potential in a city.  
+The guide is intended for the use of city planners, infrastructure managers, and city data analysts. With the outputs of this guide, decision makers can make informed decisions to advance the implementation of sustainable and renewable energy solutions in their city.
 
-This template provides a skeleton file structure that you can edit to create your book. 
+The guide was created using [R Bookdown](https://bookdown.org/home/), and is hosted with [RStudio Connect](https://docs.rstudio.com/connect/user/).
 
-The contents inside the .Rmd files provide some pointers to help you get started, but feel free to also delete the content in each file and start fresh.
+The **Technical Guide**: https://www.bookdown.org/einavg7/sp_technical_guide/
 
-Additional resources:
-
-The **bookdown** book: https://bookdown.org/yihui/bookdown/
-
-The **bookdown** package reference site: https://pkgs.rstudio.com/bookdown
