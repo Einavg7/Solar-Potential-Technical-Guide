@@ -1,5 +1,5 @@
 --- 
-title: "Technical Guide for Estimating Rooftop Solar Potential in a City"
+title: "Technical Guide for Estimating Building Rooftop Solar Potential in a City"
 author: "Einav Grinberg"
 date: "`r Sys.Date()`"
 site: bookdown::bookdown_site
