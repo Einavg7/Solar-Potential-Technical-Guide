@@ -10,7 +10,7 @@ url: https://bookdown.org/einavg7/sp_technical_guide/
 description: |
   A technical guide for mapping rooftop solar potential in a city using open source data and software.
 link-citations: yes
-github-repo: Einavg7/Solar_Potential_Guide
+github-repo: Einavg7/Solar-Potential-Technical-Guide
 ---
 ```{r include=FALSE}
 # automatically create a bib database for R packages
