@@ -1,16 +1,18 @@
 --- 
-title: "Technical Guide for Estimating Rooftop Solar Potential in a City"
+title: "Technical Guide for Estimating Building Rooftop Solar Potential in a City"
 author: "Einav Grinberg"
 date: "`r Sys.Date()`"
-site: bookdown::bookdown_site
+output: pdf_document
 documentclass: book
-bibliography: [book.bib, packages.bib]
+bibliography:
+- book.bib
+- packages.bib
 url: https://bookdown.org/einavg7/sp_technical_guide/
-# cover-image: path to the social sharing image like images/cover.jpg
 description: |
   A technical guide for mapping rooftop solar potential in a city using open source data and software.
 link-citations: yes
-github-repo: Einavg7/Solar_Potential_Guide
+github-repo: Einavg7/Solar-Potential-Technical-Guide
+site: bookdown::bookdown_site
 ---
 ```{r include=FALSE}
 # automatically create a bib database for R packages
@@ -745,7 +747,7 @@ The following equation calculates the unbiased variance of the estimator $\overl
 * $n$ is the sample size -> 100. 
 * $s^2$ is the sample variance. 
 
-The following equation calculates the estimated standard error of the estimator $\overline{y}$: 
+The following equation calculates the estimated standard error of the estimator $\overline{y}$ (SEM): 
 
 \begin{equation} 
   SEM = \sqrt{\hat{var}(\overline{y})} (\#eq:se)
@@ -770,9 +772,9 @@ The following equation calculates the unbiased variance of the estimator $\hat{t
   \hat{var}(\hat{t})= N^2\hat{var}(\overline{y}) (\#eq:tv)
 \end{equation} 
 
-The following equation calculates the estimated standard error of the estimator $\hat{t}$: 
+The following equation calculates the estimated standard error of the estimator $\hat{t}$ (SET): 
 \begin{equation} 
-  SEM = \sqrt{\hat{var}(\hat{t})} (\#eq:set)
+  SET = \sqrt{\hat{var}(\hat{t})} (\#eq:set)
 \end{equation} 
 
 ```{r total, warning=FALSE}
@@ -863,6 +865,11 @@ For all the buildings extracted from OSM in the administrative borders of La Pla
 
 When estimating renewable electricity potential for the whole city of La Plata, the sampling design that had the best estimate was samples 1 and 2 combined with a total of 400 digitized building rooftops, the largest sample collected. The sample estimated a total of 185,069.23 $mWh$ renewable electricity production potential with a standard error of 36,207.84 $mWh$, and a 95% confidence interval of 125,374.03 $mWh$, 244,764.4 $mWh$ for La Plata’s 2,482 buildings. Accordingly, there is a 95% probability that the total renewable electricity production potential for La Plata is between 125,374.03 to 244,764.4 $mWh$. Though, the allocated stratified sample with 100 digitized building rooftops presented less variation ($s^2$=25,362.42 $mWh$) and produced the second-best estimate compared to the other samples collected. This sample estimated a total of 72,761.47 $mWh$ renewable electricity production potential with a standard error of 38,722.83 $mWh$, and a 95% confidence interval of 8,466.42 $mWh$, 137,056.5 $mWh$ for La Plata’s 2,482 buildings. 
 
+#### Limitations {-}
+
+The main limitations of this guide are related to the use of only open-source data. A particular issue when dealing with building data in OSM is the fact that there is no information about the building’s mapping procedure. Mostly, buildings are mapped in OSM by tracing their footprint using aerial imagery to define areas covering the shape of the building. But it can be difficult to distinguish the footprint of the building from its shadow and its roof shape, as satellite imagery is usually taken from a certain angle. Additionally, the GHI layer considers the solar radiation on a horizontal surface on Earth, although a rooftop is not necessarily horizontal and can be positioned diagonally. Furthermore, the spatial resolution of the layer is ~250 m, this might affect the accuracy of the results while buildings’ rooftops may have smaller areas. A solution in future work to these issues would be to estimate an Effective Photovoltaic-Available Roof Area (PVA) for the building rooftops as suggested by [Singh and Banerjee](https://doi.org/10.1016/j.solener.2015.03.016). Another limitation concerning open-source data is the use of the QMS plugin tile map services imagery which has a global 1 m resolution. However, specifically for Argentina the plugin does not have the highest resolution, hence shade effects, trees, or other obstacles on the building rooftop cannot be avoided. Therefore, the digitization of building rooftops for spatial sampling is prone to errors. In future work, additional earth imagery can be evaluated such as Google Earth, to have a clearer point of view for existing obstacles while digitizing the sample of building rooftops. This leads to a supplementary limitation regarding sampling collection. A better and more accurate estimate would be possible if additional time was available to collect more samples and compare between them, especially using stratification for built-up and non-built-up area. 
+
+
 The following sections present the **outputs** of the guide. The outputs can be divided to web maps and sampling analysis results.   
 
 #### Web Maps: {-}
@@ -904,3 +911,4 @@ To access the data, QGIS projects, RStudio code, and all other resources used wh
 sampling. Spatial Statistics (2012), doi:10.1016/j.spasta.2012.08.001
 15. Delmelle, E. (2012). Spatial Sampling. The SAGE Handbook Of Spatial Analysis, 182-206. doi: 10.4135/9780857020130.n10
 16. Israel, G.D. (1992) Determining Sample Size. University of Florida Cooperative Extension Service, Institute of Food and Agriculture Sciences, EDIS, Florida. 
+

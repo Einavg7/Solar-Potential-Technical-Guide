@@ -4,19 +4,19 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>4.3 Spatial stratified sampling with QGIS | Technical Guide for Estimating Rooftop Solar Potential in a City</title>
+  <title>4.3 Spatial stratified sampling with QGIS | Technical Guide for Estimating Building Rooftop Solar Potential in a City</title>
   <meta name="description" content="A technical guide for mapping rooftop solar potential in a city using open source data and software." />
   <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="4.3 Spatial stratified sampling with QGIS | Technical Guide for Estimating Rooftop Solar Potential in a City" />
+  <meta property="og:title" content="4.3 Spatial stratified sampling with QGIS | Technical Guide for Estimating Building Rooftop Solar Potential in a City" />
   <meta property="og:type" content="book" />
   <meta property="og:url" content="https://bookdown.org/einavg7/sp_technical_guide/" />
   
   <meta property="og:description" content="A technical guide for mapping rooftop solar potential in a city using open source data and software." />
-  <meta name="github-repo" content="Einavg7/Solar_Potential_Guide" />
+  <meta name="github-repo" content="Einavg7/Solar-Potential-Technical-Guide" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="4.3 Spatial stratified sampling with QGIS | Technical Guide for Estimating Rooftop Solar Potential in a City" />
+  <meta name="twitter:title" content="4.3 Spatial stratified sampling with QGIS | Technical Guide for Estimating Building Rooftop Solar Potential in a City" />
   
   <meta name="twitter:description" content="A technical guide for mapping rooftop solar potential in a city using open source data and software." />
   
@@ -24,7 +24,7 @@
 <meta name="author" content="Einav Grinberg" />
 
 
-<meta name="date" content="2021-12-01" />
+<meta name="date" content="2022-03-11" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -33,7 +33,7 @@
   
 <link rel="prev" href="spatial-random-sampling-with-qgis.html"/>
 <link rel="next" href="rstudio-calculations.html"/>
-<script src="libs/header-attrs-2.11/header-attrs.js"></script>
+<script src="libs/header-attrs-2.13/header-attrs.js"></script>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -51,8 +51,9 @@
 
 
 
-<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
-<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 <script src="libs/htmlwidgets-1.5.4/htmlwidgets.js"></script>
 <link href="libs/leaflet-1.3.1/leaflet.css" rel="stylesheet" />
 <script src="libs/leaflet-1.3.1/leaflet.js"></script>
@@ -60,9 +61,9 @@
 <script src="libs/proj4-2.6.2/proj4.min.js"></script>
 <script src="libs/Proj4Leaflet-1.0.1/proj4leaflet.js"></script>
 <link href="libs/rstudio_leaflet-1.3.1/rstudio_leaflet.css" rel="stylesheet" />
-<script src="libs/leaflet-binding-2.0.4.1/leaflet.js"></script>
+<script src="libs/leaflet-binding-2.1.0/leaflet.js"></script>
 <script src="libs/leaflet-providers-1.9.0/leaflet-providers_1.9.0.js"></script>
-<script src="libs/leaflet-providers-plugin-2.0.4.1/leaflet-providers-plugin.js"></script>
+<script src="libs/leaflet-providers-plugin-2.1.0/leaflet-providers-plugin.js"></script>
 <link href="libs/HomeButton-0.0.1/home-button.css" rel="stylesheet" />
 <script src="libs/HomeButton-0.0.1/home-button.js"></script>
 <script src="libs/HomeButton-0.0.1/easy-button-src.min.js"></script>
@@ -153,68 +154,68 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><a href="./">Technical Guide</a></li>
 
 <li class="divider"></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Introduction</a>
+<li><a href="index.html#introduction">Introduction<span></span></a>
 <ul>
-<li class="chapter" data-level="" data-path="motivation-behind-the-guide.html"><a href="motivation-behind-the-guide.html"><i class="fa fa-check"></i>Motivation behind the guide</a></li>
-<li class="chapter" data-level="" data-path="structure-of-the-guide.html"><a href="structure-of-the-guide.html"><i class="fa fa-check"></i>Structure of the guide</a></li>
-<li class="chapter" data-level="" data-path="guide-outputs.html"><a href="guide-outputs.html"><i class="fa fa-check"></i>Guide outputs</a></li>
-<li class="chapter" data-level="" data-path="acknowledgments.html"><a href="acknowledgments.html"><i class="fa fa-check"></i>Acknowledgments</a></li>
+<li><a href="motivation-behind-the-guide.html#motivation-behind-the-guide">Motivation behind the guide<span></span></a></li>
+<li><a href="structure-of-the-guide.html#structure-of-the-guide">Structure of the guide<span></span></a></li>
+<li><a href="guide-outputs.html#guide-outputs">Guide outputs<span></span></a></li>
+<li><a href="acknowledgments.html#acknowledgments">Acknowledgments<span></span></a></li>
 </ul></li>
-<li class="chapter" data-level="1" data-path="open-source-software-and-data.html"><a href="open-source-software-and-data.html"><i class="fa fa-check"></i><b>1</b> Open source software and data</a>
+<li class="chapter" data-level="1" data-path="open-source-software-and-data.html"><a href="open-source-software-and-data.html"><i class="fa fa-check"></i><b>1</b> Open source software and data<span></span></a>
 <ul>
-<li class="chapter" data-level="1.1" data-path="qgis.html"><a href="qgis.html"><i class="fa fa-check"></i><b>1.1</b> QGIS</a></li>
-<li class="chapter" data-level="1.2" data-path="quickmapservices-qms.html"><a href="quickmapservices-qms.html"><i class="fa fa-check"></i><b>1.2</b> QuickMapServices (QMS)</a></li>
-<li class="chapter" data-level="1.3" data-path="rstudio.html"><a href="rstudio.html"><i class="fa fa-check"></i><b>1.3</b> RStudio</a></li>
-<li class="chapter" data-level="1.4" data-path="open-street-map-osm.html"><a href="open-street-map-osm.html"><i class="fa fa-check"></i><b>1.4</b> Open Street Map (OSM)</a></li>
-<li class="chapter" data-level="1.5" data-path="global-solar-atlas.html"><a href="global-solar-atlas.html"><i class="fa fa-check"></i><b>1.5</b> Global Solar Atlas</a></li>
+<li class="chapter" data-level="1.1" data-path="qgis.html"><a href="qgis.html"><i class="fa fa-check"></i><b>1.1</b> QGIS<span></span></a></li>
+<li class="chapter" data-level="1.2" data-path="quickmapservices-qms.html"><a href="quickmapservices-qms.html"><i class="fa fa-check"></i><b>1.2</b> QuickMapServices (QMS)<span></span></a></li>
+<li class="chapter" data-level="1.3" data-path="rstudio.html"><a href="rstudio.html"><i class="fa fa-check"></i><b>1.3</b> RStudio<span></span></a></li>
+<li class="chapter" data-level="1.4" data-path="open-street-map-osm.html"><a href="open-street-map-osm.html"><i class="fa fa-check"></i><b>1.4</b> Open Street Map (OSM)<span></span></a></li>
+<li class="chapter" data-level="1.5" data-path="global-solar-atlas.html"><a href="global-solar-atlas.html"><i class="fa fa-check"></i><b>1.5</b> Global Solar Atlas<span></span></a></li>
 </ul></li>
-<li class="chapter" data-level="2" data-path="mapping-electricity-consumption.html"><a href="mapping-electricity-consumption.html"><i class="fa fa-check"></i><b>2</b> Mapping electricity consumption</a>
+<li class="chapter" data-level="2" data-path="mapping-electricity-consumption.html"><a href="mapping-electricity-consumption.html"><i class="fa fa-check"></i><b>2</b> Mapping electricity consumption<span></span></a>
 <ul>
-<li class="chapter" data-level="2.1" data-path="adding-table-data-to-qgis.html"><a href="adding-table-data-to-qgis.html"><i class="fa fa-check"></i><b>2.1</b> Adding table data to QGIS</a></li>
-<li class="chapter" data-level="2.2" data-path="adding-vector-layers-to-qgis.html"><a href="adding-vector-layers-to-qgis.html"><i class="fa fa-check"></i><b>2.2</b> Adding vector layers to QGIS</a></li>
-<li class="chapter" data-level="2.3" data-path="joining-vector-layers-and-table-data.html"><a href="joining-vector-layers-and-table-data.html"><i class="fa fa-check"></i><b>2.3</b> Joining vector layers and table data</a></li>
-<li class="chapter" data-level="2.4" data-path="consumption-visualizations.html"><a href="consumption-visualizations.html"><i class="fa fa-check"></i><b>2.4</b> Consumption visualizations</a></li>
+<li class="chapter" data-level="2.1" data-path="adding-table-data-to-qgis.html"><a href="adding-table-data-to-qgis.html"><i class="fa fa-check"></i><b>2.1</b> Adding table data to QGIS<span></span></a></li>
+<li class="chapter" data-level="2.2" data-path="adding-vector-layers-to-qgis.html"><a href="adding-vector-layers-to-qgis.html"><i class="fa fa-check"></i><b>2.2</b> Adding vector layers to QGIS<span></span></a></li>
+<li class="chapter" data-level="2.3" data-path="joining-vector-layers-and-table-data.html"><a href="joining-vector-layers-and-table-data.html"><i class="fa fa-check"></i><b>2.3</b> Joining vector layers and table data<span></span></a></li>
+<li class="chapter" data-level="2.4" data-path="consumption-visualizations.html"><a href="consumption-visualizations.html"><i class="fa fa-check"></i><b>2.4</b> Consumption visualizations<span></span></a></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="solar-radiation-and-renewable-electricity-calculation.html"><a href="solar-radiation-and-renewable-electricity-calculation.html"><i class="fa fa-check"></i><b>3</b> Solar radiation and renewable electricity calculation</a>
+<li class="chapter" data-level="3" data-path="solar-radiation-and-renewable-electricity-calculation.html"><a href="solar-radiation-and-renewable-electricity-calculation.html"><i class="fa fa-check"></i><b>3</b> Solar radiation and renewable electricity calculation<span></span></a>
 <ul>
-<li class="chapter" data-level="3.1" data-path="adding-raster-layers-to-qgis.html"><a href="adding-raster-layers-to-qgis.html"><i class="fa fa-check"></i><b>3.1</b> Adding raster layers to QGIS</a></li>
-<li class="chapter" data-level="3.2" data-path="extracting-raster-values-to-vector-layers.html"><a href="extracting-raster-values-to-vector-layers.html"><i class="fa fa-check"></i><b>3.2</b> Extracting raster values to vector layers</a></li>
-<li class="chapter" data-level="3.3" data-path="qgis-field-calculator.html"><a href="qgis-field-calculator.html"><i class="fa fa-check"></i><b>3.3</b> QGIS Field calculator</a>
+<li class="chapter" data-level="3.1" data-path="adding-raster-layers-to-qgis.html"><a href="adding-raster-layers-to-qgis.html"><i class="fa fa-check"></i><b>3.1</b> Adding raster layers to QGIS<span></span></a></li>
+<li class="chapter" data-level="3.2" data-path="extracting-raster-values-to-vector-layers.html"><a href="extracting-raster-values-to-vector-layers.html"><i class="fa fa-check"></i><b>3.2</b> Extracting raster values to vector layers<span></span></a></li>
+<li class="chapter" data-level="3.3" data-path="qgis-field-calculator.html"><a href="qgis-field-calculator.html"><i class="fa fa-check"></i><b>3.3</b> QGIS Field calculator<span></span></a>
 <ul>
-<li class="chapter" data-level="3.3.1" data-path="qgis-field-calculator.html"><a href="qgis-field-calculator.html#building-rooftop-area"><i class="fa fa-check"></i><b>3.3.1</b> Building rooftop area</a></li>
-<li class="chapter" data-level="3.3.2" data-path="qgis-field-calculator.html"><a href="qgis-field-calculator.html#usable-solar-radiation"><i class="fa fa-check"></i><b>3.3.2</b> Usable solar radiation</a></li>
-<li class="chapter" data-level="3.3.3" data-path="qgis-field-calculator.html"><a href="qgis-field-calculator.html#renewable-electricity-production"><i class="fa fa-check"></i><b>3.3.3</b> Renewable electricity production</a></li>
+<li class="chapter" data-level="3.3.1" data-path="qgis-field-calculator.html"><a href="qgis-field-calculator.html#building-rooftop-area"><i class="fa fa-check"></i><b>3.3.1</b> Building rooftop area<span></span></a></li>
+<li class="chapter" data-level="3.3.2" data-path="qgis-field-calculator.html"><a href="qgis-field-calculator.html#usable-solar-radiation"><i class="fa fa-check"></i><b>3.3.2</b> Usable solar radiation<span></span></a></li>
+<li class="chapter" data-level="3.3.3" data-path="qgis-field-calculator.html"><a href="qgis-field-calculator.html#renewable-electricity-production"><i class="fa fa-check"></i><b>3.3.3</b> Renewable electricity production<span></span></a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="renewable-electricity-estimation-for-the-whole-city.html"><a href="renewable-electricity-estimation-for-the-whole-city.html"><i class="fa fa-check"></i><b>4</b> Renewable electricity estimation for the whole city</a>
+<li class="chapter" data-level="4" data-path="renewable-electricity-estimation-for-the-whole-city.html"><a href="renewable-electricity-estimation-for-the-whole-city.html"><i class="fa fa-check"></i><b>4</b> Renewable electricity estimation for the whole city<span></span></a>
 <ul>
-<li class="chapter" data-level="4.1" data-path="what-is-sampling-and-spatial-sampling.html"><a href="what-is-sampling-and-spatial-sampling.html"><i class="fa fa-check"></i><b>4.1</b> What is sampling and spatial sampling?</a>
+<li class="chapter" data-level="4.1" data-path="what-is-sampling-and-spatial-sampling.html"><a href="what-is-sampling-and-spatial-sampling.html"><i class="fa fa-check"></i><b>4.1</b> What is sampling and spatial sampling?<span></span></a>
 <ul>
-<li class="chapter" data-level="4.1.1" data-path="what-is-sampling-and-spatial-sampling.html"><a href="what-is-sampling-and-spatial-sampling.html#selecting-a-sample-size"><i class="fa fa-check"></i><b>4.1.1</b> Selecting a sample size</a></li>
-<li class="chapter" data-level="4.1.2" data-path="what-is-sampling-and-spatial-sampling.html"><a href="what-is-sampling-and-spatial-sampling.html#la-plata-sample-size-calculation"><i class="fa fa-check"></i><b>4.1.2</b> La Plata sample size calculation</a></li>
+<li class="chapter" data-level="4.1.1" data-path="what-is-sampling-and-spatial-sampling.html"><a href="what-is-sampling-and-spatial-sampling.html#selecting-a-sample-size"><i class="fa fa-check"></i><b>4.1.1</b> Selecting a sample size<span></span></a></li>
+<li class="chapter" data-level="4.1.2" data-path="what-is-sampling-and-spatial-sampling.html"><a href="what-is-sampling-and-spatial-sampling.html#la-plata-sample-size-calculation"><i class="fa fa-check"></i><b>4.1.2</b> La Plata sample size calculation<span></span></a></li>
 </ul></li>
-<li class="chapter" data-level="4.2" data-path="spatial-random-sampling-with-qgis.html"><a href="spatial-random-sampling-with-qgis.html"><i class="fa fa-check"></i><b>4.2</b> Spatial random sampling with QGIS</a>
+<li class="chapter" data-level="4.2" data-path="spatial-random-sampling-with-qgis.html"><a href="spatial-random-sampling-with-qgis.html"><i class="fa fa-check"></i><b>4.2</b> Spatial random sampling with QGIS<span></span></a>
 <ul>
-<li class="chapter" data-level="4.2.1" data-path="spatial-random-sampling-with-qgis.html"><a href="spatial-random-sampling-with-qgis.html#the-qms-plugin"><i class="fa fa-check"></i><b>4.2.1</b> The QMS plugin</a></li>
-<li class="chapter" data-level="4.2.2" data-path="spatial-random-sampling-with-qgis.html"><a href="spatial-random-sampling-with-qgis.html#digitizing-a-sample-with-qms"><i class="fa fa-check"></i><b>4.2.2</b> Digitizing a sample with QMS</a></li>
-<li class="chapter" data-level="4.2.3" data-path="spatial-random-sampling-with-qgis.html"><a href="spatial-random-sampling-with-qgis.html#including-the-density-factor"><i class="fa fa-check"></i><b>4.2.3</b> Including the density factor</a></li>
-<li class="chapter" data-level="4.2.4" data-path="spatial-random-sampling-with-qgis.html"><a href="spatial-random-sampling-with-qgis.html#solar-radiation-and-renewable-electricity-calculation-1"><i class="fa fa-check"></i><b>4.2.4</b> Solar radiation and renewable electricity calculation</a></li>
+<li class="chapter" data-level="4.2.1" data-path="spatial-random-sampling-with-qgis.html"><a href="spatial-random-sampling-with-qgis.html#the-qms-plugin"><i class="fa fa-check"></i><b>4.2.1</b> The QMS plugin<span></span></a></li>
+<li class="chapter" data-level="4.2.2" data-path="spatial-random-sampling-with-qgis.html"><a href="spatial-random-sampling-with-qgis.html#digitizing-a-sample-with-qms"><i class="fa fa-check"></i><b>4.2.2</b> Digitizing a sample with QMS<span></span></a></li>
+<li class="chapter" data-level="4.2.3" data-path="spatial-random-sampling-with-qgis.html"><a href="spatial-random-sampling-with-qgis.html#including-the-density-factor"><i class="fa fa-check"></i><b>4.2.3</b> Including the density factor<span></span></a></li>
+<li class="chapter" data-level="4.2.4" data-path="spatial-random-sampling-with-qgis.html"><a href="spatial-random-sampling-with-qgis.html#solar-radiation-and-renewable-electricity-calculation-1"><i class="fa fa-check"></i><b>4.2.4</b> Solar radiation and renewable electricity calculation<span></span></a></li>
 </ul></li>
-<li class="chapter" data-level="4.3" data-path="spatial-stratified-sampling-with-qgis.html"><a href="spatial-stratified-sampling-with-qgis.html"><i class="fa fa-check"></i><b>4.3</b> Spatial stratified sampling with QGIS</a>
+<li class="chapter" data-level="4.3" data-path="spatial-stratified-sampling-with-qgis.html"><a href="spatial-stratified-sampling-with-qgis.html"><i class="fa fa-check"></i><b>4.3</b> Spatial stratified sampling with QGIS<span></span></a>
 <ul>
-<li class="chapter" data-level="4.3.1" data-path="spatial-stratified-sampling-with-qgis.html"><a href="spatial-stratified-sampling-with-qgis.html#land-use-change-raster"><i class="fa fa-check"></i><b>4.3.1</b> Land use change raster</a></li>
-<li class="chapter" data-level="4.3.2" data-path="spatial-stratified-sampling-with-qgis.html"><a href="spatial-stratified-sampling-with-qgis.html#raster-to-polygons"><i class="fa fa-check"></i><b>4.3.2</b> Raster to polygons</a></li>
+<li class="chapter" data-level="4.3.1" data-path="spatial-stratified-sampling-with-qgis.html"><a href="spatial-stratified-sampling-with-qgis.html#land-use-change-raster"><i class="fa fa-check"></i><b>4.3.1</b> Land use change raster<span></span></a></li>
+<li class="chapter" data-level="4.3.2" data-path="spatial-stratified-sampling-with-qgis.html"><a href="spatial-stratified-sampling-with-qgis.html#raster-to-polygons"><i class="fa fa-check"></i><b>4.3.2</b> Raster to polygons<span></span></a></li>
 </ul></li>
-<li class="chapter" data-level="4.4" data-path="rstudio-calculations.html"><a href="rstudio-calculations.html"><i class="fa fa-check"></i><b>4.4</b> RStudio calculations</a>
+<li class="chapter" data-level="4.4" data-path="rstudio-calculations.html"><a href="rstudio-calculations.html"><i class="fa fa-check"></i><b>4.4</b> RStudio calculations<span></span></a>
 <ul>
-<li class="chapter" data-level="4.4.1" data-path="rstudio-calculations.html"><a href="rstudio-calculations.html#random-sampling"><i class="fa fa-check"></i><b>4.4.1</b> Random sampling</a></li>
-<li class="chapter" data-level="4.4.2" data-path="rstudio-calculations.html"><a href="rstudio-calculations.html#equal-size-stratification"><i class="fa fa-check"></i><b>4.4.2</b> Equal size stratification</a></li>
-<li class="chapter" data-level="4.4.3" data-path="rstudio-calculations.html"><a href="rstudio-calculations.html#optimal-allocation-stratification"><i class="fa fa-check"></i><b>4.4.3</b> Optimal allocation stratification</a></li>
+<li class="chapter" data-level="4.4.1" data-path="rstudio-calculations.html"><a href="rstudio-calculations.html#random-sampling"><i class="fa fa-check"></i><b>4.4.1</b> Random sampling<span></span></a></li>
+<li class="chapter" data-level="4.4.2" data-path="rstudio-calculations.html"><a href="rstudio-calculations.html#equal-size-stratification"><i class="fa fa-check"></i><b>4.4.2</b> Equal size stratification<span></span></a></li>
+<li class="chapter" data-level="4.4.3" data-path="rstudio-calculations.html"><a href="rstudio-calculations.html#optimal-allocation-stratification"><i class="fa fa-check"></i><b>4.4.3</b> Optimal allocation stratification<span></span></a></li>
 </ul></li>
-<li class="chapter" data-level="4.5" data-path="comparison-between-sample-results-and-sampling-methods.html"><a href="comparison-between-sample-results-and-sampling-methods.html"><i class="fa fa-check"></i><b>4.5</b> Comparison between sample results and sampling methods</a></li>
+<li class="chapter" data-level="4.5" data-path="comparison-between-sample-results-and-sampling-methods.html"><a href="comparison-between-sample-results-and-sampling-methods.html"><i class="fa fa-check"></i><b>4.5</b> Comparison between sample results and sampling methods<span></span></a></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="results-and-outputs.html"><a href="results-and-outputs.html"><i class="fa fa-check"></i><b>5</b> Results and outputs</a></li>
-<li class="chapter" data-level="6" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i><b>6</b> References</a></li>
+<li class="chapter" data-level="5" data-path="results-and-outputs.html"><a href="results-and-outputs.html"><i class="fa fa-check"></i><b>5</b> Results and outputs<span></span></a></li>
+<li class="chapter" data-level="6" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i><b>6</b> References<span></span></a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
 
@@ -227,7 +228,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Technical Guide for Estimating Rooftop Solar Potential in a City</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Technical Guide for Estimating Building Rooftop Solar Potential in a City</a>
           </h1>
         </div>
 
@@ -235,14 +236,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="spatial-stratified-sampling-with-qgis" class="section level2" number="4.3">
-<h2><span class="header-section-number">4.3</span> Spatial stratified sampling with QGIS</h2>
+<div id="spatial-stratified-sampling-with-qgis" class="section level2 hasAnchor" number="4.3">
+<h2><span class="header-section-number">4.3</span> Spatial stratified sampling with QGIS<a href="spatial-stratified-sampling-with-qgis.html#spatial-stratified-sampling-with-qgis" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>If we look at the following map, we can see that the city has areas with more built up land than others.</p>
-<div id="htmlwidget-b3a4de933267ab64d7de" style="width:672px;height:480px;" class="leaflet html-widget"></div>
-<script type="application/json" data-for="htmlwidget-b3a4de933267ab64d7de">{"x":{"options":{"minZoom":1,"maxZoom":52,"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}},"preferCanvas":false,"bounceAtZoomLimits":false,"maxBounds":[[[-90,-370]],[[90,370]]]},"calls":[{"method":"addProviderTiles","args":["Esri.WorldImagery","Esri.WorldImagery","Esri.WorldImagery",{"errorTileUrl":"","noWrap":false,"detectRetina":false,"pane":"tilePane"}]},{"method":"createMapPane","args":["polygon",420]},{"method":"addPolygons","args":[[[[{"lng":[-58.286569,-58.206918,-58.215158,-58.082646,-58.000935,-57.986516,-57.975529,-57.895879,-57.871159,-57.827214,-57.801121,-57.769536,-57.75237,-58.054499,-58.078188,-58.01845,-58.028407,-58.102564,-58.110117,-58.177752,-58.120412,-58.162984,-58.24676,-58.286569],"lat":[-35.0176259999997,-34.9478649999996,-34.9444879999997,-34.8346589999996,-34.8701579999996,-34.8814249999996,-34.8735389999997,-34.9298529999997,-34.9382959999997,-34.9546189999997,-34.9647479999997,-34.9574329999997,-34.9720629999997,-35.2372069999997,-35.2189779999997,-35.1676339999997,-35.1552839999997,-35.1008109999997,-35.1078319999997,-35.0564179999997,-35.0041279999996,-34.9720629999997,-35.0479869999997,-35.0176259999997]}]]],null,"laplata_poly",{"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}},"pane":"polygon","stroke":true,"color":"#FF0000","weight":2,"opacity":0.9,"fill":true,"fillColor":"#6666FF","fillOpacity":0,"smoothFactor":1,"noClip":false},"<div class='scrollableContainer'><table class=mapview-popup id='popup'><tr class='coord'><td><\/td><th><b>Feature ID&emsp;<\/b><\/th><td>1&emsp;<\/td><\/tr><tr><td>1<\/td><th>styles&emsp;<\/th><td>{ \"stroke\": true, \"color\": \"#3388ff\", \"weight\": 4, \"opacity\": 0.500000, \"fill\": true, \"fillColor\": \"#3388ff\", \"fillOpacity\": 0.200000, \"clickable\": true }&emsp;<\/td><\/tr><tr><td>2<\/td><th>type&emsp;<\/th><td>polygon&emsp;<\/td><\/tr><tr><td>3<\/td><th>geometry&emsp;<\/th><td>sfc_POLYGON&emsp;<\/td><\/tr><\/table><\/div>",{"maxWidth":800,"minWidth":50,"autoPan":true,"keepInView":false,"closeButton":true,"closeOnClick":true,"className":""},"1",{"interactive":false,"permanent":false,"direction":"auto","opacity":1,"offset":[0,0],"textsize":"10px","textOnly":false,"className":"","sticky":true},{"stroke":true,"weight":3,"opacity":0.9,"fillOpacity":0,"bringToFront":false,"sendToBack":false}]},{"method":"addScaleBar","args":[{"maxWidth":100,"metric":true,"imperial":true,"updateWhenIdle":true,"position":"bottomleft"}]},{"method":"addHomeButton","args":[-58.286569,-35.2372069999997,-57.75237,-34.8346589999996,true,"laplata_poly","Zoom to laplata_poly","<strong> laplata_poly <\/strong>","bottomright"]},{"method":"addLayersControl","args":["Esri.WorldImagery","laplata_poly",{"collapsed":true,"autoZIndex":true,"position":"topleft"}]}],"limits":{"lat":[-35.2372069999997,-34.8346589999996],"lng":[-58.286569,-57.75237]},"fitBounds":[-35.2372069999997,-58.286569,-34.8346589999996,-57.75237,[]]},"evals":[],"jsHooks":{"render":[{"code":"function(el, x, data) {\n  return (\n      function(el, x, data) {\n      // get the leaflet map\n      var map = this; //HTMLWidgets.find('#' + el.id);\n      // we need a new div element because we have to handle\n      // the mouseover output separately\n      // debugger;\n      function addElement () {\n      // generate new div Element\n      var newDiv = $(document.createElement('div'));\n      // append at end of leaflet htmlwidget container\n      $(el).append(newDiv);\n      //provide ID and style\n      newDiv.addClass('lnlt');\n      newDiv.css({\n      'position': 'relative',\n      'bottomleft':  '0px',\n      'background-color': 'rgba(255, 255, 255, 0.7)',\n      'box-shadow': '0 0 2px #bbb',\n      'background-clip': 'padding-box',\n      'margin': '0',\n      'padding-left': '5px',\n      'color': '#333',\n      'font': '9px/1.5 \"Helvetica Neue\", Arial, Helvetica, sans-serif',\n      'z-index': '700',\n      });\n      return newDiv;\n      }\n\n\n      // check for already existing lnlt class to not duplicate\n      var lnlt = $(el).find('.lnlt');\n\n      if(!lnlt.length) {\n      lnlt = addElement();\n\n      // grab the special div we generated in the beginning\n      // and put the mousmove output there\n\n      map.on('mousemove', function (e) {\n      if (e.originalEvent.ctrlKey) {\n      if (document.querySelector('.lnlt') === null) lnlt = addElement();\n      lnlt.text(\n                           ' lon: ' + (e.latlng.lng).toFixed(5) +\n                           ' | lat: ' + (e.latlng.lat).toFixed(5) +\n                           ' | zoom: ' + map.getZoom() +\n                           ' | x: ' + L.CRS.EPSG3857.project(e.latlng).x.toFixed(0) +\n                           ' | y: ' + L.CRS.EPSG3857.project(e.latlng).y.toFixed(0) +\n                           ' | epsg: 3857 ' +\n                           ' | proj4: +proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0 +k=1.0 +units=m +nadgrids=@null +no_defs ');\n      } else {\n      if (document.querySelector('.lnlt') === null) lnlt = addElement();\n      lnlt.text(\n                      ' lon: ' + (e.latlng.lng).toFixed(5) +\n                      ' | lat: ' + (e.latlng.lat).toFixed(5) +\n                      ' | zoom: ' + map.getZoom() + ' ');\n      }\n      });\n\n      // remove the lnlt div when mouse leaves map\n      map.on('mouseout', function (e) {\n      var strip = document.querySelector('.lnlt');\n      if( strip !==null) strip.remove();\n      });\n\n      };\n\n      //$(el).keypress(67, function(e) {\n      map.on('preclick', function(e) {\n      if (e.originalEvent.ctrlKey) {\n      if (document.querySelector('.lnlt') === null) lnlt = addElement();\n      lnlt.text(\n                      ' lon: ' + (e.latlng.lng).toFixed(5) +\n                      ' | lat: ' + (e.latlng.lat).toFixed(5) +\n                      ' | zoom: ' + map.getZoom() + ' ');\n      var txt = document.querySelector('.lnlt').textContent;\n      console.log(txt);\n      //txt.innerText.focus();\n      //txt.select();\n      setClipboardText('\"' + txt + '\"');\n      }\n      });\n\n      }\n      ).call(this.getMap(), el, x, data);\n}","data":null},{"code":"function(el, x, data) {\n  return (function(el,x,data){\n           var map = this;\n\n           map.on('keypress', function(e) {\n               console.log(e.originalEvent.code);\n               var key = e.originalEvent.code;\n               if (key === 'KeyE') {\n                   var bb = this.getBounds();\n                   var txt = JSON.stringify(bb);\n                   console.log(txt);\n\n                   setClipboardText('\\'' + txt + '\\'');\n               }\n           })\n        }).call(this.getMap(), el, x, data);\n}","data":null}]}}</script>
+<div id="htmlwidget-94d6c1a3da813071936b" style="width:672px;height:480px;" class="leaflet html-widget"></div>
+<script type="application/json" data-for="htmlwidget-94d6c1a3da813071936b">{"x":{"options":{"minZoom":1,"maxZoom":52,"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}},"preferCanvas":false,"bounceAtZoomLimits":false,"maxBounds":[[[-90,-370]],[[90,370]]]},"calls":[{"method":"addProviderTiles","args":["Esri.WorldImagery","Esri.WorldImagery","Esri.WorldImagery",{"errorTileUrl":"","noWrap":false,"detectRetina":false,"pane":"tilePane"}]},{"method":"createMapPane","args":["polygon",420]},{"method":"addPolygons","args":[[[[{"lng":[-58.286569,-58.206918,-58.215158,-58.082646,-58.000935,-57.986516,-57.975529,-57.895879,-57.871159,-57.827214,-57.801121,-57.769536,-57.75237,-58.054499,-58.078188,-58.01845,-58.028407,-58.102564,-58.110117,-58.177752,-58.120412,-58.162984,-58.24676,-58.286569],"lat":[-35.0176259999997,-34.9478649999996,-34.9444879999997,-34.8346589999996,-34.8701579999996,-34.8814249999996,-34.8735389999997,-34.9298529999997,-34.9382959999997,-34.9546189999997,-34.9647479999997,-34.9574329999997,-34.9720629999997,-35.2372069999997,-35.2189779999997,-35.1676339999997,-35.1552839999997,-35.1008109999997,-35.1078319999997,-35.0564179999997,-35.0041279999996,-34.9720629999997,-35.0479869999997,-35.0176259999997]}]]],null,"laplata_poly",{"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}},"pane":"polygon","stroke":true,"color":"#FF0000","weight":2,"opacity":0.9,"fill":true,"fillColor":"#6666FF","fillOpacity":0,"smoothFactor":1,"noClip":false},"<div class='scrollableContainer'><table class=mapview-popup id='popup'><tr class='coord'><td><\/td><th><b>Feature ID&emsp;<\/b><\/th><td>1&emsp;<\/td><\/tr><tr><td>1<\/td><th>styles&emsp;<\/th><td>{ \"stroke\": true, \"color\": \"#3388ff\", \"weight\": 4, \"opacity\": 0.500000, \"fill\": true, \"fillColor\": \"#3388ff\", \"fillOpacity\": 0.200000, \"clickable\": true }&emsp;<\/td><\/tr><tr><td>2<\/td><th>type&emsp;<\/th><td>polygon&emsp;<\/td><\/tr><tr><td>3<\/td><th>geometry&emsp;<\/th><td>sfc_POLYGON&emsp;<\/td><\/tr><\/table><\/div>",{"maxWidth":800,"minWidth":50,"autoPan":true,"keepInView":false,"closeButton":true,"closeOnClick":true,"className":""},"1",{"interactive":false,"permanent":false,"direction":"auto","opacity":1,"offset":[0,0],"textsize":"10px","textOnly":false,"className":"","sticky":true},{"stroke":true,"weight":3,"opacity":0.9,"fillOpacity":0,"bringToFront":false,"sendToBack":false}]},{"method":"addScaleBar","args":[{"maxWidth":100,"metric":true,"imperial":true,"updateWhenIdle":true,"position":"bottomleft"}]},{"method":"addHomeButton","args":[-58.286569,-35.2372069999997,-57.75237,-34.8346589999996,true,"laplata_poly","Zoom to laplata_poly","<strong> laplata_poly <\/strong>","bottomright"]},{"method":"addLayersControl","args":["Esri.WorldImagery","laplata_poly",{"collapsed":true,"autoZIndex":true,"position":"topleft"}]}],"limits":{"lat":[-35.2372069999997,-34.8346589999996],"lng":[-58.286569,-57.75237]},"fitBounds":[-35.2372069999997,-58.286569,-34.8346589999996,-57.75237,[]]},"evals":[],"jsHooks":{"render":[{"code":"function(el, x, data) {\n  return (\n      function(el, x, data) {\n      // get the leaflet map\n      var map = this; //HTMLWidgets.find('#' + el.id);\n      // we need a new div element because we have to handle\n      // the mouseover output separately\n      // debugger;\n      function addElement () {\n      // generate new div Element\n      var newDiv = $(document.createElement('div'));\n      // append at end of leaflet htmlwidget container\n      $(el).append(newDiv);\n      //provide ID and style\n      newDiv.addClass('lnlt');\n      newDiv.css({\n      'position': 'relative',\n      'bottomleft':  '0px',\n      'background-color': 'rgba(255, 255, 255, 0.7)',\n      'box-shadow': '0 0 2px #bbb',\n      'background-clip': 'padding-box',\n      'margin': '0',\n      'padding-left': '5px',\n      'color': '#333',\n      'font': '9px/1.5 \"Helvetica Neue\", Arial, Helvetica, sans-serif',\n      'z-index': '700',\n      });\n      return newDiv;\n      }\n\n\n      // check for already existing lnlt class to not duplicate\n      var lnlt = $(el).find('.lnlt');\n\n      if(!lnlt.length) {\n      lnlt = addElement();\n\n      // grab the special div we generated in the beginning\n      // and put the mousmove output there\n\n      map.on('mousemove', function (e) {\n      if (e.originalEvent.ctrlKey) {\n      if (document.querySelector('.lnlt') === null) lnlt = addElement();\n      lnlt.text(\n                           ' lon: ' + (e.latlng.lng).toFixed(5) +\n                           ' | lat: ' + (e.latlng.lat).toFixed(5) +\n                           ' | zoom: ' + map.getZoom() +\n                           ' | x: ' + L.CRS.EPSG3857.project(e.latlng).x.toFixed(0) +\n                           ' | y: ' + L.CRS.EPSG3857.project(e.latlng).y.toFixed(0) +\n                           ' | epsg: 3857 ' +\n                           ' | proj4: +proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0 +k=1.0 +units=m +nadgrids=@null +no_defs ');\n      } else {\n      if (document.querySelector('.lnlt') === null) lnlt = addElement();\n      lnlt.text(\n                      ' lon: ' + (e.latlng.lng).toFixed(5) +\n                      ' | lat: ' + (e.latlng.lat).toFixed(5) +\n                      ' | zoom: ' + map.getZoom() + ' ');\n      }\n      });\n\n      // remove the lnlt div when mouse leaves map\n      map.on('mouseout', function (e) {\n      var strip = document.querySelector('.lnlt');\n      if( strip !==null) strip.remove();\n      });\n\n      };\n\n      //$(el).keypress(67, function(e) {\n      map.on('preclick', function(e) {\n      if (e.originalEvent.ctrlKey) {\n      if (document.querySelector('.lnlt') === null) lnlt = addElement();\n      lnlt.text(\n                      ' lon: ' + (e.latlng.lng).toFixed(5) +\n                      ' | lat: ' + (e.latlng.lat).toFixed(5) +\n                      ' | zoom: ' + map.getZoom() + ' ');\n      var txt = document.querySelector('.lnlt').textContent;\n      console.log(txt);\n      //txt.innerText.focus();\n      //txt.select();\n      setClipboardText('\"' + txt + '\"');\n      }\n      });\n\n      }\n      ).call(this.getMap(), el, x, data);\n}","data":null},{"code":"function(el, x, data) {\n  return (function(el,x,data){\n           var map = this;\n\n           map.on('keypress', function(e) {\n               console.log(e.originalEvent.code);\n               var key = e.originalEvent.code;\n               if (key === 'KeyE') {\n                   var bb = this.getBounds();\n                   var txt = JSON.stringify(bb);\n                   console.log(txt);\n\n                   setClipboardText('\\'' + txt + '\\'');\n               }\n           })\n        }).call(this.getMap(), el, x, data);\n}","data":null}]}}</script>
 <p>The most suitable stratification in this case, where we have no knowledge about neighborhoods in the city or other significant characteristics of the city would be to use a spatial characteristic and divide La Plata into strata by land use and land cover. Therefore we will create strata according to built up and non built up areas based on satellite imagery provided by the <a href="https://lcviewer.vito.be/about">Copernicus Land Monitoring Service global maps of land cover &amp; cover changes and related surface area statistics</a> in QGIS.</p>
-<div id="land-use-change-raster" class="section level3" number="4.3.1">
-<h3><span class="header-section-number">4.3.1</span> Land use change raster</h3>
+<div id="land-use-change-raster" class="section level3 hasAnchor" number="4.3.1">
+<h3><span class="header-section-number">4.3.1</span> Land use change raster<a href="spatial-stratified-sampling-with-qgis.html#land-use-change-raster" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>To download the land use raster go to the following link - <a href="https://lcviewer.vito.be/2015" class="uri">https://lcviewer.vito.be/2015</a> and select the download option to choose the area of analysis. (<em>See <a href="spatial-stratified-sampling-with-qgis.html#fig:img-213">4.17</a></em>)</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:img-213"></span>
 <img src="images/lulc.png" alt="Land Use Map by Copernicus Land Monitoring Service" width="100%" />
@@ -302,8 +303,8 @@ Figure 4.24: La Plata - Built Up and Non Built Up Area Classification
 </p>
 </div>
 </div>
-<div id="raster-to-polygons" class="section level3" number="4.3.2">
-<h3><span class="header-section-number">4.3.2</span> Raster to polygons</h3>
+<div id="raster-to-polygons" class="section level3 hasAnchor" number="4.3.2">
+<h3><span class="header-section-number">4.3.2</span> Raster to polygons<a href="spatial-stratified-sampling-with-qgis.html#raster-to-polygons" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>To compute spatial random points for each strata, we need to convert the reclassified raster to two vector layers - one for the built up area and another for the non built up area. For this process, we will use the <strong>Raster Conversion</strong> algorithm <strong>Polygonize (Raster to Vector)…</strong>. (<em>See <a href="spatial-stratified-sampling-with-qgis.html#fig:img-221">4.25</a></em>)</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:img-221"></span>
 <img src="images/rastovec.png" alt="Polygonize (Raster to Vector)" width="100%" />

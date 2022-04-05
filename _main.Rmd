@@ -912,3 +912,6 @@ sampling. Spatial Statistics (2012), doi:10.1016/j.spasta.2012.08.001
 15. Delmelle, E. (2012). Spatial Sampling. The SAGE Handbook Of Spatial Analysis, 182-206. doi: 10.4135/9780857020130.n10
 16. Israel, G.D. (1992) Determining Sample Size. University of Florida Cooperative Extension Service, Institute of Food and Agriculture Sciences, EDIS, Florida. 
 
+
+<!--chapter:end:index.Rmd-->
+

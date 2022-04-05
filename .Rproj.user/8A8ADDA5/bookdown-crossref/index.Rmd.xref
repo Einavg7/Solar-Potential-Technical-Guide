@@ -1,4 +1,3 @@
-h1:cover-image-path-to-the-social-sharing-image-like-imagescover.jpg cover-image: path to the social sharing image like images/cover.jpg
 h1:introduction Introduction
 h2:motivation-behind-the-guide Motivation behind the guide
 h2:structure-of-the-guide Structure of the guide
@@ -106,6 +105,7 @@ h1:results-and-outputs Results and outputs
 h4:rosario-results Rosario results
 fig:img-229 Rosario Renewable Electricity Balance
 h4:la-plata-results La Plata results
+h4:limitations Limitations
 h4:web-maps Web Maps:
 h4:sampling-analysis Sampling Analysis:
 h4:full-analyis-links Full Analyis Links:

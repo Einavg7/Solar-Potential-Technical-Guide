@@ -1,0 +1,1595 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+]{book}
+\title{Technical Guide for Estimating Building Rooftop Solar Potential in a City}
+\author{Einav Grinberg}
+\date{2022-03-11}
+
+\usepackage{amsmath,amssymb}
+\usepackage{lmodern}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\hypersetup{
+  pdftitle={Technical Guide for Estimating Building Rooftop Solar Potential in a City},
+  pdfauthor={Einav Grinberg},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+\urlstyle{same} % disable monospaced font for URLs
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{248,248,248}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.77,0.63,0.00}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\usepackage{longtable,booktabs,array}
+\usepackage{calc} % for calculating minipage widths
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{5}
+\usepackage{booktabs}
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+\usepackage[]{natbib}
+\bibliographystyle{plainnat}
+
+\begin{document}
+\maketitle
+
+{
+\setcounter{tocdepth}{1}
+\tableofcontents
+}
+\hypertarget{introduction}{%
+\chapter*{Introduction}\label{introduction}}
+\addcontentsline{toc}{chapter}{Introduction}
+
+\begin{center}\includegraphics[width=0.8\linewidth]{images/pic_tg} \end{center}
+
+In 1990, cities accounted for 45\% of global final energy use, but by the end of 2020, this share had risen to approximately 75\% and cities release a similar share of global energy-related CO₂ emissions. Today, most of the world's energy supply is generated from fossil fuels, coal, oil, and natural gas. Fossil fuels are non-renewable sources of energy, and their use has a negative impact on the world's economy, ecology, and climate \footnote{REN21 (2021), Renewables in Cities 2021 Global Status Report (Paris: REN21 Secretariat)}. Therefore, the use and need for renewable energy resources such as solar energy, is increasing and becoming more possible due to the rapid development of relevant technologies and scientific knowledge. \footnote{Voivontas, D., Assimacopoulos, D., Mourelatos, A., \& Corominas, J. (1998). Evaluation of Renewable Energy potential using a GIS decision support system. Renewable Energy, 13(3), 333-344. doi: 10.1016/s0960-1481(98)00006-8} \footnote{Uyan, M. (2013). GIS-based solar farms site selection using analytic hierarchy process (AHP) in Karapinar region, Konya/Turkey. Renewable And Sustainable Energy Reviews, 28, 11-17. doi: 10.1016/j.rser.2013.07.042} \footnote{Li, C. (2018). GIS for Urban Energy Analysis. Comprehensive Geographic Information Systems, 187-195. doi: 10.1016/b978-0-12-409548-9.09652-4} \footnote{Kirby Calvert, J.M. Pearce, W. E. Mabee. Toward renewable energy geo-information infrastructures: Applications of GIScience and remote sensing that build institutional capacity. Renewable and Sustainable Energy Reviews, Elsevier, 2013, 18, pp.416-429. 10.1016/j.rser.2012.10.024. hal-02120459} \footnote{Resch, B., Sagl, G., Törnros, T., Bachmaier, A., Eggers, J., \& Herkel, S. et al.~(2014). GIS-Based Planning and Modeling for Renewable Energy: Challenges and Future Research Avenues. ISPRS International Journal Of Geo-Information, 3(2), 662-692. doi: 10.3390/ijgi3020662}
+
+\textbf{This guide introduces a step by step approach to map building rooftop solar potential in a city.}
+The guide is intended for the use of city planners, infrastructure managers, and city data analysts. With the outputs of this guide, decision makers can make informed decisions to advance the implementation of sustainable and renewable energy solutions in their city.
+
+\hypertarget{motivation-behind-the-guide}{%
+\section*{Motivation behind the guide}\label{motivation-behind-the-guide}}
+\addcontentsline{toc}{section}{Motivation behind the guide}
+
+\begin{center}\includegraphics[width=0.5\linewidth]{images/iclei_100re} \end{center}
+
+\begin{center}\includegraphics[width=0.5\linewidth]{images/BMU_2018_supported_Web2x_en} \end{center}
+
+\textbf{ICLEI - Local Governments for Sustainability} works with cities and local governments to:
+
+\begin{itemize}
+\tightlist
+\item
+  Provide guidance on how to define a 100\% renewable energy roadmap, by making available methodologies, tools and other resources
+\item
+  Model and assess local renewable energy potential for developing renewable energy and energy efficiency projects
+\end{itemize}
+
+\textbf{Information and data} are key factors in enabling better decision making for implementing renewable energies in cities. \href{https://www.usgs.gov/faqs/what-a-geographic-information-system-gis?qt-news_science_products=0\#qt-news_science_products}{Geographic information systems (GIS)} within urban energy analysis and planning allow for the capture, storage, and display of detailed information. GIS has proven its effectiveness in assessing renewable energy generation potential and understanding the spatial dimensions of energy consumption within a city \footnote{Li, C. (2018). GIS for Urban Energy Analysis. Comprehensive Geographic Information Systems, 187-195. doi: 10.1016/b978-0-12-409548-9.09652-4}. Moreover, there is a growing distribution of \textbf{open geographical data and open-source geospatial software}. Open standards are a central element to increase interoperability, reducing costs of data and software tools, and creating equal opportunities for cities worldwide to address geospatial phenomena \footnote{Coetzee, S., Ivánová, I., Mitasova, H., \& Brovelli, M. (2020). Open Geospatial Software and Data: A Review of the Current State and A Perspective into the Future. ISPRS International Journal Of Geo-Information, 9(2), 90. doi: 10.3390/ijgi9020090}.
+
+Not all cities are aware of the robust open geographical data and open-source geospatial software, hence, this technical guide can support a successful estimation of solar rooftop potential in city buildings, and enable reproducibility for other cities.
+The guide is demonstrated on the cities of Rosario and La Plata in Argentina. Both cities are part of the ICLEI network and 100\% RE project.
+
+\hypertarget{structure-of-the-guide}{%
+\section*{Structure of the guide}\label{structure-of-the-guide}}
+\addcontentsline{toc}{section}{Structure of the guide}
+
+Chapter \ref{open-source-software-and-data} introduces the concept of open source and explains which software and data are needed to use this guide. Chapters \ref{mapping-electricity-consumption} and \ref{solar-radiation-and-renewable-electricity-calculation} describe the main steps for mapping building electricity consumption and calculating the renewable electricity potential of each rooftop. Both chapters provide a thorough explanation of how to use the available software and data. Chapter \ref{renewable-electricity-estimation-for-the-whole-city} introduces what is sampling and demonstrates and compares two different sampling methods to estimate the renewable electricity potential for the whole city. Chapter \ref{results-and-outputs} presents the final results for Rosario and La Plata and the outputs after completing this guide.
+
+\begin{figure}
+
+{\centering \includegraphics[width=1\linewidth]{images/structure} 
+
+}
+
+\caption{Chapters in the Guide}\label{fig:img2232}
+\end{figure}
+
+\textbf{Data Requirements:}\\
+The following table describes the data required to complete this guide, in what format and from where it should be contributed or downloaded.
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.41}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.41}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.19}}@{}}
+\toprule
+\begin{minipage}[b]{\linewidth}\raggedright
+Data description
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Format
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Source
+\end{minipage} \\
+\midrule
+\endhead
+Annual electricity consumption of municipal buildings & table format - excel, csv, etc. & City \\
+Vector layer of the administrative borders of the city & shapefile or GeoJSON format & City \\
+Vector layer of the buildings in the city & shapefile or GeoJSON format & OpenStreetMap (\ref{open-street-map-osm}) \\
+Raster layer of global horizontal irradiation (GHI) & GeoTIFF, ASCII Grid, etc. & The Solar Global Atlas (\ref{global-solar-atlas}) \\
+Raster layer of Land-Use Change and Land-Use Cover (LUCLCC) & GeoTIFF, ASCII Grid, etc. & Copernicus Land Monitoring Service global maps of land cover \& cover changes and related surface area statistics (\ref{spatial-stratified-sampling-with-qgis}) \\
+\bottomrule
+\end{longtable}
+
+\hypertarget{guide-outputs}{%
+\section*{Guide outputs}\label{guide-outputs}}
+\addcontentsline{toc}{section}{Guide outputs}
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 0\tabcolsep) * \real{1.00}}@{}}
+\toprule
+\begin{minipage}[b]{\linewidth}\raggedright
+The following list describes the outputs after completing this guide:
+\end{minipage} \\
+\midrule
+\endhead
+1. Annual map and analysis of government operated buildings electricity consumption \\
+2. Annual map and analysis of solar radiation of government operated building rooftops \\
+3. Annual map of renewable electricity production potential for government operated buildings \\
+4. An estimation and range for the solar based renewable electricity rooftop potential of the whole city \\
+\bottomrule
+\end{longtable}
+
+\hypertarget{acknowledgments}{%
+\section*{Acknowledgments}\label{acknowledgments}}
+\addcontentsline{toc}{section}{Acknowledgments}
+
+I would like to especially thank Mr.~Cesar Carreño and Prof.~Dr.~Edzer Pebesma that supervised, supported, encouraged, and provided guidance while creating and writing this technical guide.
+
+Thank you to Laura Noriega for the support and connecting me with the ICLEI SAMS and Argentina teams - Felipe Gaudereto, Thiago Borges David, Victoria Colombo, Sofía Font, Carolina Mesa, Marco A. Massacesi, and Raisa Soares. This connection enabled collaborative meetings with city representatives from Rosario and La Plata, Argentina for data collection, and feedback which will assist cities worldwide to implement renewable energy targets.
+
+\hypertarget{open-source-software-and-data}{%
+\chapter{Open source software and data}\label{open-source-software-and-data}}
+
+This chapter introduces the open concept, what is the added value of using open source technologies, and how it can be implemented in different use-cases.
+
+According to the definition of the Open Knowledge Foundation \footnote{Open Knowledge Foundation. The Open Definition. Retrieved August 2021, from \url{http://opendefinition.org/}}, \emph{\textbf{``Knowledge is open if anyone is free to access, use, modify, and share it-subject, at most, to measures that preserve provenance and openness.''}}
+Openness in regards to information technologies is comprised of the following components:
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Open source software} - free and open collaborative software development.
+\item
+  \textbf{Open data} - freely accessible, distributed, and usable data.
+\item
+  \textbf{Open hardware} - physical products and systems designed to employ publicly shared information.
+\item
+  \textbf{Open standards} - specifications for hardware, software, or data developed in a transparent process.
+\end{itemize}
+
+In this guide, we will use open source software and open data in the geospatial context.\\
+Open source geospatial software includes a broad range of libraries, tools, applications, and platforms developed and released under open standards. The most known software ecosystem for geospatial software is the Open Source Geospatial Foundation's (OSGeo) \footnote{Homepage - OSGeo. Retrieved August 2021, from \url{https://www.osgeo.org/}} that supplies essential libraries and validated software packages for geospatial analysis and visualizations.
+A popular software project from OSGeo is QGIS Desktop which will be presented in the next part of this chapter.\\
+Open geospatial data includes information that is collected collaboratively and publicly available online. This can be in by either paid or unpaid crowdsourcing, public participation for data collection, etc. The most widely known example of a global open geospatial dataset collaboratively maintained through a global community of contributors is OpenStreetMap (OSM) \footnote{OpenStreetMap. Retrieved August 2021, from \url{https://www.openstreetmap.org/}}, which will be presented later on in the chapter.
+
+Next, we will go over the open source software and data used for implementing the steps in this guide.
+
+\hypertarget{qgis}{%
+\section{QGIS}\label{qgis}}
+
+\begin{center}\includegraphics[width=0.5\linewidth]{images/qgis_logo} \end{center}
+
+\textbf{QGIS} is a leading free and open source desktop GIS. It allows to create, edit, visualize, analyze and publish geospatial information on Windows, Mac OS, Linux, BSD, and Android.\\
+QGIS is released under the GNU Public License (GPL) Version 2 or any later version. Using QGIS under this license enables users to inspect and modify the source code and guarantees access to a GIS program that is free of cost and can be freely modified \footnote{Welcome to the QGIS project!. Retrieved 25 August 2021, from \url{https://qgis.org/en/site/}}.
+
+QGIS supports raster, vector, mesh, and point cloud data in a range of standard formats:
+
+\begin{itemize}
+\tightlist
+\item
+  Raster formats: GeoPackage, GeoTIFF, GRASS, ArcInfo binary and ASCII grids, ERDAS Imagine SDTS, WMS, WCS, PostgreSQL/PostGIS, and other GDAL supported formats.
+\item
+  Vector formats: GeoPackage, ESRI Shapefiles, GRASS, SpatiaLite, PostgreSQL/PostGIS, MSSQL, Oracle, WFS, Vector Tiles, and other OGR supported formats.
+\item
+  Mesh formats: NetCDF, GRIB, 2DM, and other MDAL supported formats.
+\item
+  Point-cloud format: LAS/LAZ and EPT datasets.
+\end{itemize}
+
+\begin{quote}
+In this guide the QGIS version is 3.12.3-București. Different versions might have slight differences in the user interface.
+\end{quote}
+
+\begin{figure}
+
+{\centering \includegraphics[width=1\linewidth]{images/qgis_example} 
+
+}
+
+\caption{QGIS Desktop User Interface [12]}\label{fig:img4}
+\end{figure}
+
+In this guide, we will upload 2 types of data layers to analyze them using various tools from the QGIS desktop platform -
+
+1.\href{https://docs.qgis.org/2.8/en/docs/gentle_gis_introduction/vector_data.html}{vector layers} - data that provides a way to represent real world features within the GIS environment using geometry. The geometry is made up of one or more interconnected vertices creating a point, line or polygon feature.\\
+2.\href{https://docs.qgis.org/2.8/en/docs/gentle_gis_introduction/raster_data.html}{raster layers} - are made up of a matrix of pixels (also called cells), each containing a value that represents the conditions for the area covered by that cell. (\emph{See \ref{fig:img555}} )\footnote{Intro to GIS. Retrieved November 2021, from \url{https://serc.carleton.edu/eyesinthesky2/week5/intro_gis.html}}
+
+\begin{figure}
+
+{\centering \includegraphics[height=0.5\textheight]{images/gis_layers_displayed} 
+
+}
+
+\caption{Vector and Raster Layers [13]}\label{fig:img555}
+\end{figure}
+
+To download QGIS Desktop click \href{https://qgis.org/en/site/forusers/download.html}{here}.
+For the full QGIS Documentation including a user guide and training manual click \href{https://docs.qgis.org/3.16/en/docs/index.html}{here}.
+
+\hypertarget{quickmapservices-qms}{%
+\section{QuickMapServices (QMS)}\label{quickmapservices-qms}}
+
+\begin{center}\includegraphics[width=0.5\linewidth]{images/qms} \end{center}
+
+\textbf{QuickMapServices (QMS)} is an open catalog of geodata sources developed by NextGIS\footnote{\url{https://nextgis.com/about/}}, that can be added to GIS software such as QGIS.
+
+In QGIS the QMS has a downloadable \href{https://plugins.qgis.org/plugins/quick_map_services/}{plugin} which enables to load multiple geographical layers to the user interface.
+
+QMS include the following services:
+
+1.TMS - \href{https://www.ogc.org/standards/wmts}{Tile Map Service}.\\
+2.WMS - \href{https://www.ogc.org/standards/wms}{Web Map Service}.\\
+3.WFS - \href{https://www.ogc.org/standards/wfs}{Web Feature Service}.\\
+4.\href{https://geojson.org/}{GeoJSON} - geodata in GeoJSON format.
+
+In this guide, we will use QMS to validate the building rooftops areas calculated in QGIS and to digitize building rooftops for the sampling analysis.
+For more information on QMS click \href{https://qms.nextgis.com/faq}{here}.
+
+\hypertarget{rstudio}{%
+\section{RStudio}\label{rstudio}}
+
+\begin{center}\includegraphics[width=0.5\linewidth]{images/rstudio_logo} \end{center}
+
+\textbf{RStudio} is open-source software for data science, scientific research, and technical communication Integrated Development Environment (IDE) for R, a programming language for statistical computing and graphics. It is available in two formats: RStudio Desktop is a regular desktop application while RStudio Server runs on a remote server and allows accessing RStudio using a web browser.
+
+In this guide, we will use RStudio for statistical computations to estimate the solar potential for the whole city. To download RStudio click \href{https://www.rstudio.com/products/rstudio/download/\#download}{here}.
+
+\hypertarget{open-street-map-osm}{%
+\section{Open Street Map (OSM)}\label{open-street-map-osm}}
+
+\begin{center}\includegraphics[width=0.2\linewidth]{images/openstreetmap_logo} \end{center}
+
+\textbf{OpenStreetMap (OSM)} is a collaborative project to create a free and editable geographic database of the world. The geodata underlying the maps is considered the primary output of the project. The creation and growth of OSM has been motivated by restrictions on use or availability of map data across much of the world. It is possible to download map data from the OpenStreetMap dataset in a number of ways. One convenient way is using the Geofabrik download server that extracts data from the OpenStreetMap project which are updated every day. Geofabrik is a consulting and software development firm specializing in OpenStreetMap services. The server allows the user to select the continent and country of interest to download the available OSM data.
+
+In this guide OSM data is downloaded using the Geofabrik online server for extracting a vector layer of the city building footprints. To download OSM data from the Geofabrik online server click \href{http://download.geofabrik.de/}{here}.
+
+\hypertarget{global-solar-atlas}{%
+\section{Global Solar Atlas}\label{global-solar-atlas}}
+
+\begin{center}\includegraphics[width=0.6\linewidth]{images/solaratlas} \end{center}
+
+\href{www.worldbank.org/}{The World Bank} has created together with \href{https://solargis.com/}{Solargis}, a \href{https://globalsolaratlas.info/map}{Global Solar Atlas} with a series of global, regional and country GIS data layers and poster maps. The Global Solar Atlas aims to support the transition to solar based power in countries worldwide. This work is funded by the \href{http://www.esmap.org/RE_Mapping}{Energy Sector Management Assistance Program (ESMAP)}, and is part of a global ESMAP initiative on Renewable Energy Resource Mapping that includes biomass, small hydro, solar and wind.
+
+The Global Solar Atlas is an open data initiative that makes available both modeled and measured solar radiation and meteorological data. The data available for downloading is described \href{https://globalsolaratlas.info/support/data-outputs}{here}.
+
+In this guide, we will use a raster layer covering the long term yearly average of global horizontal irradiation (GHI) in kWh/m\textsuperscript{2} of Argentina, from the period 1999-2018, with a spatial resolution of 9 arcsec (\textasciitilde250 m). To download data by country from the Global Solar Atlas click \href{http://https://globalsolaratlas.info/download/}{here}.
+
+\hypertarget{mapping-electricity-consumption}{%
+\chapter{Mapping electricity consumption}\label{mapping-electricity-consumption}}
+
+For mapping the building electricity consumption of municipal buildings, we will use the QGIS interface. For this chapter and chapter \ref{solar-radiation-and-renewable-electricity-calculation} we will use data from the city of Rosario, Argentina.
+Once we start QGIS, we immediately open an untitled new project, to save the project click on the \textbf{Project} icon on the menu bar (which provides access to QGIS functions using standard hierarchical menus) click on the \textbf{Save As\ldots{}} button there we can decide the project name and in which directory we want to save our project. Every time we make changes we can click the \textbf{save} button and our project will be automatically saved. (\emph{See \ref{fig:img-33335}})
+
+\begin{figure}
+
+{\centering \includegraphics[width=1\linewidth]{images/saveas} 
+
+}
+
+\caption{Save QGIS Project}\label{fig:img-33335}
+\end{figure}
+
+\hypertarget{adding-table-data-to-qgis}{%
+\section{Adding table data to QGIS}\label{adding-table-data-to-qgis}}
+
+As a first step, we would like to add to QGIS table data of electricity consumption. To do this we will go to the menu bar and click on the \textbf{Layer Menu}. The \textbf{Layer Menu} provides a large set of tools to create, add or save data sources. A table is usually in formats of delimited text e.g.~CSV, therefore we will click on the \textbf{Add Delimited Text Layer} option. (\emph{See \ref{fig:img-9}})
+
+\begin{figure}
+
+{\centering \includegraphics[width=1\linewidth]{images/qgis2} 
+
+}
+
+\caption{Add Table}\label{fig:img-9}
+\end{figure}
+
+Next the \textbf{Data Source Manager} will open, and we can click on the \textbf{three dots (\ldots)} on the top right corner to select the file we would like to add from our local directory.
+In this window, QGIS will automatically update the File Format, Record and Fields Options, and the Geometry Definition information. Under the Layer Settings, we can see a preview of the table {Edificios\_Publicos\_Rosario.csv}, the \textbf{Total Consumos} is the column or better known as the field of current building electricity consumption in Rosario.\\
+Once we finish validating all the information in our table, we can click on \textbf{Add} on the bottom right and see our table data on the bottom left side under \textbf{Layers} . (\emph{See \ref{fig:img-10} and \ref{fig:img-101}})
+
+\begin{figure}
+
+{\centering \includegraphics[width=1\linewidth]{images/qgis3} 
+
+}
+
+\caption{Data Source Manager}\label{fig:img-10}
+\end{figure}
+\begin{figure}
+
+{\centering \includegraphics[width=1\linewidth]{images/layerspanel} 
+
+}
+
+\caption{Layers Panel}\label{fig:img-101}
+\end{figure}
+
+\begin{quote}
+\emph{This data is not open data. In this guide, the data about municipal building electricity consumption was contributed by the city of Rosario, Argentina.}
+\end{quote}
+
+This guide can also be implemented without mapping the current electricity consumption of buildings but this data can provide information regarding the non-renewable and renewable electricity balance produced for a building.
+
+\hypertarget{adding-vector-layers-to-qgis}{%
+\section{Adding vector layers to QGIS}\label{adding-vector-layers-to-qgis}}
+
+To add vector layers to QGIS we will go to the \textbf{Layer Menu} again and click the \textbf{Add Vector Layer} option. A \textbf{Data Source Manager} window will open and we can click on the \textbf{three dots (\ldots)} on the right top corner to select the file we would like to add from our local directory. This time the file format needs to be in a vector file format such as an Esri shapefile (.shp) or a GeoJSON. Here you can see our file is in a .shp format, the file contains the footprints (also known as a polygon layer) of the municipal buildings in Rosario, to add it we click on the \textbf{Add} button. (\emph{See \ref{fig:img-11} and \ref{fig:img-111}})
+
+\begin{figure}
+
+{\centering \includegraphics[width=1\linewidth]{images/qgis1} 
+
+}
+
+\caption{Add Vector Layer}\label{fig:img-11}
+\end{figure}
+\begin{figure}
+
+{\centering \includegraphics[width=1\linewidth]{images/vectoradd} 
+
+}
+
+\caption{Add Vector Layer}\label{fig:img-111}
+\end{figure}
+
+\hypertarget{joining-vector-layers-and-table-data}{%
+\section{Joining vector layers and table data}\label{joining-vector-layers-and-table-data}}
+
+Next, we would like to join the table data containing the electricity consumption with the polygon layer of the buildings.
+First, we will right click on the layer to which we want to join attributes to, in our case it is the polygon layer of the buildings called here {rosario\_municipalb.shp}. Once we right click on the layer we will select the last button called \textbf{Properties} and \textbf{The Vector Properties Dialog} window will open. This dialog provides general settings to manage the appearance of layer features in the map (symbology, labeling, diagrams), interaction with the mouse (actions, map tips, form design). It also provides information about the layer, this is a good opportunity to check what is our layer's coordinate reference system (CRS), here we can see the layer is in The World Geodetic System 1984 (WGS84). (\emph{See \ref{fig:img-12} and \ref{fig:img-121}}) (The geographic layers in our QGIS project must be in the same CRS. \href{https://en.wikipedia.org/wiki/Spatial_reference_system}{For more information about CRS})
+
+\begin{figure}
+
+{\centering \includegraphics[width=1\linewidth]{images/properties} 
+
+}
+
+\caption{Layer Properties}\label{fig:img-12}
+\end{figure}
+\begin{figure}
+
+{\centering \includegraphics[width=1\linewidth]{images/crs} 
+
+}
+
+\caption{Layer Information}\label{fig:img-121}
+\end{figure}
+
+On the left side panel, we can see an option called \textbf{Joins}. Join is associating records in one table or layer with records in another table or layer through a common field, known as a key. The join between a table of data to a layer is based on the value of a field that can be found in both tables. The name of the field does not have to be the same, but the data type must be the same; you join numbers to numbers, strings to strings, and so on (\href{https://dataled.academy/guides/data-types/}{for more information about data types}).\\
+To join between the {rosario\_municipalb} layer and the {Edificios\_Publicos\_Rosario} we will click on the \textbf{+} sign on the bottom left and the \textbf{Edit Vector Join} window will open. In this window we can select the table or layer we would like to join attributes from and what would be the \textbf{Join Field} of that table or layer and which field is associated with the same key in the target layer or table. In addition, we can choose if we want to associate all fields in the target layer or table or choose specific ones, in our case we are interested joining only the \textbf{Total Consumos} field.
+Once we are done editing, we can click on the \textbf{OK} button and then see the join configuration, to apply it on the target layer, we click \textbf{Apply} on the bottom right. (\emph{See \ref{fig:img-13} and \ref{fig:img-131}})
+
+\begin{figure}
+
+{\centering \includegraphics[width=1\linewidth]{images/join} 
+
+}
+
+\caption{Join}\label{fig:img-13}
+\end{figure}
+\begin{figure}
+
+{\centering \includegraphics[width=1\linewidth]{images/join2} 
+
+}
+
+\caption{Join}\label{fig:img-131}
+\end{figure}
+
+To make sure the field was added correctly we can open the \textbf{Attribute Table} of the {rosario\_municipalb} layer
+and check that the column was indeed joined. (\emph{See \ref{fig:img-14} and \ref{fig:img-141}})
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.7\linewidth]{images/attribute_table} 
+
+}
+
+\caption{Attribute Table}\label{fig:img-14}
+\end{figure}
+\begin{figure}
+
+{\centering \includegraphics[width=1\linewidth]{images/attribute_table2} 
+
+}
+
+\caption{Attribute Table}\label{fig:img-141}
+\end{figure}
+
+\hypertarget{consumption-visualizations}{%
+\section{Consumption visualizations}\label{consumption-visualizations}}
+
+Now that we have the building electricity consumption associated with the polygon layer of the municipal buildings, we can visualize the consumption using \textbf{The Symbology tab}.
+
+First we will right click on our {rosario\_municipalb} layer, then we select the \textbf{Properties} button and \textbf{The Vector Properties Dialog} window will open. On the right side we will see \textbf{The Symbology tab}, this tab provides a comprehensive tool for rendering and symbolizing vector data. At the top, we can choose between different \href{https://docs.qgis.org/3.16/en/docs/user_manual/working_with_vector/vector_properties.html\#symbology-properties}{rendering options}.\\
+For visualizing the electricity consumption we will select the \textbf{Graduated} rendering option and click on the \textbf{classify} button to classify our total electricity consumption into 9 Equal Count (Quantile) breaks, meaning that each class will have the same number of elements. Then we can see our buildings colored according to their class. (\emph{See \ref{fig:img-15} and \ref{fig:img-16}})\\
+
+\begin{figure}
+
+{\centering \includegraphics[width=1\linewidth]{images/symbology} 
+
+}
+
+\caption{Layer Visualizations}\label{fig:img-15}
+\end{figure}
+\begin{figure}
+
+{\centering \includegraphics[width=1\linewidth]{images/symbology2} 
+
+}
+
+\caption{Layer Visualizations}\label{fig:img-16}
+\end{figure}
+
+\hypertarget{solar-radiation-and-renewable-electricity-calculation}{%
+\chapter{Solar radiation and renewable electricity calculation}\label{solar-radiation-and-renewable-electricity-calculation}}
+
+In this chapter, we will calculate the renewable electricity production potential for our building rooftops using a GHI raster layer from \ref{global-solar-atlas}.
+For calculating the building rooftop solar radiation and renewable electricity potential we will continue to use our project from Chapter \ref{mapping-electricity-consumption} in the QGIS interface.
+
+\hypertarget{adding-raster-layers-to-qgis}{%
+\section{Adding raster layers to QGIS}\label{adding-raster-layers-to-qgis}}
+
+To add raster layers to QGIS we will go to the \textbf{Layer Menu} again and click the \textbf{Add Raster Layer} option. A \textbf{Data Source Manager} window will open and we can click on the \textbf{three dots (\ldots)} on the right top corner to select the file we would like to add from our local directory. This time the file format needs to be in a raster file format such as a GeoTIFF (.tif). Here you can see our file is in a .tif format, the file contains an irradiation value for each pixel of the image, to add it we click on the \textbf{Add} button. (\emph{See \ref{fig:img-17} and \ref{fig:img-171}}
+
+\begin{figure}
+
+{\centering \includegraphics[width=1\linewidth]{images/addraster} 
+
+}
+
+\caption{Add Raster}\label{fig:img-17}
+\end{figure}
+\begin{figure}
+
+{\centering \includegraphics[width=1\linewidth]{images/addraster2} 
+
+}
+
+\caption{Add Raster}\label{fig:img-171}
+\end{figure}
+
+\hypertarget{extracting-raster-values-to-vector-layers}{%
+\section{Extracting raster values to vector layers}\label{extracting-raster-values-to-vector-layers}}
+
+Next, we would like to calculate the GHI for the building rooftops so we can translate the values to electricity. For this, we need to use the \textbf{Zonal statistics} algorithm. This algorithm Calculates statistics of a raster layer for each feature of an overlapping polygon vector layer adding the new statistics fields to it.
+First, we will select the \textbf{Processing} tab from the menu bar and add the \textbf{Processing Toolbox} to our user interface. (\emph{See \ref{fig:img-18}})
+
+\begin{figure}
+
+{\centering \includegraphics[width=1\linewidth]{images/processing} 
+
+}
+
+\caption{Processing Toolbox}\label{fig:img-18}
+\end{figure}
+
+In the \textbf{Processing Toolbox} search bar we can search for the tool we would like to use - \textbf{Zonal statistics}. Once we press the \textbf{Zonal statistics} algorithm configuration window will open and we can choose our raster layer and our vector layer containing the zones for calculation. Under the two layer inputs, we can select a prefix for the field name which will contain the algorithm's calculations, we will use the predefined \textbf{\_} prefix. (\emph{See \ref{fig:img-181}})\\
+The last tab called \textbf{Statistics to calculate} is where we can select how the algorithm will calculate the pixel values over the polygons. Here we would like to average the pixel value of irradiation throughout the rooftop. Therefore, we select \textbf{Mean} click the \textbf{OK} button and then the \textbf{Run} button. (\emph{See \ref{fig:img-182}})
+To see our calculations we can open the attribute table of the {rosario\_municipalb} layer. (\emph{See \ref{fig:img-183}})
+
+\begin{figure}
+
+{\centering \includegraphics[width=1\linewidth]{images/processing2} 
+
+}
+
+\caption{Zonal Statistics}\label{fig:img-181}
+\end{figure}
+\begin{figure}
+
+{\centering \includegraphics[width=0.7\linewidth]{images/processing3} 
+
+}
+
+\caption{Zonal Statistics}\label{fig:img-182}
+\end{figure}
+\begin{figure}
+
+{\centering \includegraphics[width=1\linewidth]{images/processing4} 
+
+}
+
+\caption{Attribute Table with Mean GHI Calculation}\label{fig:img-183}
+\end{figure}
+
+\hypertarget{qgis-field-calculator}{%
+\section{QGIS Field calculator}\label{qgis-field-calculator}}
+
+Now we would like to calculate the building's rooftop area, the solar radiation each rooftop absorbs, and how much of the solar radiation can be translated into renewable electricity.
+For these calculations we will use the \textbf{Field Calculator} operator in the attribute table.
+This calculator enables calculations, based on existing attribute values or defined functions, for instance, to calculate the length or area of geometry features. The results can be used to update an existing field or to create a new field.
+
+\hypertarget{building-rooftop-area}{%
+\subsection{Building rooftop area}\label{building-rooftop-area}}
+
+To calculate the building rooftop area, we will open the {rosario\_municipalb} layer's attribute table and click on the \textbf{Field Calculator} operator. We want to create a new field called \textbf{area}, then we will define the type of the field as a \textbf{Decimal number}. Next, we see the \textbf{Expression} builder log, where we can select which calculation is calculated for that field, we can use the search bar to search for predefined expressions. For our layer, we will use a \textbf{Geometry} expression and calculate the area for the building rooftops, the \textbf{\$} sign indicates that the calculation is performed on all the buildings in the layer. Under the expression builder log, we can see an \textbf{Output preview} of the values calculated. (\emph{See \ref{fig:img-19}})
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.7\linewidth]{images/fieldc} 
+
+}
+
+\caption{Field Calculator - Area}\label{fig:img-19}
+\end{figure}
+
+Figure \ref{fig:img-191} shows the attribute table of the {rosario\_municipalb} layer with the building rooftop area calculated.
+
+\begin{figure}
+
+{\centering \includegraphics[width=1\linewidth]{images/processing4} 
+
+}
+
+\caption{Attribute Table with Building Rooftop Area Calculation}\label{fig:img-191}
+\end{figure}
+
+\hypertarget{usable-solar-radiation}{%
+\subsection{Usable solar radiation}\label{usable-solar-radiation}}
+
+To calculate the building rooftop solar radiation we will multiply the building rooftop area times the mean GHI value calculated and extracted from the raster layer.
+
+\begin{quote}
+Important! buildings with rooftops under 30 \(m^2\) are not suitable for solar panel installations.
+\end{quote}
+
+\begin{equation}
+usable\_sr = area * GHI (kWh)
+\label{eq:usablesr}
+\end{equation}
+
+we will open the {rosario\_municipalb} layer's attribute table and click on the \textbf{Field Calculator} operator. This time, we want to create a new field named \textbf{usable\_sr}, then we will define the type of the field as a \textbf{Decimal number} and enter in the \textbf{Expression} builder log our equation \eqref{eq:usablesr}. (\emph{See \ref{fig:img-192}})
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.7\linewidth]{images/fieldc2} 
+
+}
+
+\caption{Field Calculator - Usable Solar Radiation}\label{fig:img-192}
+\end{figure}
+
+Figure \ref{fig:img-193} shows the attribute table of the {rosario\_municipalb} layer with the usable solar radiation calculated.
+
+\begin{figure}
+
+{\centering \includegraphics[width=1\linewidth]{images/usablesr} 
+
+}
+
+\caption{Attribute Table with Usable Solar Radiation Calculation}\label{fig:img-193}
+\end{figure}
+
+\hypertarget{renewable-electricity-production}{%
+\subsection{Renewable electricity production}\label{renewable-electricity-production}}
+
+To calculate the building rooftop renewable electricity production potential we will multiply the usable solar radiation times the solar panel efficiency percentage \(r\) and a performance ratio percentage \(PR\). The United States Environmental Protection Agency (EPA) provides the best estimate of 15 percent efficiency and 86 percent performance ratio. These values mean that the solar panels are capable of converting 15 percent of incoming solar energy into electricity, and then 86 percent of that electricity is preserved as it goes through the installation.
+
+\begin{equation}
+elec\_prod = usable\_sr * r * PR (kWh)
+\label{eq:elecprod}
+\end{equation}
+
+we will open the {rosario\_municipalb} layer's attribute table and click on the \textbf{Field Calculator} operator. This time, we want to create a new field named \textbf{elec\_prod}, then we will define the type of the field as a \textbf{Decimal number} and enter in the \textbf{Expression} builder log our equation \eqref{eq:elecprod}. (\emph{See \ref{fig:img-194}})
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.7\linewidth]{images/fieldc3} 
+
+}
+
+\caption{Field Calculator - Renewable Electricity Production}\label{fig:img-194}
+\end{figure}
+
+Figure \ref{fig:img-195} shows the attribute table of the {rosario\_municipalb} layer with the renewable electricity production potential calculated.
+
+\begin{figure}
+
+{\centering \includegraphics[width=1\linewidth]{images/elecprod} 
+
+}
+
+\caption{Attribute Table with Usable Solar Radiation Calculation}\label{fig:img-195}
+\end{figure}
+
+As the last step, we can calculate what would be the building's renewable electricity balance if its rooftop would be equipped with solar panels.
+For this, we will open once again the \textbf{Field Calculator} operator, create a field named \textbf{rene\_elec} and enter the following equation \eqref{eq:reneelec}:
+
+\begin{equation}
+rene\_elec = elec\_prod - elec\_consu (kWh)
+\label{eq:reneelec}
+\end{equation}
+
+Where we subtract the building electricity consumed by the renewable electricity production potential. There are 3 possible scenarios for the buildings electricity balance:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  If the result of the equation is positive \((+)\), then the building can supply its own electricity from renewable electric energy and more.
+\item
+  If the result of the equation is negative \((-)\), then the building can supply a limited amount of renewable electric energy out of the total electric consumption.
+\item
+  If the result of the equation is zero \((0)\), then the building can supply its electricity from renewable electric energy.
+\end{enumerate}
+
+Figure \ref{fig:img-196} shows the attribute table of the {rosario\_municipalb} layer with the renewable electricity balance calculated.
+
+\begin{figure}
+
+{\centering \includegraphics[width=1\linewidth]{images/reneelec} 
+
+}
+
+\caption{Attribute Table with Usable Solar Radiation Calculation}\label{fig:img-196}
+\end{figure}
+
+\hypertarget{renewable-electricity-estimation-for-the-whole-city}{%
+\chapter{Renewable electricity estimation for the whole city}\label{renewable-electricity-estimation-for-the-whole-city}}
+
+In this chapter, we will estimate the renewable electricity production potential for the whole city. For this estimation it is possible to continue using our project from Chapters \ref{mapping-electricity-consumption} and \ref{solar-radiation-and-renewable-electricity-calculation} in the QGIS interface but this time we will use data from the city of La Plata, Argentina.
+
+\hypertarget{what-is-sampling-and-spatial-sampling}{%
+\section{What is sampling and spatial sampling?}\label{what-is-sampling-and-spatial-sampling}}
+
+Sampling is the process of selecting a part of a population to estimate the characteristics of the whole population. The characteristics could be the total or mean value of an attribute regarding the population.\footnote{Thompson, S. (2012). Sampling. Hoboken, N.J.: Wiley.} \footnote{Wang, J.-F., Stein, A., Gao, B.-B., Ge, Y., A review of spatial
+  sampling. Spatial Statistics (2012), \url{doi:10.1016/j.spasta.2012.08.001}}
+
+In spatial sampling, we collect samples in a two-dimensional framework. The sampling scheme is designed to maximize the probability of including the spatial variation of the study population.
+
+There are different methods to collect a sample, in this guide we will focus and compare results between two sampling methods:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \textbf{Spatial random sampling} - randomly selecting sample points in a study region, where each location has an equal opportunity to be sampled.\\
+\item
+  \textbf{Spatial stratified sampling} - the study region is divided into groups a.k.a. strata by a collective characteristic of the study region (neighborhoods, land use, etc.). Then for each strata, a spatial random sample is collected and combined to one sample.\footnote{Delmelle, E. (2012). Spatial Sampling. The SAGE Handbook Of Spatial Analysis, 182-206. doi: 10.4135/9780857020130.n10}
+\end{enumerate}
+
+Therefore, to estimate the total renewable electricity potential for a city, we can collect samples of rooftop buildings using QGIS and QMS.
+
+\begin{quote}
+Important! to complete the analysis it is essential to have the total number of buildings in the city. This will be discussed in detail in section \ref{rstudio-calculations}
+\end{quote}
+
+\hypertarget{selecting-a-sample-size}{%
+\subsection{Selecting a sample size}\label{selecting-a-sample-size}}
+
+When planning a sampling framework the first expected question would be -
+\textbf{What sample size should be used?}
+
+To answer this question the following issues should be considered:
+
+\begin{itemize}
+\tightlist
+\item
+  What parameters do we want to estimate for the population
+\item
+  How much is already known about the population
+\item
+  Spread (variability) of the population
+\item
+  Practicality: how hard is it to collect the sample data
+\item
+  How precise we want the final estimates to be
+\end{itemize}
+
+There are various strategies to determine a sample size. We can use a census if we have a small population, use a sample size from a different analysis that is similar to ours, use published statistical tables and use a formula to calculate a sample size.\footnote{Israel, G.D. (1992) Determining Sample Size. University of Florida Cooperative Extension Service, Institute of Food and Agriculture Sciences, EDIS, Florida.}
+
+In addition, there is an online free calculator to estimate a suitable sample size \href{https://www.qualtrics.com/uk/experience-management/research/determine-sample-size/?rid=ip\&prevsite=en\&newsite=uk\&geo=DE\&geomatch=uk\#calculator}{here}.
+
+In this guide we will use the following formula to decide our sample size:
+
+\begin{equation} 
+  n_0 = \frac{Z^2p(1-p)}{e^2} \label{eq:sample}
+\end{equation}
+
+Where \(n_0\) is the sample size, \(Z^2\) is the confidence level Z-score (\href{https://www.sjsu.edu/faculty/gerstman/StatPrimer/z-two-tails.pdf}{can be found in this table}), \(p\) is the estimated proportion of variability in the population and \(e^2\) is the margin of error, a.k.a. a confidence interval.
+
+**Usually when we have a large population but we do not know the proportion of variability in the population therefore, we assume \(p=0.5\) (the maximum variability).
+
+\hypertarget{la-plata-sample-size-calculation}{%
+\subsection{La Plata sample size calculation}\label{la-plata-sample-size-calculation}}
+
+For the city of La Plata, we will use formula \eqref{eq:sample} with a 5\% confidence interval to estimate a suitable sample size.
+
+\begin{equation} 
+  n_0 = \frac{1.96^2*0.5*(1-0.5)}{0.05^2} = 384.16 \label{eq:sample1}
+\end{equation}
+
+Therefore the most suitable sample to collect for La Plata would be 384 building rooftops.
+
+In this guide we will collect two spatial random samples - 100 samples, 300 samples, and both samples combined to observe the differences and select the most accurate approach when estimating renewable electricity potential for the whole city.
+
+After spatial random sampling, we will examine the estimation of renewable electricity potential with spatial stratified sampling. The sample size for stratified sampling depends on the aforementioned issues. We can decide first on how to divide our buildings into strata and then use equation \eqref{eq:sample}.
+In this guide we first compute 60 spatial random points in each strata for equal size stratification. Then we compute 95 spatial random points for the built up area and 5 points for the non built up area for optimal allocation stratification.
+The decision to use these sample sizes, is determined by the spread of the buildings in La Plata and the practicality of collecting the samples.
+
+\hypertarget{spatial-random-sampling-with-qgis}{%
+\section{Spatial random sampling with QGIS}\label{spatial-random-sampling-with-qgis}}
+
+To create a spatial random sample in QGIS we will need the city's administrative borders polygon. (\emph{See \ref{fig:img-197}})
+
+\begin{figure}
+
+{\centering \includegraphics[width=1\linewidth]{images/admin} 
+
+}
+
+\caption{La Plata Administrative Border}\label{fig:img-197}
+\end{figure}
+
+Next, we will go to the \textbf{Vector Menu}, select the \textbf{Research Tools} option and click on the \textbf{Random Points in Layer Bounds}. This algorithm creates a new point layer with a given number of random points, all of them within the extent of a given layer. (\emph{See \ref{fig:img-198}})
+
+\begin{figure}
+
+{\centering \includegraphics[width=1\linewidth]{images/spatialpoints} 
+
+}
+
+\caption{Random Points in Layer Bounds}\label{fig:img-198}
+\end{figure}
+
+The algorithm dialog window opens and we will fill in the parameters according to our analysis. The input layer of the administrative borders of La Plata is called {polygon\_3}, first we will create 100 random points in the layers extent and save the file as a shapefile by the name {sample1}. (\emph{See \ref{fig:img-199}})
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.7\linewidth]{images/spatialpoints2} 
+
+}
+
+\caption{Random Points in Layer Bounds Dialog}\label{fig:img-199}
+\end{figure}
+
+We can see that the layer {sample1} is uploaded to our QGIS interface. (\emph{See \ref{fig:img-200}})
+
+\begin{figure}
+
+{\centering \includegraphics[width=1\linewidth]{images/spatialpoints3} 
+
+}
+
+\caption{Random Points in Layer Bounds Output Layer in QGIS}\label{fig:img-200}
+\end{figure}
+
+\hypertarget{the-qms-plugin}{%
+\subsection{The QMS plugin}\label{the-qms-plugin}}
+
+Now that we created 100 sample points in the administrative borders of La Plata, we need to see where does the point fall. To do so, we will use QMS to add a TMS layer to the QGIS interface.
+There are many different TMS that are available in QMS (\href{https://qms.nextgis.com/\#}{here}), the ideal layer would be the one with a high resolution that was updated recently.\\
+In this project, we will use two TMS layers to compare and achieve the best accuracy while digitizing the building rooftops.
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \href{https://qms.nextgis.com/geoservices/1135/}{Google Satellite Hybrid}
+\item
+  \href{https://qms.nextgis.com/geoservices/4470/}{ESRI}
+\end{enumerate}
+
+To add the QMS plugin to QGIS, click on the \textbf{Plugins} menu and select the \textbf{Manage and Install Plugins\ldots{}} option. (\emph{See \ref{fig:img-201}})\\
+The \textbf{Plugins Dialog} will open, there we can see all the plugins installed in our QGIS, in the search bar we will type \textbf{QMS} and see if the plugin needs to be installed or already exists in the plugin library. (\emph{See \ref{fig:img-202}})
+
+\begin{figure}
+
+{\centering \includegraphics[width=1\linewidth]{images/plugins} 
+
+}
+
+\caption{Plugins Menu}\label{fig:img-201}
+\end{figure}
+\begin{figure}
+
+{\centering \includegraphics[width=0.7\linewidth]{images/plugins2} 
+
+}
+
+\caption{Plugins Dialog}\label{fig:img-202}
+\end{figure}
+
+To add the \textbf{Search QMS} panel we will right click on the menu bar and choose under \textbf{Panels} the \textbf{Search QMS} panel, the panel appears on the right side under the \textbf{Processing Toolbox}. In the search panel we can search for the QMS suitable for our project, here we see the QMS we need under the last used QMS, click \textbf{add} on the {Google Satellite Hybrid} and {ESRI}. (\emph{See \ref{fig:img-203} and \ref{fig:img-204}})
+
+\begin{figure}
+
+{\centering \includegraphics[width=1\linewidth]{images/qmspanel} 
+
+}
+
+\caption{QMS Search Panel}\label{fig:img-203}
+\end{figure}
+\begin{figure}
+
+{\centering \includegraphics[width=1\linewidth]{images/qmsqgis} 
+
+}
+
+\caption{QMS in QGIS}\label{fig:img-204}
+\end{figure}
+
+\hypertarget{digitizing-a-sample-with-qms}{%
+\subsection{Digitizing a sample with QMS}\label{digitizing-a-sample-with-qms}}
+
+Now that we have the {sample1} layer and QMS layers in our QGIS interface, the next step is to create a new polygon vector layer.\\
+To do this we will go to the menu bar, click on the \textbf{Layer Menu}, select the \textbf{Create Layer} and there choose the \textbf{New Shapefile Layer\ldots{}} option. (\emph{See \ref{fig:img-205}})
+
+\begin{figure}
+
+{\centering \includegraphics[width=1\linewidth]{images/createvec} 
+
+}
+
+\caption{Create Vector Layer}\label{fig:img-205}
+\end{figure}
+
+The \textbf{New Shapefile Layer\ldots{}} dialog will open and we can fill in the parameters for our layer. This layer we will name {sample100}. (\emph{See \ref{fig:img-206}})
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.7\linewidth]{images/createvec2} 
+
+}
+
+\caption{Create Vector Layer Dialog}\label{fig:img-206}
+\end{figure}
+
+Next we will right click on the {sample100} layer and select the \textbf{Toggle Editing} option. This enables creating new polygons and adding them to the layer. Once the option is set we can see under the menu bar many different editing options in the \textbf{Shape Digitizing Toolbar} (if this is not already added, right click on the menu bar and select the toolbar under the \textbf{Toolbars} option), each time we want to digitize a new polygon we will click on the \textbf{Add Polygon Feature} option. (\emph{See \ref{fig:img-207} and \ref{fig:img-208}})
+
+\begin{figure}
+
+{\centering \includegraphics[width=1\linewidth]{images/toggle} 
+
+}
+
+\caption{Toggle Editing}\label{fig:img-207}
+\end{figure}
+\begin{figure}
+
+{\centering \includegraphics[width=1\linewidth]{images/toggle2} 
+
+}
+
+\caption{Shape Digitizing Toolbar - Add Polygon Feature}\label{fig:img-208}
+\end{figure}
+
+Once the layer {sample100} is editable we will open the \textbf{Attribute Table} of {sample1} and select a point according to the id field and click on the \textbf{Zoom map to the selected rows} option.
+We will see that the point id = 49, falls on a building rooftop.
+\emph{In \ref{fig:img-209} we see that id 49 is selected, it is recommended to start from the lowest id to the highest, to remember which point was already digitized.}
+
+\begin{figure}
+
+{\centering \includegraphics[width=1\linewidth]{images/dig} 
+
+}
+
+\caption{Random Point ID=49 from the layer sample1}\label{fig:img-209}
+\end{figure}
+
+Then we will click on the \textbf{Add Polygon Feature} option and follow the outline of the building rooftop using the TMS layers to achieve the best accuracy possible.(\emph{See \ref{fig:img-210}})
+
+\begin{figure}
+
+{\centering \includegraphics[width=1\linewidth]{images/dig2} 
+
+}
+
+\caption{Digitizing ID=49 in the Layer sample100}\label{fig:img-210}
+\end{figure}
+
+For more information about digitizing and editing layers click \href{https://docs.qgis.org/3.16/en/docs/user_manual/working_with_vector/editing_geometry_attributes.html?highlight=digitizing\#digitizing-an-existing-layer}{here}.
+
+\hypertarget{including-the-density-factor}{%
+\subsection{Including the density factor}\label{including-the-density-factor}}
+
+Once a random point does not fall on a rooftop building we will digitize it to include it in our analysis as a density factor.\\
+We will digitize the point in a small triangle shape, so the polygon's area will be under 30 \(m^2\). (\emph{See \ref{fig:img-211}})
+
+\begin{figure}
+
+{\centering \includegraphics[width=1\linewidth]{images/dens} 
+
+}
+
+\caption{Digitizing to include the Density Factor}\label{fig:img-211}
+\end{figure}
+
+\hypertarget{solar-radiation-and-renewable-electricity-calculation-1}{%
+\subsection{Solar radiation and renewable electricity calculation}\label{solar-radiation-and-renewable-electricity-calculation-1}}
+
+Once finishing digitizing all the sample building rooftops, we will return to the steps described in chapter \ref{solar-radiation-and-renewable-electricity-calculation} and calculate the solar radiation and renewable electricity for the sample. (\emph{See \ref{fig:img-212}})
+
+\begin{figure}
+
+{\centering \includegraphics[width=1\linewidth]{images/sample100} 
+
+}
+
+\caption{Sample100 Attribute Table with Calculations}\label{fig:img-212}
+\end{figure}
+
+As discussed in \ref{selecting-a-sample-size} we will digitize another sample for La Plata following the same steps as in \ref{digitizing-a-sample-with-qms} and \ref{including-the-density-factor}, this time with 300 random points.
+
+\hypertarget{spatial-stratified-sampling-with-qgis}{%
+\section{Spatial stratified sampling with QGIS}\label{spatial-stratified-sampling-with-qgis}}
+
+If we look at the following map, we can see that the city has areas with more built up land than others.
+
+\begin{figure}
+
+{\centering \includegraphics{_main_files/figure-latex/stratified allocation sampling-1} 
+
+}
+
+\caption{Satellite Imagery of La Plata provided by ESRI}(\#fig:stratified allocation sampling)
+\end{figure}
+
+The most suitable stratification in this case, where we have no knowledge about neighborhoods in the city or other significant characteristics of the city would be to use a spatial characteristic and divide La Plata into strata by land use and land cover. Therefore we will create strata according to built up and non built up areas based on satellite imagery provided by the \href{https://lcviewer.vito.be/about}{Copernicus Land Monitoring Service global maps of land cover \& cover changes and related surface area statistics} in QGIS.
+
+\hypertarget{land-use-change-raster}{%
+\subsection{Land use change raster}\label{land-use-change-raster}}
+
+To download the land use raster go to the following link - \url{https://lcviewer.vito.be/2015} and select the download option to choose the area of analysis. (\emph{See \ref{fig:img-213}})
+
+\begin{figure}
+
+{\centering \includegraphics[width=1\linewidth]{images/lulc} 
+
+}
+
+\caption{Land Use Map by Copernicus Land Monitoring Service}\label{fig:img-213}
+\end{figure}
+
+Next, we will upload the land use and land cover raster layer to QGIS, similar to the steps in \ref{adding-raster-layers-to-qgis}. (\emph{See \ref{fig:img-214}})
+
+\begin{figure}
+
+{\centering \includegraphics[width=1\linewidth]{images/lulcla} 
+
+}
+
+\caption{La Plata Land Use and Land Cover in QGIS}\label{fig:img-214}
+\end{figure}
+
+Then we would like to keep only the part of the raster that falls under the administrative border of La Plata. This can be done by going to \textbf{Raster menu}, selecting the \textbf{Extraction} option, and clicking on \textbf{Clip Raster by Mask Layer\ldots{}}. (\emph{See \ref{fig:img-215}})
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.7\linewidth]{images/mask} 
+
+}
+
+\caption{Clip Raster by Mask Layer Dialog}\label{fig:img-215}
+\end{figure}
+
+The dialog window will open, in it we can enter our \textbf{Input layer} the raster to be clipped, the \textbf{Mask layer} which is {polygon\_3}, and save the new raster as {laplata\_landuse}. (\emph{See \ref{fig:img-216}})
+
+\begin{figure}
+
+{\centering \includegraphics[width=1\linewidth]{images/clip} 
+
+}
+
+\caption{Clip Raster by Mask Layer Output}\label{fig:img-216}
+\end{figure}
+
+According to the Copernicus Land Monitoring Service global maps of land cover \& cover changes and related surface area statistics web browser, the pixel values that are between 50-60 are defined as built up area.
+We will reclassify the raster image so the pixels between 50-60 will be given the value 1 and all the other pixels 0.
+
+In the \textbf{Processing Toolbox} search bar we can search for the tool we would like to use - \textbf{Reclassify by table}. Then the algorithm configuration window will open and we can choose our raster layer {laplata\_landuse} and the click on the \textbf{Reclassification table} parameter. (\emph{See \ref{fig:img-217}})
+
+\begin{figure}
+
+{\centering \includegraphics[width=1\linewidth]{images/reclass} 
+
+}
+
+\caption{Reclassify by Table}\label{fig:img-217}
+\end{figure}
+
+In the \textbf{Reclassification table} we will set the values as seen in figure \emph{\ref{fig:img-218}} and after we press OK we check the \textbf{Advanced parameters} and make sure that the \textbf{Range boundaries} are correct. (\emph{See \ref{fig:img-219}})
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.7\linewidth]{images/reclass2} 
+
+}
+
+\caption{Reclassification Table}\label{fig:img-218}
+\end{figure}
+\begin{figure}
+
+{\centering \includegraphics[width=0.7\linewidth]{images/reclass3} 
+
+}
+
+\caption{Advanced Parameters}\label{fig:img-219}
+\end{figure}
+
+As a final step we will go to the \textbf{Symbology} of the {laplata\_landuse} layer and change the \textbf{Max} value to 1.
+Then we can see clearly which part of the city is built up and which is not. (\emph{See \ref{fig:img-220}})
+
+\begin{figure}
+
+{\centering \includegraphics[width=1\linewidth]{images/reclass4} 
+
+}
+
+\caption{La Plata - Built Up and Non Built Up Area Classification}\label{fig:img-220}
+\end{figure}
+
+\hypertarget{raster-to-polygons}{%
+\subsection{Raster to polygons}\label{raster-to-polygons}}
+
+To compute spatial random points for each strata, we need to convert the reclassified raster to two vector layers - one for the built up area and another for the non built up area. For this process, we will use the \textbf{Raster Conversion} algorithm \textbf{Polygonize (Raster to Vector)\ldots{}}. (\emph{See \ref{fig:img-221}})
+
+\begin{figure}
+
+{\centering \includegraphics[width=1\linewidth]{images/rastovec} 
+
+}
+
+\caption{Polygonize (Raster to Vector)}\label{fig:img-221}
+\end{figure}
+
+The \textbf{Polygonize (Raster to Vector)\ldots{}} window dialog will open and we will put the Reclassified raster layer as the input layer. (\emph{See \ref{fig:img-222}})\\
+The out put can be seen in figure \emph{\ref{fig:img-223}}.
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.7\linewidth]{images/rastovec1} 
+
+}
+
+\caption{Polygonize (Raster to Vector) Dialog}\label{fig:img-222}
+\end{figure}
+\begin{figure}
+
+{\centering \includegraphics[width=1\linewidth]{images/rastovec2} 
+
+}
+
+\caption{Polygonize (Raster to Vector) Output}\label{fig:img-223}
+\end{figure}
+
+Next, we will open the Vectorized layer's attribute table and click on the \textbf{Select features using an expression\ldots{}} option. (\emph{See \ref{fig:img-224}})
+When the dialog window will open we will create an expression to first select all the \textbf{DN} values that belong to the non built up area. (\emph{See \ref{fig:img-225}})
+Then we can right click on the Vectorized layer, select \textbf{Export}, \textbf{Save Selected Features As\ldots{}} and save the non built up area as a vector layer in our directory. (\emph{See \ref{fig:img-226}})
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.7\linewidth]{images/rastovec3} 
+
+}
+
+\caption{Vectorized Layer Attribute Table}\label{fig:img-224}
+\end{figure}
+\begin{figure}
+
+{\centering \includegraphics[width=0.7\linewidth]{images/rastovec4} 
+
+}
+
+\caption{Select Features Using An Expression}\label{fig:img-225}
+\end{figure}
+\begin{figure}
+
+{\centering \includegraphics[width=1\linewidth]{images/rastovec5} 
+
+}
+
+\caption{Select Features Using An Expression}\label{fig:img-226}
+\end{figure}
+
+Then repeat the process for the built up area. The result vector layers can be seen in figure \emph{\ref{fig:img-227}} with the purple layer indicating the non built up area and the pink the built up area.
+
+\begin{figure}
+
+{\centering \includegraphics[width=1\linewidth]{images/rastovec6} 
+
+}
+
+\caption{Built Up and Non Built Up area Vector Layers}\label{fig:img-227}
+\end{figure}
+
+Now that we have two strata, we will once again compute spatial random points as described in section \ref{spatial-random-sampling-with-qgis}, and then digitize them according to sections \ref{digitizing-a-sample-with-qms} and \ref{including-the-density-factor}.
+
+\hypertarget{rstudio-calculations}{%
+\section{RStudio calculations}\label{rstudio-calculations}}
+
+To calculate the estimation of the total renewable electricity potential in La Plata we will use RStudio. If you have no prior experience with R or RStudio it is recommended to follow this \href{https://moderndive.com/1-getting-started.html}{Getting Started with Data in R tutorial}.
+
+The methodology, calculations and equations in this section are based on the book \textbf{Sampling by Steven K. Thompson} published in 2012. (See \ref{references})
+
+\textbf{The full calculations for this section can be found \href{https://bookdown.org/einavg7/laplata_sampling/laplata_sampling.html}{here}}
+
+First, we will open a new R Script, install the required packages for this analysis and set our work directory:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#install packages}
+\FunctionTok{install.packages}\NormalTok{(}\StringTok{"dplyr"}\NormalTok{)}
+\FunctionTok{install.packages}\NormalTok{(}\StringTok{"sf"}\NormalTok{)}
+
+\CommentTok{\#load pacakges}
+\FunctionTok{library}\NormalTok{(dplyr)}
+\FunctionTok{library}\NormalTok{(sf)}
+
+\CommentTok{\#set work directory}
+\FunctionTok{setwd}\NormalTok{(}\StringTok{".../La Plata/data"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{random-sampling}{%
+\subsection{Random sampling}\label{random-sampling}}
+
+To start with our random sampling computations we will read the sample100.shp from our directory to RStudio with the \texttt{read\_sf} function and set its CRS with the \texttt{st\_transform} function. Both functions are from the \href{https://r-spatial.github.io/sf/}{\textbf{Simple Features for R (sf)} library}.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{sample1 }\OtherTok{\textless{}{-}} \FunctionTok{read\_sf}\NormalTok{(}\StringTok{"data/sample100.shp"}\NormalTok{)}
+\NormalTok{sample1 }\OtherTok{\textless{}{-}} \FunctionTok{st\_transform}\NormalTok{(sample1, }\StringTok{"+proj=merc +lon\_0=0 +k=1 +x\_0=0 +y\_0=0 +ellps=WGS84 +datum=WGS84 +units=m +no\_defs"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+Next, we will assign all the building rooftops with an area of 30 and under, the value 0 to include our density factor. In addition, we will create a column with megawatt per hour (mWh) so the results will be easier to read.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#change to 0 above and equal 30 sqm}
+\NormalTok{sample1}\SpecialCharTok{$}\NormalTok{elec\_prod[sample1}\SpecialCharTok{$}\NormalTok{area }\SpecialCharTok{\textless{}=} \DecValTok{30}\NormalTok{] }\OtherTok{\textless{}{-}} \DecValTok{0}
+\CommentTok{\#create mega watt per hour (mWh) column}
+\NormalTok{sample1}\SpecialCharTok{$}\NormalTok{elec\_prod\_mwh }\OtherTok{\textless{}{-}}\NormalTok{ sample1}\SpecialCharTok{$}\NormalTok{elec\_prod}\SpecialCharTok{/}\DecValTok{1000}
+
+\FunctionTok{head}\NormalTok{(sample1)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Simple feature collection with 6 features and 6 fields
+## Geometry type: POLYGON
+## Dimension:     XY
+## Bounding box:  xmin: -6480273 ymin: -4138361 xmax: -6455331 ymax: -4118445
+## CRS:           +proj=merc +lon_0=0 +k=1 +x_0=0 +y_0=0 +ellps=WGS84 +datum=WGS84 +units=m +no_defs
+## # A tibble: 6 x 7
+##      id    area X_mean usable_sr elec_prod                              geometry
+##   <dbl>   <dbl>  <dbl>     <dbl>     <dbl>                         <POLYGON [m]>
+## 1     3  91.0    1728.   157246.    20285. ((-6461504 -4132034, -6461500 -41320~
+## 2     4 131.     1735.   227935.    29404. ((-6466451 -4118457, -6466438 -41184~
+## 3     8  59.1    1736.   102639.    13240. ((-6465099 -4118684, -6465094 -41186~
+## 4     1   0.189  1729.      327.        0  ((-6455332 -4132428, -6455331 -41324~
+## 5     2   0.063  1725.      109.        0  ((-6480273 -4138360, -6480272 -41383~
+## 6     5   0.077  1726.      133.        0  ((-6468889 -4135469, -6468889 -41354~
+## # ... with 1 more variable: elec_prod_mwh <dbl>
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{summary}\NormalTok{(sample1)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##        id              area               X_mean       usable_sr       
+##  Min.   :  1.00   Min.   :    0.002   Min.   :1721   Min.   :       3  
+##  1st Qu.: 25.75   1st Qu.:    0.021   1st Qu.:1724   1st Qu.:      36  
+##  Median : 50.50   Median :    0.078   Median :1727   Median :     134  
+##  Mean   : 50.50   Mean   :  243.218   Mean   :1727   Mean   :  419697  
+##  3rd Qu.: 75.25   3rd Qu.:    0.240   3rd Qu.:1729   3rd Qu.:     413  
+##  Max.   :100.00   Max.   :10405.603   Max.   :1740   Max.   :17939051  
+##    elec_prod                geometry   elec_prod_mwh    
+##  Min.   :      0   POLYGON      :100   Min.   :   0.00  
+##  1st Qu.:      0   epsg:NA      :  0   1st Qu.:   0.00  
+##  Median :      0   +proj=merc...:  0   Median :   0.00  
+##  Mean   :  54056                       Mean   :  54.06  
+##  3rd Qu.:      0                       3rd Qu.:   0.00  
+##  Max.   :2314138                       Max.   :2314.14
+\end{verbatim}
+
+To start with the estimation we will need to compute the primary parameters of the sample.
+The following steps show what functions or equations are used to calculate the parameters in RStudio. Most of the functions used are from base R and their descriptions can be found \href{https://stat.ethz.ch/R-manual/R-devel/library/base/html/00Index.html}{here}.
+
+First, we calculate the sample mean \(\overline{y}\) and the sample variance \(s\).
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{n1 }\OtherTok{\textless{}{-}} \FunctionTok{as.numeric}\NormalTok{(}\FunctionTok{nrow}\NormalTok{(sample1))}
+\NormalTok{y1 }\OtherTok{\textless{}{-}} \FunctionTok{mean}\NormalTok{(sample1}\SpecialCharTok{$}\NormalTok{elec\_prod\_mwh)}
+\FunctionTok{paste}\NormalTok{(}\StringTok{"The mean of sample 1: "}\NormalTok{, }\FunctionTok{round}\NormalTok{(y1,}\DecValTok{2}\NormalTok{), }\StringTok{"(mWh)"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "The mean of sample 1:  54.06 (mWh)"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{N\_all }\OtherTok{\textless{}{-}} \DecValTok{2482} \CommentTok{\#all buildings in the city}
+\NormalTok{s1 }\OtherTok{\textless{}{-}} \FunctionTok{var}\NormalTok{(sample1}\SpecialCharTok{$}\NormalTok{elec\_prod\_mwh)}
+\FunctionTok{paste}\NormalTok{(}\StringTok{"The variance of sample 1: "}\NormalTok{, }\FunctionTok{round}\NormalTok{(s1,}\DecValTok{2}\NormalTok{), }\StringTok{"(mWh)"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "The variance of sample 1:  78930.14 (mWh)"
+\end{verbatim}
+
+The following equation calculates the unbiased variance of the estimator \(\overline{y}\):
+
+\begin{equation} 
+  \hat{var}(\overline{y})= (\frac{N-n}{N})(\frac{s^2}{n}) \label{eq:unvar}
+\end{equation}
+
+\begin{itemize}
+\tightlist
+\item
+  \(N\) is the total population size -\textgreater{} the number of all the buildings in La Plata (2,482).\footnote{DATA FROM 2019, CONTRIBUTED BY JULIETA FREDIANI FROM THE INSTITUTE OF RESEARCH AND POLICIES OF THE BUILT ENVIRONMENT - FACULTY OF ARCHITECTURE AND URBANISM - NATIONAL UNIVERSITY OF LA PLATA.}
+\item
+  \(n\) is the sample size -\textgreater{} 100.
+\item
+  \(s^2\) is the sample variance.
+\end{itemize}
+
+The following equation calculates the estimated standard error of the estimator \(\overline{y}\) (SEM):
+
+\begin{equation} 
+  SEM = \sqrt{\hat{var}(\overline{y})} \label{eq:se}
+\end{equation}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{var\_un1 }\OtherTok{\textless{}{-}}\NormalTok{ ((N\_all}\SpecialCharTok{{-}}\NormalTok{n1)}\SpecialCharTok{/}\NormalTok{N\_all)}\SpecialCharTok{*}\NormalTok{(s1}\SpecialCharTok{/}\NormalTok{n1)}
+\FunctionTok{paste}\NormalTok{(}\StringTok{"The variance of the sample mean: "}\NormalTok{, }\FunctionTok{round}\NormalTok{(var\_un1,}\DecValTok{2}\NormalTok{) , }\StringTok{"(mWh)"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "The variance of the sample mean:  757.5 (mWh)"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{ese1 }\OtherTok{=} \FunctionTok{sqrt}\NormalTok{(var\_un1) }\CommentTok{\#estimated standard error of variance}
+\FunctionTok{paste}\NormalTok{(}\StringTok{"The estimated standard error of the sample mean: "}\NormalTok{, }\FunctionTok{round}\NormalTok{(ese1,}\DecValTok{2}\NormalTok{), }\StringTok{"(mWh)"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "The estimated standard error of the sample mean:  27.52 (mWh)"
+\end{verbatim}
+
+The following equation calculates an unbiased estimator of the population total \(\hat{t}\):
+\begin{equation} 
+  \hat{t} = N{\overline{y}} \label{eq:t}
+\end{equation}
+
+The following equation calculates the unbiased variance of the estimator \(\hat{t}\):
+
+\begin{equation} 
+  \hat{var}(\hat{t})= N^2\hat{var}(\overline{y}) \label{eq:tv}
+\end{equation}
+
+The following equation calculates the estimated standard error of the estimator \(\hat{t}\) (SET):
+\begin{equation} 
+  SET = \sqrt{\hat{var}(\hat{t})} \label{eq:set}
+\end{equation}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{t\_un1 }\OtherTok{=}\NormalTok{ N\_all}\SpecialCharTok{*}\NormalTok{y1 }
+\FunctionTok{paste}\NormalTok{(}\StringTok{"The estimation of the renewable electricity production potential by all the buildings in the city:"}\NormalTok{, }\FunctionTok{round}\NormalTok{(t\_un1,}\DecValTok{2}\NormalTok{), }\StringTok{"(mWh)"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "The estimation of the renewable electricity production potential by all the buildings in the city: 134167.17 (mWh)"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{t\_var\_un1 }\OtherTok{=}\NormalTok{ (N\_all}\SpecialCharTok{\^{}}\DecValTok{2}\NormalTok{) }\SpecialCharTok{*}\NormalTok{ var\_un1 }\CommentTok{\#unbiased variance with the estimate of the total}
+\FunctionTok{paste}\NormalTok{(}\StringTok{"The variance of the estimated total:"}\NormalTok{, }\FunctionTok{round}\NormalTok{(t\_var\_un1,}\DecValTok{2}\NormalTok{), }\StringTok{"(mWh)"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "The variance of the estimated total: 4666447948.84 (mWh)"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{ese\_t1 }\OtherTok{=} \FunctionTok{sqrt}\NormalTok{(t\_var\_un1) }\CommentTok{\#estimated standard error of total}
+\FunctionTok{paste}\NormalTok{(}\StringTok{"The estimated standard error of the total:"}\NormalTok{, }\FunctionTok{round}\NormalTok{(ese\_t1,}\DecValTok{2}\NormalTok{), }\StringTok{"(mWh)"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "The estimated standard error of the total: 68311.4 (mWh)"
+\end{verbatim}
+
+The following code calculates a 95\% confidence interval for the sample.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#confidence interval with 95\% }
+\NormalTok{CI1 }\OtherTok{\textless{}{-}}\NormalTok{ t\_un1 }\SpecialCharTok{+} \FunctionTok{qt}\NormalTok{(}\FunctionTok{c}\NormalTok{(}\FloatTok{0.05}\NormalTok{,}\FloatTok{0.95}\NormalTok{), }\AttributeTok{df=}\DecValTok{99}\NormalTok{) }\SpecialCharTok{*}\NormalTok{ ese\_t1}
+\FunctionTok{paste}\NormalTok{(}\StringTok{"The 95\% confidence interval estimation for sample 1 is: "}\NormalTok{, }\StringTok{"("}\NormalTok{,}\FunctionTok{round}\NormalTok{(CI1[}\DecValTok{1}\NormalTok{],}\DecValTok{2}\NormalTok{),}\StringTok{" (mWh), "}\NormalTok{,}\FunctionTok{round}\NormalTok{(CI1[}\DecValTok{2}\NormalTok{],}\DecValTok{2}\NormalTok{),}\StringTok{" (mwh))"}\NormalTok{, }\AttributeTok{sep =} \StringTok{""}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "The 95% confidence interval estimation for sample 1 is: (20743.51 (mWh), 247590.82 (mwh))"
+\end{verbatim}
+
+We repeat these calculations for the sample with 300 building rooftops and both samples combined.
+
+\hypertarget{equal-size-stratification}{%
+\subsection{Equal size stratification}\label{equal-size-stratification}}
+
+For the equal size strata, we have 60 building rooftops sampled for the built up area and non built up area. We combine the two strata to one \texttt{sf} object using the \texttt{rbind} function and compute the same calculations as in \ref{random-sampling}.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{bu }\OtherTok{\textless{}{-}} \FunctionTok{read\_sf}\NormalTok{(}\StringTok{"strata\_bu.shp"}\NormalTok{)}
+\NormalTok{bu }\OtherTok{\textless{}{-}} \FunctionTok{st\_transform}\NormalTok{(bu, }\StringTok{"+proj=merc +lon\_0=0 +k=1 +x\_0=0 +y\_0=0 +ellps=WGS84 +datum=WGS84 +units=m +no\_defs"}\NormalTok{)}
+\CommentTok{\#add a landuse column to differ between strata when combined}
+\NormalTok{bu}\SpecialCharTok{$}\NormalTok{landuse }\OtherTok{\textless{}{-}} \StringTok{"Built up"}
+\NormalTok{nonbu }\OtherTok{\textless{}{-}} \FunctionTok{read\_sf}\NormalTok{(}\StringTok{"strata\_nonbu.shp"}\NormalTok{)}
+\NormalTok{nonbu }\OtherTok{\textless{}{-}} \FunctionTok{st\_transform}\NormalTok{(nonbu, }\StringTok{"+proj=merc +lon\_0=0 +k=1 +x\_0=0 +y\_0=0 +ellps=WGS84 +datum=WGS84 +units=m +no\_defs"}\NormalTok{)}
+\NormalTok{nonbu}\SpecialCharTok{$}\NormalTok{landuse }\OtherTok{\textless{}{-}} \StringTok{"Non built up"}
+
+\CommentTok{\#combine strata and change to 0 above and equal 30 sqm}
+\NormalTok{strat }\OtherTok{\textless{}{-}} \FunctionTok{rbind}\NormalTok{(bu, nonbu)}
+\NormalTok{strat}\SpecialCharTok{$}\NormalTok{elec\_prod[strat}\SpecialCharTok{$}\NormalTok{area }\SpecialCharTok{\textless{}=} \DecValTok{30}\NormalTok{] }\OtherTok{\textless{}{-}} \DecValTok{0}
+\NormalTok{strat}\SpecialCharTok{$}\NormalTok{elec\_prod\_mwh }\OtherTok{\textless{}{-}}\NormalTok{ strat}\SpecialCharTok{$}\NormalTok{elec\_prod}\SpecialCharTok{/}\DecValTok{1000}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{optimal-allocation-stratification}{%
+\subsection{Optimal allocation stratification}\label{optimal-allocation-stratification}}
+
+The sample calculations from the built up area present more variable strata. To achieve a better estimation we would like to divide the city into strata using an optimal allocation design. The optimum scheme allocates a larger sample size to the more variable strata and a smaller sample size to the more difficult-to-sample strata.
+
+Therefore, we will follow section \ref{spatial-random-sampling-with-qgis} and compute more spatial random points in the built up strata and less in the non built up strata.
+
+After, we will add again the optimally allocated strata to RStudio and calculate the parameters for this sample, as described in \ref{random-sampling} and \ref{equal-size-stratification}.
+
+In this analysis for the built up strata 95 building rooftops were sampled, and for the non built up strata 5.
+
+\hypertarget{comparison-between-sample-results-and-sampling-methods}{%
+\section{Comparison between sample results and sampling methods}\label{comparison-between-sample-results-and-sampling-methods}}
+
+Figure \ref{fig:img-228} presents the results of the different samples collected for the city of La Plata.
+
+The most important parameters when comparing between sampling results are the \(SEM\) / \(SET\) and the confidence interval range.
+
+\begin{figure}
+
+{\centering \includegraphics[width=1\linewidth]{images/sumtab} 
+
+}
+
+\caption{Summarizing Table of Sampling Results}\label{fig:img-228}
+\end{figure}
+
+In our results, we can see that the sample of 400 building rooftops had the lowest standard error estimation and a more narrow confidence interval range than the other samples.
+This means that the estimation of the total electric potential of this spatial random sample is our best estimate.
+
+\emph{It is important to acknowledge that the optimal allocation sample also provided a low standard error estimation, this may indicate that if we increase our sample size we can have a better estimation of the total.}
+
+\hypertarget{results-and-outputs}{%
+\chapter{Results and outputs}\label{results-and-outputs}}
+
+\hypertarget{rosario-results}{%
+\subsubsection*{Rosario results}\label{rosario-results}}
+\addcontentsline{toc}{subsubsection}{Rosario results}
+
+The results for the electricity balance of 34 government operated buildings in the city of Rosario are presented in \ref{fig:img-229}, 3 buildings did not have the electricity consumption data. The total annual renewable electricity production potential (for 37 buildings) is 14,921.49 \(mWh\), and the total annual electricity consumption is 1,388.016 \(mWh\), therefore the annual renewable electricity balance is 12,812.970 \(mWh\).
+
+\begin{figure}
+
+{\centering \includegraphics[width=1\linewidth]{images/ros_elec_balance} 
+
+}
+
+\caption{Rosario Renewable Electricity Balance}\label{fig:img-229}
+\end{figure}
+
+The minimum value for the annual electricity production of 37 municipal buildings, is 29.86 \(mWh\), the maximum value is 2,224.67 \(mWh\) and the mean value is 403.28 \(mWh\). The minimum value for annual electricity consumption for 34 buildings, is 3.064 \(mWh\), the maximum value is 414.480 \(mWh\) and the mean value is 40.824 \(mWh\). And, the minimum value of the renewable electricity balance, is -116.1 \(mWh\), the maximum value is 1810.2 \(mWh\) and the mean value is 376.9 \(mWh\).
+
+For all the buildings extracted from OSM in the administrative borders of Rosario, including the government operated buildings but excluding buildings equal to or under 30 \(m^2\), a total of 9,783 buildings, the total renewable electricity production potential is 1,449,576 \(mWh\).
+
+When estimating renewable electricity potential for the whole city of Rosario, the sampling design that had the best estimate was samples 1 and 2 combined with a total of 400 digitized building rooftops. The sample estimated a total of 9,704,559 \(mWh\) renewable electricity production potential with a standard error of 2,441,361 \(mWh\), and a 95\% confidence interval of 5,679,532 \(mWh\), 13,729,586 \(mWh\) for Rosario's 357,126 buildings. Thus, there is a 95\% probability that the total renewable electricity production potential for Rosario is between 5,679,532 to 13,729,586 \(mWh\). However, sample 2 with 300 digitized building rooftops presented less variation (\(s^2\)=15,541.21 \(mWh\)) than both samples combined (\(s^2\)=18,714.05 \(mWh\)) and produced the second-best estimate compared to the other samples collected.
+
+\hypertarget{la-plata-results}{%
+\subsubsection*{La Plata results}\label{la-plata-results}}
+\addcontentsline{toc}{subsubsection}{La Plata results}
+
+The total annual renewable electricity production potential for La Plata's 105 government operated buildings is 35,961.04 \(mWh\), where the minimum value is 9.998 \(mWh\), the maximum value is 5016.660 \(mWh\) and the mean value is 349.136 \(mWh\).
+For all the buildings extracted from OSM in the administrative borders of La Plata, including government operated buildings but excluding buildings equal to or under 30 \(m^2\), a total of 2,657 buildings, the total renewable electricity production potential is 44,6342.8 \(mWh\). The distribution of the renewable electricity production potential for the OSM buildings in La Plata- the minimum value is 6.801 \(mWh\), the maximum value is 10,541.243 \(mWh\) and the mean value is 167.987 \(mWh\).
+
+When estimating renewable electricity potential for the whole city of La Plata, the sampling design that had the best estimate was samples 1 and 2 combined with a total of 400 digitized building rooftops, the largest sample collected. The sample estimated a total of 185,069.23 \(mWh\) renewable electricity production potential with a standard error of 36,207.84 \(mWh\), and a 95\% confidence interval of 125,374.03 \(mWh\), 244,764.4 \(mWh\) for La Plata's 2,482 buildings. Accordingly, there is a 95\% probability that the total renewable electricity production potential for La Plata is between 125,374.03 to 244,764.4 \(mWh\). Though, the allocated stratified sample with 100 digitized building rooftops presented less variation (\(s^2\)=25,362.42 \(mWh\)) and produced the second-best estimate compared to the other samples collected. This sample estimated a total of 72,761.47 \(mWh\) renewable electricity production potential with a standard error of 38,722.83 \(mWh\), and a 95\% confidence interval of 8,466.42 \(mWh\), 137,056.5 \(mWh\) for La Plata's 2,482 buildings.
+
+\hypertarget{limitations}{%
+\subsubsection*{Limitations}\label{limitations}}
+\addcontentsline{toc}{subsubsection}{Limitations}
+
+The main limitations of this guide are related to the use of only open-source data. A particular issue when dealing with building data in OSM is the fact that there is no information about the building's mapping procedure. Mostly, buildings are mapped in OSM by tracing their footprint using aerial imagery to define areas covering the shape of the building. But it can be difficult to distinguish the footprint of the building from its shadow and its roof shape, as satellite imagery is usually taken from a certain angle. Additionally, the GHI layer considers the solar radiation on a horizontal surface on Earth, although a rooftop is not necessarily horizontal and can be positioned diagonally. Furthermore, the spatial resolution of the layer is \textasciitilde250 m, this might affect the accuracy of the results while buildings' rooftops may have smaller areas. A solution in future work to these issues would be to estimate an Effective Photovoltaic-Available Roof Area (PVA) for the building rooftops as suggested by \href{https://doi.org/10.1016/j.solener.2015.03.016}{Singh and Banerjee}. Another limitation concerning open-source data is the use of the QMS plugin tile map services imagery which has a global 1 m resolution. However, specifically for Argentina the plugin does not have the highest resolution, hence shade effects, trees, or other obstacles on the building rooftop cannot be avoided. Therefore, the digitization of building rooftops for spatial sampling is prone to errors. In future work, additional earth imagery can be evaluated such as Google Earth, to have a clearer point of view for existing obstacles while digitizing the sample of building rooftops. This leads to a supplementary limitation regarding sampling collection. A better and more accurate estimate would be possible if additional time was available to collect more samples and compare between them, especially using stratification for built-up and non-built-up area.
+
+The following sections present the \textbf{outputs} of the guide. The outputs can be divided to web maps and sampling analysis results.
+
+\hypertarget{web-maps}{%
+\subsubsection*{Web Maps:}\label{web-maps}}
+\addcontentsline{toc}{subsubsection}{Web Maps:}
+
+The web maps are a result of the steps completed in chapters \ref{mapping-electricity-consumption} and \ref{solar-radiation-and-renewable-electricity-calculation}. The web maps are hosted on \href{https://pages.github.com/}{GitHub Pages}.
+
+\href{https://einavg7.github.io/Rosario_Solar_Potential/}{Rosario} web map\\
+\href{https://einavg7.github.io/LaPlata_Solar_Potential/}{La Plata} web map
+
+\hypertarget{sampling-analysis}{%
+\subsubsection*{Sampling Analysis:}\label{sampling-analysis}}
+\addcontentsline{toc}{subsubsection}{Sampling Analysis:}
+
+The sampling analysis is a result of the steps completed in chapter \ref{renewable-electricity-estimation-for-the-whole-city}. These analyses are hosted on \href{https://www.rstudio.com/products/connect/}{RStudio Connect}.
+
+Sampling analysis for \href{https://bookdown.org/einavg7/sampling_ros/sampling_ros.html}{Rosario}\\
+Sampling analysis for \href{https://bookdown.org/einavg7/laplata_sampling/laplata_sampling.html}{La Plata}
+
+\hypertarget{full-analyis-links}{%
+\subsubsection*{Full Analyis Links:}\label{full-analyis-links}}
+\addcontentsline{toc}{subsubsection}{Full Analyis Links:}
+
+To access the data, QGIS projects, RStudio code, and all other resources used while creating this guide, see the following repository links:
+
+\href{https://github.com/Einavg7/Rosario_Solar_Potential}{Rosario}\\
+\href{https://github.com/Einavg7/LaPlata_Solar_Potential}{La Plata}
+
+\hypertarget{references}{%
+\chapter{References}\label{references}}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  REN21 (2021), Renewables in Cities 2021 Global Status Report (Paris: REN21 Secretariat).
+\item
+  Voivontas, D., Assimacopoulos, D., Mourelatos, A., \& Corominas, J. (1998). Evaluation of Renewable Energy potential using a GIS decision support system. Renewable Energy, 13(3), 333-344. doi: 10.1016/s0960-1481(98)00006-8
+\item
+  Uyan, M. (2013).
+  GIS-based solar farms site selection using analytic hierarchy process (AHP) in Karapinar region, Konya/Turkey. Renewable And Sustainable Energy Reviews, 28, 11-17. doi: 10.1016/j.rser.2013.07.042
+\item
+  Li, C. (2018). GIS for Urban Energy Analysis. Comprehensive Geographic Information Systems, 187-195. doi: 10.1016/b978-0-12-409548-9.09652-4
+\item
+  Kirby Calvert, J.M. Pearce, W. E. Mabee. Toward renewable energy geo-information infrastructures: Applications of GIScience and remote sensing that build institutional capacity. Renewable and Sustainable Energy Reviews, Elsevier, 2013, 18, pp.416-429. 10.1016/j.rser.2012.10.024. hal-02120459
+\item
+  Resch, B., Sagl, G., Törnros, T., Bachmaier, A., Eggers, J., \& Herkel, S. et al.~(2014). GIS-Based Planning and Modeling for Renewable Energy: Challenges and Future Research Avenues. ISPRS International Journal Of Geo-Information, 3(2), 662-692. doi: 10.3390/ijgi3020662
+\item
+  Coetzee, S., Ivánová, I., Mitasova, H., \& Brovelli, M. (2020). Open Geospatial Software and Data: A Review of the Current State and A Perspective into the Future. ISPRS International Journal Of Geo-Information, 9(2), 90. doi: 10.3390/ijgi9020090
+\item
+  Open Knowledge Foundation. The Open Definition. Retrieved August 2021, from \url{http://opendefinition.org/}
+\item
+  Homepage - OSGeo. Retrieved August 2021, from \url{https://www.osgeo.org/}
+\item
+  OpenStreetMap. Retrieved August 2021, from \url{https://www.openstreetmap.org/}
+\item
+  Welcome to the QGIS project!. Retrieved 25 August 2021, from \url{https://qgis.org/en/site/}
+\item
+  About NextGIS. Retrieved 2 November 2021, from \url{https://nextgis.com/about/}
+\item
+  Thompson, S. (2012). Sampling. Hoboken, N.J.: Wiley.
+\item
+  Wang, J.-F., Stein, A., Gao, B.-B., Ge, Y., A review of spatial
+  sampling. Spatial Statistics (2012), \url{doi:10.1016/j.spasta.2012.08.001}
+\item
+  Delmelle, E. (2012). Spatial Sampling. The SAGE Handbook Of Spatial Analysis, 182-206. doi: 10.4135/9780857020130.n10
+\item
+  Israel, G.D. (1992) Determining Sample Size. University of Florida Cooperative Extension Service, Institute of Food and Agriculture Sciences, EDIS, Florida.
+\end{enumerate}
+
+  \bibliography{book.bib,packages.bib}
+
+\end{document}
